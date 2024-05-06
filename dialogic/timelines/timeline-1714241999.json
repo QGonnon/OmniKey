@@ -5,14 +5,20 @@
 			"background-music": "play",
 			"event_id": "dialogic_031",
 			"event_name": "BackgroundMusic",
-			"fade_length": 0,
-			"file": "res://Themes/Audio/SongIntro.mp3",
-			"volume": 0
+			"fade_length": 1,
+			"file": "res://Themes/Audio/Intro_audio.mp3",
+			"volume": -5
 		},
 		{
 			"background": "res://Themes/SplashArts/testIntro1.png",
 			"event_id": "dialogic_021",
 			"fade_duration": 0.5
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Introduction : Le passé d'une civilisation"
 		},
 		{
 			"character": "",
@@ -38,7 +44,7 @@
 			"text": "Malheureusement, l’humanité sauvée par les quelques génies intellectuels surnommés alors “héros” il y a 20 ans de celà a rapidement perdu les valeurs que ces salvateurs eurent l'occasion de prôner. Désormais, l’usage de ces technologies est réservé à la sphère restreinte de la haute société mondiale dans le but de démultiplier les profits, vivre une vie toujours plus irréaliste, trop souvent au détriment des plus démunis."
 		},
 		{
-			"background": "res://Themes/SplashArts/testIntro3.png",
+			"background": "res://Themes/SplashArts/Intro_3_test.jpg",
 			"event_id": "dialogic_021",
 			"fade_duration": 0.5
 		},
@@ -55,7 +61,7 @@
 			"text": "Dans la capitale de ce nouveau monde dystopique, Nova, une jeune hackeuse talentueuse tâche de survivre et se frayer un chemin à travers les ruelles sombres et dangereuses. Son rêve, vivre une vie simple, comme celles comptées dans les anciens ouvrages, mais par-dessus tout, être libre."
 		},
 		{
-			"change_scene": "res://Scenes/Levels/Level.tscn",
+			"change_scene": "res://Scenes/NarrativePages/NarrativeCh1.tscn",
 			"event_id": "dialogic_041"
 		}
 	],

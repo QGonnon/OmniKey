@@ -1,0 +1,44 @@
+{
+	"events": [
+		{
+			"audio_bus": "Master",
+			"background-music": "play",
+			"event_id": "dialogic_031",
+			"event_name": "BackgroundMusic",
+			"fade_length": 1,
+			"file": "res://Themes/Audio/Ch1_audio.mp3",
+			"volume": -10
+		},
+		{
+			"background": "res://Themes/SplashArts/Ch1_1er_test.jpg",
+			"event_id": "dialogic_021"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Chapitre 1 : Les origines"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Orpheline depuis son plus jeune âge, Nova a grandi dans les bas-fonds de la mégalopole. Ses compétences en piratage et en infiltration qu’elle à acquis durant son enfance auprès d’un groupe rebelle aujourd’hui dissous l'ont aidées à survivre dans cet environnement hostile."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "A force d’exploration et d’écouter des conversations en se mettant toujours plus inconsciemment en danger, elle découvre l'existence de l'Omni-Key, un artefact mystérieux dont les pouvoirs dépasseraient l'entendement. Intriguée par les récits énigmatiques qui l'entourent, Nova décide que l'Omni-Key pourrait être la clé pour changer son destin et peut-être même celui des autres victimes de cette société antipathique où l'animosité et le conflit règnent."
+		},
+		{
+			"change_scene": "res://Scenes/Levels/Level.tscn",
+			"event_id": "dialogic_041"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1714830833.json",
+		"name": "NarrativeCh1"
+	}
+}
