@@ -1,0 +1,38 @@
+{
+	"events": [
+		{
+			"audio_bus": "Master",
+			"background-music": "play",
+			"event_id": "dialogic_031",
+			"event_name": "BackgroundMusic",
+			"fade_length": 1,
+			"file": "",
+			"volume": 0
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Chapitre 3 : Le zénith"
+		},
+		{
+			"background": "",
+			"event_id": "dialogic_021"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Divers groupes et corporations réalisent que Nova et sa bande se trouvent sur la bonne piste et déploient tous leurs moyens pour s'approprier la jeune talentueuse, les plus proches de l’Omni-Key pensent même que personne ne devrait s’emparer d’elle, quitte à la supprimer."
+		},
+		{
+			"change_scene": "",
+			"event_id": "dialogic_041"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1714830921.json",
+		"name": "NarrativeCh3"
+	}
+}

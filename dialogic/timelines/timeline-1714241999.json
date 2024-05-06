@@ -1,0 +1,73 @@
+{
+	"events": [
+		{
+			"audio_bus": "Master",
+			"background-music": "play",
+			"event_id": "dialogic_031",
+			"event_name": "BackgroundMusic",
+			"fade_length": 1,
+			"file": "res://Themes/Audio/Intro_audio.mp3",
+			"volume": -5
+		},
+		{
+			"background": "res://Themes/SplashArts/testIntro1.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0.5
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Introduction : Le passé d'une civilisation"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Nous sommes plongés dans un futur proche, où la société humaine a atteint des sommets technologiques et scientifiques inimaginables par peur de voir son espèce disparaître. Ces nouveaux sommets atteints ont permis de régler la majeure partie des problèmes de l’humanité."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Le manque d’énergie, de ressources primaires et les catastrophes environnementales surpuissantes, l’homme n’en a plus peur, il n’a donc plus qu’un seul prédateur naturel, lui-même."
+		},
+		{
+			"background": "res://Themes/SplashArts/testIntro2.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0.5
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Malheureusement, l’humanité sauvée par les quelques génies intellectuels surnommés alors “héros” il y a 20 ans de celà a rapidement perdu les valeurs que ces salvateurs eurent l'occasion de prôner. Désormais, l’usage de ces technologies est réservé à la sphère restreinte de la haute société mondiale dans le but de démultiplier les profits, vivre une vie toujours plus irréaliste, trop souvent au détriment des plus démunis."
+		},
+		{
+			"background": "res://Themes/SplashArts/Intro_3_test.jpg",
+			"event_id": "dialogic_021",
+			"fade_duration": 0.5
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "La terre est finalement devenue un méli-mélo de néons et de réalités virtuelles où les gens noient leurs peines dans des univers simulés utopiques où ils y reproduisent leurs vies de rêve."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Dans la capitale de ce nouveau monde dystopique, Nova, une jeune hackeuse talentueuse tâche de survivre et se frayer un chemin à travers les ruelles sombres et dangereuses. Son rêve, vivre une vie simple, comme celles comptées dans les anciens ouvrages, mais par-dessus tout, être libre."
+		},
+		{
+			"change_scene": "res://Scenes/NarrativePages/NarrativeCh1.tscn",
+			"event_id": "dialogic_041"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1714241999.json",
+		"name": "NarrativeIntro"
+	}
+}

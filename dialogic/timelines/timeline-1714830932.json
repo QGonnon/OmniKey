@@ -1,0 +1,38 @@
+{
+	"events": [
+		{
+			"audio_bus": "Master",
+			"background-music": "play",
+			"event_id": "dialogic_031",
+			"event_name": "BackgroundMusic",
+			"fade_length": 1,
+			"file": "",
+			"volume": 0
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Chapitre 4 : Le crépuscule"
+		},
+		{
+			"background": "",
+			"event_id": "dialogic_021"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Nova et sa bande finissent par localiser l'Omni-Key dans un lieu reculé, un vestige de l’ancienne civilisation, Nova se rend le plus discrètement possible sur place, le lieu se trouve être à sa grande surprise une gigantesque bibliothèque abandonnée."
+		},
+		{
+			"change_scene": "",
+			"event_id": "dialogic_041"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1714830932.json",
+		"name": "NarrativeCh4"
+	}
+}
