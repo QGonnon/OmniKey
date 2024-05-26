@@ -10,14 +10,14 @@
 			"volume": 0
 		},
 		{
+			"background": "res://Themes/SplashArts/Ch2_1er.jpg",
+			"event_id": "dialogic_021"
+		},
+		{
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Chapitre 3 : Le zénith"
-		},
-		{
-			"background": "",
-			"event_id": "dialogic_021"
 		},
 		{
 			"character": "",
@@ -26,7 +26,7 @@
 			"text": "Divers groupes et corporations réalisent que Nova et sa bande se trouvent sur la bonne piste et déploient tous leurs moyens pour s'approprier la jeune talentueuse, les plus proches de l’Omni-Key pensent même que personne ne devrait s’emparer d’elle, quitte à la supprimer."
 		},
 		{
-			"change_scene": "",
+			"change_scene": "res://Scenes/Levels/Level.tscn",
 			"event_id": "dialogic_041"
 		}
 	],

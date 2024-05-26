@@ -10,14 +10,14 @@
 			"volume": 0
 		},
 		{
+			"background": "res://Themes/SplashArts/Outro_image.jpg",
+			"event_id": "dialogic_021"
+		},
+		{
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Outroduction : Le futur d'une civilisation"
-		},
-		{
-			"event_id": "dialogic_024",
-			"set_theme": ""
 		},
 		{
 			"character": "",
@@ -26,7 +26,7 @@
 			"text": "Après sa bataille acharnée, Nova récupère l’Omni-Key qui se trouvait dans un vieux livre abîmé de la bibliothèque et prend la décision finale sur l'utilisation de l'objet. Sa décision déterminera son destin, celui de la mégalopole et peut-être même de l'humanité. Les corporations, les rebelles, les IA, tous seront possiblement affectés par le choix de Nova. Qu’importe le dénouement, l'histoire de Nova et de l’Omni-Key laissera une empreinte durable sur cette société cyberpunk."
 		},
 		{
-			"change_scene": "",
+			"change_scene": "res://Scenes/Levels/Level.tscn",
 			"event_id": "dialogic_041"
 		}
 	],

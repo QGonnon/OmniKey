@@ -61,7 +61,29 @@
 			"text": "Dans la capitale de ce nouveau monde dystopique, Nova, une jeune hackeuse talentueuse tâche de survivre et se frayer un chemin à travers les ruelles sombres et dangereuses. Son rêve, vivre une vie simple, comme celles comptées dans les anciens ouvrages, mais par-dessus tout, être libre."
 		},
 		{
-			"change_scene": "res://Scenes/NarrativePages/NarrativeCh1.tscn",
+			"background": "res://Themes/SplashArts/Ch1_1er_test.jpg",
+			"event_id": "dialogic_021"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Chapitre 1 : Les origines"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Orpheline depuis son plus jeune âge, Nova a grandi dans les bas-fonds de la mégalopole. Ses compétences en piratage et en infiltration qu’elle à acquis durant son enfance auprès d’un groupe rebelle aujourd’hui dissous l'ont aidées à survivre dans cet environnement hostile."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "A force d’exploration et d’écouter des conversations en se mettant toujours plus inconsciemment en danger, elle découvre l'existence de l'Omni-Key, un artefact mystérieux dont les pouvoirs dépasseraient l'entendement. Intriguée par les récits énigmatiques qui l'entourent, Nova décide que l'Omni-Key pourrait être la clé pour changer son destin et peut-être même celui des autres victimes de cette société antipathique où l'animosité et le conflit règnent."
+		},
+		{
+			"change_scene": "res://Scenes/Levels/Level.tscn",
 			"event_id": "dialogic_041"
 		}
 	],
