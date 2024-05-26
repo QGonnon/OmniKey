@@ -3,6 +3,41 @@ class_name Character
 
 #### ACCESSORS ####
 
+#### SHOOTING ####
+
+onready var bullet = preload("res://Scenes/Actors/Shoot/projectile.tscn")
+onready var shootingPoint = $AttackHitBox
+var delay = 0.25
+var countTime = 0
+
+func shoot():
+	var projectile_instance = bullet.instance()
+	
+	projectile_instance.global_position = position
+	var targets = get_tree().get_nodes_in_group("Enemy")
+	if targets.size() != 0:
+		var target = getNearest(targets)
+		projectile_instance.look_at(target.global_position)
+	owner.add_child(projectile_instance)
+	
+func getNearest(group:Array):
+	var dist = INF
+	var nearest = null
+	for node in group:
+		var nodeDist = position.distance_to(node.position)
+		if nodeDist < dist:
+			dist = nodeDist
+			nearest = node
+	return nearest
+
+func _process(delta):
+	
+	
+	if Input.is_action_pressed("shooting"):
+		countTime += delta
+		if countTime > delay:
+			shoot()
+			countTime = 0
 
 #### BUILT-IN ####
 

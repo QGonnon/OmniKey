@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Jar_SpriteSheet.png-f34ddd8c3390b68c30da9d260c28ff99.stex"
+path="res://.import/laserBlue05.png-d58a51105b20f3691aaba76ebe12659f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/InteractiveObjects/Jar/Jar_SpriteSheet.png"
-dest_files=[ "res://.import/Jar_SpriteSheet.png-f34ddd8c3390b68c30da9d260c28ff99.stex" ]
+source_file="res://Scenes/Actors/Shoot/laserBlue05.png"
+dest_files=[ "res://.import/laserBlue05.png-d58a51105b20f3691aaba76ebe12659f.stex" ]
 
 [params]
 
