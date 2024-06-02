@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Outro_audio.mp3-d2d8ef426c55f12e9c67ec074c997ca6.mp3str"
+
+[deps]
+
+source_file="res://Themes/Audio/Outro_audio.mp3"
+dest_files=[ "res://.import/Outro_audio.mp3-d2d8ef426c55f12e9c67ec074c997ca6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

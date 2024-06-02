@@ -6,8 +6,8 @@
 			"event_id": "dialogic_031",
 			"event_name": "BackgroundMusic",
 			"fade_length": 1,
-			"file": "res://Themes/Audio/Ch1_audio.mp3",
-			"volume": -10
+			"file": "res://Themes/Audio/Ch2_audio.mp3",
+			"volume": -15
 		},
 		{
 			"background": "res://Themes/SplashArts/Ch3_1er.jpg",
