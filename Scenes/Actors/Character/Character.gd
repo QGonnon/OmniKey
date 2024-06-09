@@ -10,6 +10,8 @@ onready var shootingPoint = $AttackHitBox
 var delay = 0.25
 var countTime = 0
 
+
+
 func shoot():
 	var projectile_instance = bullet.instance()
 	
@@ -100,6 +102,5 @@ func _on_state_changed(new_state: Object) -> void:
 		_update_state()
 	
 	._on_state_changed(new_state)
-
 
 

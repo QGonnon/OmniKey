@@ -1,6 +1,14 @@
 extends YSort
 
 onready var pathfinder = $Tilemap/Pathfinder
+export var move_speed = 250
+onready var character = $Character
+var velocity = Vector2(0,0)
+
+func _process(delta):
+	velocity = $UI_Container/UI/HUD/Joystick.get_velo()
+	character.move_and_slide(velocity*move_speed, Vector2.UP)
+	pass
 
 func _ready() -> void:
 	var __ = EVENTS.connect("actor_died", self, "_on_EVENTS_actor_died")

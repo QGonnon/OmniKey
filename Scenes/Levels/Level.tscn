@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://Scenes/Actors/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Levels/Tilesets/Tileset.png" type="Texture" id=2]
@@ -22,6 +22,8 @@
 [ext_resource path="res://Themes/MainTheme.tres" type="Theme" id=20]
 [ext_resource path="res://Resources/ItemData/MP_Potion.tres" type="Resource" id=21]
 [ext_resource path="res://Scenes/UI/BlackVeil.gd" type="Script" id=22]
+[ext_resource path="res://Scenes/UI/HUD/attack.png" type="Texture" id=23]
+[ext_resource path="res://Scenes/Joystick/Joystick2.tscn" type="PackedScene" id=24]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -472,7 +474,8 @@ bg_color = Color( 0.239216, 0.639216, 0.74902, 0 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ],
-"_edit_lock_": true
+"_edit_lock_": true,
+"_edit_vertical_guides_": [  ]
 }
 
 [node name="Tilemap" type="TileMap" parent="."]
@@ -507,8 +510,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 20 )
 __meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
 [node name="HUD" type="TextureRect" parent="UI_Container/UI"]
@@ -551,9 +553,6 @@ margin_right = 115.247
 margin_bottom = 49.2053
 custom_fonts/font = SubResource( 38 )
 text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HP_Bar" type="ProgressBar" parent="UI_Container/UI/HUD"]
 margin_left = 49.0
@@ -567,9 +566,6 @@ max_value = 10.0
 step = 1.0
 value = 10.0
 rounded = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MP_Bar" type="ProgressBar" parent="UI_Container/UI/HUD"]
 margin_left = 54.0
@@ -580,9 +576,15 @@ custom_colors/font_color = Color( 0, 0, 0, 0 )
 custom_styles/fg = SubResource( 41 )
 custom_styles/bg = SubResource( 42 )
 value = 100.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="TirBtn" type="TouchScreenButton" parent="UI_Container/UI/HUD"]
+position = Vector2( 589, 303 )
+scale = Vector2( 0.195, 0.2 )
+normal = ExtResource( 23 )
+action = "shooting"
+
+[node name="Joystick" parent="UI_Container/UI/HUD" instance=ExtResource( 24 )]
+position = Vector2( 96, 280 )
 
 [node name="BlackVeil" type="ColorRect" parent="UI_Container/UI"]
 light_mask = 0
@@ -649,6 +651,7 @@ script = ExtResource( 19 )
 [node name="Tween" type="Tween" parent="UI_Container/UI/Inventory"]
 
 [node name="ItemFactory" type="Node2D" parent="."]
+position = Vector2( 608, 323 )
 script = ExtResource( 11 )
 
 [node name="Skeleton" parent="." instance=ExtResource( 5 )]
@@ -662,7 +665,7 @@ position = Vector2( 688, 432 )
 item_data = ExtResource( 16 )
 
 [node name="Item3" parent="." instance=ExtResource( 15 )]
-position = Vector2( 151, 269 )
+position = Vector2( 235, 296 )
 item_data = ExtResource( 21 )
 
 [node name="Item2" parent="." instance=ExtResource( 15 )]
