@@ -1,0 +1,1239 @@
+[gd_scene load_steps=248 format=2]
+
+[ext_resource path="res://Scenes/Pieces/TownB/tile_27.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_26.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_35.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_87.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_90.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_39.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_57.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_70.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_74.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_69.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_83.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_91.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_61.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_33.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_68.png" type="Texture" id=15]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_30.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_45.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_63.png" type="Texture" id=18]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_51.png" type="Texture" id=19]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_43.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_58.png" type="Texture" id=21]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_56.png" type="Texture" id=22]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_28.png" type="Texture" id=23]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_37.png" type="Texture" id=24]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_29.png" type="Texture" id=25]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_46.png" type="Texture" id=26]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_47.png" type="Texture" id=27]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_48.png" type="Texture" id=28]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_49.png" type="Texture" id=29]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_50.png" type="Texture" id=30]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_55.png" type="Texture" id=31]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_52.png" type="Texture" id=32]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_60.png" type="Texture" id=33]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_41.png" type="Texture" id=34]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_65.png" type="Texture" id=35]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_66.png" type="Texture" id=36]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_67.png" type="Texture" id=37]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_42.png" type="Texture" id=38]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_72.png" type="Texture" id=39]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_75.png" type="Texture" id=40]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_76.png" type="Texture" id=41]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_77.png" type="Texture" id=42]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_79.png" type="Texture" id=43]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_80.png" type="Texture" id=44]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_36.png" type="Texture" id=45]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_44.png" type="Texture" id=46]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_64.png" type="Texture" id=47]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_71.png" type="Texture" id=48]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_81.png" type="Texture" id=49]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_31.png" type="Texture" id=50]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_38.png" type="Texture" id=51]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_82.png" type="Texture" id=52]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_84.png" type="Texture" id=53]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_40.png" type="Texture" id=54]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_53.png" type="Texture" id=55]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_59.png" type="Texture" id=56]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_62.png" type="Texture" id=57]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_78.png" type="Texture" id=58]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_32.png" type="Texture" id=59]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_54.png" type="Texture" id=60]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_34.png" type="Texture" id=61]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_73.png" type="Texture" id=62]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_85.png" type="Texture" id=63]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_86.png" type="Texture" id=64]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_88.png" type="Texture" id=65]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_89.png" type="Texture" id=66]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_118.png" type="Texture" id=67]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_120.png" type="Texture" id=68]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_123.png" type="Texture" id=69]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_124.png" type="Texture" id=70]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_130.png" type="Texture" id=71]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_112.png" type="Texture" id=72]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_121.png" type="Texture" id=73]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_132.png" type="Texture" id=74]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_133.png" type="Texture" id=75]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_138.png" type="Texture" id=76]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_105.png" type="Texture" id=77]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_140.png" type="Texture" id=78]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_142.png" type="Texture" id=79]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_146.png" type="Texture" id=80]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_96.png" type="Texture" id=81]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_103.png" type="Texture" id=82]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_102.png" type="Texture" id=83]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_108.png" type="Texture" id=84]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_114.png" type="Texture" id=85]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_115.png" type="Texture" id=86]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_135.png" type="Texture" id=87]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_92.png" type="Texture" id=88]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_110.png" type="Texture" id=89]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_116.png" type="Texture" id=90]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_93.png" type="Texture" id=91]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_122.png" type="Texture" id=92]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_127.png" type="Texture" id=93]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_126.png" type="Texture" id=94]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_101.png" type="Texture" id=95]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_125.png" type="Texture" id=96]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_129.png" type="Texture" id=97]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_137.png" type="Texture" id=98]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_95.png" type="Texture" id=99]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_107.png" type="Texture" id=100]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_136.png" type="Texture" id=101]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_148.png" type="Texture" id=102]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_149.png" type="Texture" id=103]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_119.png" type="Texture" id=104]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_147.png" type="Texture" id=105]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_106.png" type="Texture" id=106]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_150.png" type="Texture" id=107]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_151.png" type="Texture" id=108]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_113.png" type="Texture" id=109]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_104.png" type="Texture" id=110]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_152.png" type="Texture" id=111]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_117.png" type="Texture" id=112]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_94.png" type="Texture" id=113]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_153.png" type="Texture" id=114]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_154.png" type="Texture" id=115]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_155.png" type="Texture" id=116]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_111.png" type="Texture" id=117]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_100.png" type="Texture" id=118]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_99.png" type="Texture" id=119]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_98.png" type="Texture" id=120]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_131.png" type="Texture" id=121]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_128.png" type="Texture" id=122]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_139.png" type="Texture" id=123]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_144.png" type="Texture" id=124]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_109.png" type="Texture" id=125]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_97.png" type="Texture" id=126]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_143.png" type="Texture" id=127]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_145.png" type="Texture" id=128]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_141.png" type="Texture" id=129]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_134.png" type="Texture" id=130]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_156.png" type="Texture" id=131]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_195.png" type="Texture" id=132]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_157.png" type="Texture" id=133]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_172.png" type="Texture" id=134]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_190.png" type="Texture" id=135]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_191.png" type="Texture" id=136]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_166.png" type="Texture" id=137]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_189.png" type="Texture" id=138]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_168.png" type="Texture" id=139]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_158.png" type="Texture" id=140]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_183.png" type="Texture" id=141]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_186.png" type="Texture" id=142]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_194.png" type="Texture" id=143]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_192.png" type="Texture" id=144]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_197.png" type="Texture" id=145]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_164.png" type="Texture" id=146]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_198.png" type="Texture" id=147]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_199.png" type="Texture" id=148]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_200.png" type="Texture" id=149]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_202.png" type="Texture" id=150]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_205.png" type="Texture" id=151]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_206.png" type="Texture" id=152]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_161.png" type="Texture" id=153]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_173.png" type="Texture" id=154]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_207.png" type="Texture" id=155]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_208.png" type="Texture" id=156]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_175.png" type="Texture" id=157]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_184.png" type="Texture" id=158]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_185.png" type="Texture" id=159]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_209.png" type="Texture" id=160]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_214.png" type="Texture" id=161]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_174.png" type="Texture" id=162]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_170.png" type="Texture" id=163]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_182.png" type="Texture" id=164]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_180.png" type="Texture" id=165]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_181.png" type="Texture" id=166]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_187.png" type="Texture" id=167]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_177.png" type="Texture" id=168]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_167.png" type="Texture" id=169]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_193.png" type="Texture" id=170]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_204.png" type="Texture" id=171]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_176.png" type="Texture" id=172]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_211.png" type="Texture" id=173]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_213.png" type="Texture" id=174]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_216.png" type="Texture" id=175]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_165.png" type="Texture" id=176]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_171.png" type="Texture" id=177]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_159.png" type="Texture" id=178]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_196.png" type="Texture" id=179]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_215.png" type="Texture" id=180]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_212.png" type="Texture" id=181]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_210.png" type="Texture" id=182]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_188.png" type="Texture" id=183]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_218.png" type="Texture" id=184]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_160.png" type="Texture" id=185]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_217.png" type="Texture" id=186]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_219.png" type="Texture" id=187]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_163.png" type="Texture" id=188]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_162.png" type="Texture" id=189]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_169.png" type="Texture" id=190]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_203.png" type="Texture" id=191]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_178.png" type="Texture" id=192]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_179.png" type="Texture" id=193]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_201.png" type="Texture" id=194]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_230.png" type="Texture" id=195]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_225.png" type="Texture" id=196]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_223.png" type="Texture" id=197]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_235.png" type="Texture" id=198]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_228.png" type="Texture" id=199]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_234.png" type="Texture" id=200]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_229.png" type="Texture" id=201]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_239.png" type="Texture" id=202]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_238.png" type="Texture" id=203]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_233.png" type="Texture" id=204]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_236.png" type="Texture" id=205]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_226.png" type="Texture" id=206]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_241.png" type="Texture" id=207]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_245.png" type="Texture" id=208]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_240.png" type="Texture" id=209]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_227.png" type="Texture" id=210]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_244.png" type="Texture" id=211]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_243.png" type="Texture" id=212]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_221.png" type="Texture" id=213]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_231.png" type="Texture" id=214]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_220.png" type="Texture" id=215]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_242.png" type="Texture" id=216]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_237.png" type="Texture" id=217]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_246.png" type="Texture" id=218]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_222.png" type="Texture" id=219]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_224.png" type="Texture" id=220]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_232.png" type="Texture" id=221]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_2.png" type="Texture" id=222]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_6.png" type="Texture" id=223]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_21.png" type="Texture" id=224]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_22.png" type="Texture" id=225]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_14.png" type="Texture" id=226]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_20.png" type="Texture" id=227]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_23.png" type="Texture" id=228]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_24.png" type="Texture" id=229]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_25.png" type="Texture" id=230]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_5.png" type="Texture" id=231]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_16.png" type="Texture" id=232]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_18.png" type="Texture" id=233]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_1.png" type="Texture" id=234]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_13.png" type="Texture" id=235]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_17.png" type="Texture" id=236]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_8.png" type="Texture" id=237]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_3.png" type="Texture" id=238]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_19.png" type="Texture" id=239]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_0.png" type="Texture" id=240]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_4.png" type="Texture" id=241]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_7.png" type="Texture" id=242]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_9.png" type="Texture" id=243]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_10.png" type="Texture" id=244]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_11.png" type="Texture" id=245]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_12.png" type="Texture" id=246]
+[ext_resource path="res://Scenes/Pieces/TownB/tile_15.png" type="Texture" id=247]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Tile0" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 240 )
+
+[node name="Tile1" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 234 )
+
+[node name="Tile2" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 222 )
+
+[node name="Tile3" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 238 )
+
+[node name="Tile4" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 241 )
+
+[node name="Tile5" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 231 )
+
+[node name="Tile6" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 223 )
+
+[node name="Tile7" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 242 )
+
+[node name="Tile8" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 237 )
+
+[node name="Tile9" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 243 )
+
+[node name="Tile10" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 244 )
+
+[node name="Tile11" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 245 )
+
+[node name="Tile12" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 246 )
+
+[node name="Tile13" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 235 )
+
+[node name="Tile14" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 226 )
+
+[node name="Tile15" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 247 )
+
+[node name="Tile16" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 232 )
+
+[node name="Tile17" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 236 )
+
+[node name="Tile18" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 233 )
+
+[node name="Tile19" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 239 )
+
+[node name="Tile20" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 227 )
+
+[node name="Tile21" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 224 )
+
+[node name="Tile22" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 225 )
+
+[node name="Tile23" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 228 )
+
+[node name="Tile24" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 229 )
+
+[node name="Tile25" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 230 )
+
+[node name="Tile26" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 2 )
+
+[node name="Tile27" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 1 )
+
+[node name="Tile28" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 23 )
+
+[node name="Tile29" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 25 )
+
+[node name="Tile30" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 16 )
+
+[node name="Tile31" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 50 )
+
+[node name="Tile32" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 59 )
+
+[node name="Tile33" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 14 )
+
+[node name="Tile34" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 61 )
+
+[node name="Tile35" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 3 )
+
+[node name="Tile36" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 45 )
+
+[node name="Tile37" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 24 )
+
+[node name="Tile38" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 51 )
+
+[node name="Tile39" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 6 )
+
+[node name="Tile40" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 54 )
+
+[node name="Tile41" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 34 )
+
+[node name="Tile42" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 38 )
+
+[node name="Tile43" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 20 )
+
+[node name="Tile44" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 46 )
+
+[node name="Tile45" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 17 )
+
+[node name="Tile46" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 26 )
+
+[node name="Tile47" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 27 )
+
+[node name="Tile48" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 28 )
+
+[node name="Tile49" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 29 )
+
+[node name="Tile50" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 30 )
+
+[node name="Tile51" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 19 )
+
+[node name="Tile52" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 32 )
+
+[node name="Tile53" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 55 )
+
+[node name="Tile54" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 60 )
+
+[node name="Tile55" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 31 )
+
+[node name="Tile56" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 22 )
+
+[node name="Tile57" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 7 )
+
+[node name="Tile58" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 21 )
+
+[node name="Tile59" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 56 )
+
+[node name="Tile60" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 33 )
+
+[node name="Tile61" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 13 )
+
+[node name="Tile62" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 57 )
+
+[node name="Tile63" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 18 )
+
+[node name="Tile64" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 47 )
+
+[node name="Tile65" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 35 )
+
+[node name="Tile66" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 36 )
+
+[node name="Tile67" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 37 )
+
+[node name="Tile68" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 15 )
+
+[node name="Tile69" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 10 )
+
+[node name="Tile70" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 8 )
+
+[node name="Tile71" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 48 )
+
+[node name="Tile72" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 39 )
+
+[node name="Tile73" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 62 )
+
+[node name="Tile74" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 9 )
+
+[node name="Tile75" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 40 )
+
+[node name="Tile76" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 41 )
+
+[node name="Tile77" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 42 )
+
+[node name="Tile78" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 58 )
+
+[node name="Tile79" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 43 )
+
+[node name="Tile80" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 44 )
+
+[node name="Tile81" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 49 )
+
+[node name="Tile82" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 52 )
+
+[node name="Tile83" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 11 )
+
+[node name="Tile84" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 53 )
+
+[node name="Tile85" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 63 )
+
+[node name="Tile86" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 64 )
+
+[node name="Tile87" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 4 )
+
+[node name="Tile88" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 65 )
+
+[node name="Tile89" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 66 )
+
+[node name="Tile90" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 5 )
+
+[node name="Tile91" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 12 )
+
+[node name="Tile92" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 88 )
+
+[node name="Tile93" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 91 )
+
+[node name="Tile94" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 113 )
+
+[node name="Tile95" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 99 )
+
+[node name="Tile96" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 81 )
+
+[node name="Tile97" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 126 )
+
+[node name="Tile98" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 120 )
+
+[node name="Tile99" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 119 )
+
+[node name="Tile100" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 118 )
+
+[node name="Tile101" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 95 )
+
+[node name="Tile102" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 83 )
+
+[node name="Tile103" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 82 )
+
+[node name="Tile104" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 110 )
+
+[node name="Tile105" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 77 )
+
+[node name="Tile106" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 106 )
+
+[node name="Tile107" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 100 )
+
+[node name="Tile108" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 84 )
+
+[node name="Tile109" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 125 )
+
+[node name="Tile110" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 89 )
+
+[node name="Tile111" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 117 )
+
+[node name="Tile112" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 72 )
+
+[node name="Tile113" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 109 )
+
+[node name="Tile114" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 85 )
+
+[node name="Tile115" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 86 )
+
+[node name="Tile116" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 90 )
+
+[node name="Tile117" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 112 )
+
+[node name="Tile118" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 67 )
+
+[node name="Tile119" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 104 )
+
+[node name="Tile120" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 68 )
+
+[node name="Tile121" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 73 )
+
+[node name="Tile122" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 92 )
+
+[node name="Tile123" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 69 )
+
+[node name="Tile124" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 70 )
+
+[node name="Tile125" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 96 )
+
+[node name="Tile126" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 94 )
+
+[node name="Tile127" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 93 )
+
+[node name="Tile128" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 122 )
+
+[node name="Tile129" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 97 )
+
+[node name="Tile130" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 71 )
+
+[node name="Tile131" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 121 )
+
+[node name="Tile132" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 74 )
+
+[node name="Tile133" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 75 )
+
+[node name="Tile134" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 130 )
+
+[node name="Tile135" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 87 )
+
+[node name="Tile136" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 101 )
+
+[node name="Tile137" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 98 )
+
+[node name="Tile138" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 76 )
+
+[node name="Tile139" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 123 )
+
+[node name="Tile140" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 78 )
+
+[node name="Tile141" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 129 )
+
+[node name="Tile142" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 79 )
+
+[node name="Tile143" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 127 )
+
+[node name="Tile144" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 124 )
+
+[node name="Tile145" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 128 )
+
+[node name="Tile146" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 80 )
+
+[node name="Tile147" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 105 )
+
+[node name="Tile148" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 102 )
+
+[node name="Tile149" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 103 )
+
+[node name="Tile150" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 107 )
+
+[node name="Tile151" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 108 )
+
+[node name="Tile152" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 111 )
+
+[node name="Tile153" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 114 )
+
+[node name="Tile154" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 115 )
+
+[node name="Tile155" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 116 )
+
+[node name="Tile156" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 131 )
+
+[node name="Tile157" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 133 )
+
+[node name="Tile158" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 140 )
+
+[node name="Tile159" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 178 )
+
+[node name="Tile160" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 185 )
+
+[node name="Tile161" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 153 )
+
+[node name="Tile162" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 189 )
+
+[node name="Tile163" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 188 )
+
+[node name="Tile164" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 146 )
+
+[node name="Tile165" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 176 )
+
+[node name="Tile166" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 137 )
+
+[node name="Tile167" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 169 )
+
+[node name="Tile168" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 139 )
+
+[node name="Tile169" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 190 )
+
+[node name="Tile170" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 163 )
+
+[node name="Tile171" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 177 )
+
+[node name="Tile172" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 134 )
+
+[node name="Tile173" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 154 )
+
+[node name="Tile174" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 162 )
+
+[node name="Tile175" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 157 )
+
+[node name="Tile176" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 172 )
+
+[node name="Tile177" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 168 )
+
+[node name="Tile178" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 192 )
+
+[node name="Tile179" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 193 )
+
+[node name="Tile180" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 165 )
+
+[node name="Tile181" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 166 )
+
+[node name="Tile182" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 164 )
+
+[node name="Tile183" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 141 )
+
+[node name="Tile184" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 158 )
+
+[node name="Tile185" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 159 )
+
+[node name="Tile186" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 142 )
+
+[node name="Tile187" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 167 )
+
+[node name="Tile188" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 183 )
+
+[node name="Tile189" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 138 )
+
+[node name="Tile190" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 135 )
+
+[node name="Tile191" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 136 )
+
+[node name="Tile192" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 144 )
+
+[node name="Tile193" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 170 )
+
+[node name="Tile194" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 143 )
+
+[node name="Tile195" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 132 )
+
+[node name="Tile196" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 179 )
+
+[node name="Tile197" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 145 )
+
+[node name="Tile198" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 147 )
+
+[node name="Tile199" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 148 )
+
+[node name="Tile200" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 149 )
+
+[node name="Tile201" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 194 )
+
+[node name="Tile202" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 150 )
+
+[node name="Tile203" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 191 )
+
+[node name="Tile204" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 171 )
+
+[node name="Tile205" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 151 )
+
+[node name="Tile206" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 152 )
+
+[node name="Tile207" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 155 )
+
+[node name="Tile208" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 156 )
+
+[node name="Tile209" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 160 )
+
+[node name="Tile210" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 182 )
+
+[node name="Tile211" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 173 )
+
+[node name="Tile212" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 181 )
+
+[node name="Tile213" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 174 )
+
+[node name="Tile214" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 161 )
+
+[node name="Tile215" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 180 )
+
+[node name="Tile216" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 175 )
+
+[node name="Tile217" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 186 )
+
+[node name="Tile218" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 184 )
+
+[node name="Tile219" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 187 )
+
+[node name="Tile220" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 215 )
+
+[node name="Tile221" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 213 )
+
+[node name="Tile222" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 219 )
+
+[node name="Tile223" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 197 )
+
+[node name="Tile224" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 220 )
+
+[node name="Tile225" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 196 )
+
+[node name="Tile226" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 206 )
+
+[node name="Tile227" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 210 )
+
+[node name="Tile228" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 199 )
+
+[node name="Tile229" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 201 )
+
+[node name="Tile230" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 195 )
+
+[node name="Tile231" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 214 )
+
+[node name="Tile232" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 221 )
+
+[node name="Tile233" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 204 )
+
+[node name="Tile234" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 200 )
+
+[node name="Tile235" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 198 )
+
+[node name="Tile236" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 205 )
+
+[node name="Tile237" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 217 )
+
+[node name="Tile238" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 203 )
+
+[node name="Tile239" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 202 )
+
+[node name="Tile240" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 209 )
+
+[node name="Tile241" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 207 )
+
+[node name="Tile242" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 216 )
+
+[node name="Tile243" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 212 )
+
+[node name="Tile244" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 211 )
+
+[node name="Tile245" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 208 )
+
+[node name="Tile246" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 218 )

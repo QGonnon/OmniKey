@@ -44,13 +44,11 @@ func _ready() -> void:
 	
 	path_line.set_as_toplevel(true)
 
-
 #### LOGIC ####
 
 func _update_target() -> void:
 	if !target_in_attack_area && !target_in_chase_area:
 		target = null
-
 
 func _update_behaviour_state() -> void:
 	if state_machine.get_state_name() == "Dead":
@@ -69,17 +67,14 @@ func _update_behaviour_state() -> void:
 	else:
 		behaviour_tree.set_state("Wander")
 
-
 func update_move_path(dest: Vector2) -> void:
 	if pathfinder == null:
 		path = [dest]
 	else:
 		path = pathfinder.find_path(global_position, dest)
 	
-	
 	if path_line.is_visible():
 		path_line.set_points(path)
-
 
 func move_along_path(delta: float) -> void:
 	if path.empty():
@@ -96,20 +91,21 @@ func move_along_path(delta: float) -> void:
 		
 		if path.empty():
 			emit_signal("move_path_finished")
-		
 	else:
 		var __ = move_and_collide(dir * speed * delta)
-
 
 func can_attack() -> bool:
 	return !$BehaviourTree/Attack.is_cooldown_running() && target_in_attack_area
 
-
 func die() -> void:
 	.die()
-	
 	behaviour_tree.set_state("Inactive")
 
+# Méthode hurt pour infliger des dégâts
+func hurt(damage: int) -> void:
+	set_hp(hp - damage)
+	if hp <= 0:
+		die()
 
 #### SIGNAL RESPONSES ####
 
@@ -118,38 +114,30 @@ func _on_ChaseArea_body_entered(body: Node2D) -> void:
 		set_target_in_chase_area(true)
 		target = body
 
-
 func _on_ChaseArea_body_exited(body: Node2D) -> void:
 	if body is Character:
 		set_target_in_chase_area(false)
-
 
 func _on_AttackArea_body_entered(body: Node2D) -> void:
 	if body is Character:
 		set_target_in_attack_area(true)
 		target = body
 
-
 func _on_AttackArea_body_exited(body: Node2D) -> void:
 	if body is Character:
 		set_target_in_attack_area(false)
-
 
 func _on_target_in_chase_area_changed(_value: bool) -> void:
 	_update_target()
 	_update_behaviour_state()
 
-
 func _on_target_in_attack_area_changed(_value: bool) -> void:
 	_update_target()
-	
 	if target_in_attack_area:
 		_update_behaviour_state()
 
-
 func _on_moving_direction_changed() -> void:
 	face_direction(moving_direction)
-
 
 func _on_StateMachine_state_changed(state: State) -> void:
 	if state_machine == null:
@@ -160,7 +148,6 @@ func _on_StateMachine_state_changed(state: State) -> void:
 	
 	if state.name == "Attack":
 		face_position(target.global_position)
-
 
 func _on_attack_cooldown_finished() -> void:
 	_update_behaviour_state()
