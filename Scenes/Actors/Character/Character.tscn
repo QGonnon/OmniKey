@@ -29,6 +29,7 @@ shader_param/flash_color = Color( 1, 1, 1, 1 )
 shader_param/opacity = 0.0
 
 [node name="Character" instance=ExtResource( 5 )]
+collision_layer = 2
 script = ExtResource( 2 )
 max_hp = 10
 
