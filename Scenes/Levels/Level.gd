@@ -5,15 +5,24 @@ export var move_speed = 250
 onready var character = $Character
 onready var attackJoystick = $UI_Container/UI/HUD/AttackJoystick
 var velocity = Vector2(0,0)
-
-
+var attackVelocity = Vector2(0,0)
+onready var skin = character.get_node("gun")
 
 func _process(delta):
 	velocity = $UI_Container/UI/HUD/Joystick.get_velo()
 	
-	character.look_in_direction(attackJoystick.get_velo())
 	
+	
+	skin.rotation=attackJoystick.get_velo().angle()
+	
+	var rotaGun = int(skin.rotation_degrees) % 360
+	rotaGun = 360+rotaGun if rotaGun < 0 else rotaGun
+	if 90 < rotaGun and rotaGun < 270:
+		 skin.flip_v = true
+	else :
+		skin.flip_v = false
 	character.move_and_slide(velocity*move_speed, Vector2.UP)
+	
 	
 	
 	pass

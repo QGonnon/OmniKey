@@ -26,10 +26,8 @@ func shoot():
 	skin.play("shooting")  # Jouer l'animation "shooting"
 	projectile_instance.global_position = position
 	var targets = get_tree().get_nodes_in_group("Enemy")
-	if targets.size() != 0:
-		var target = getNearest(targets)
-		projectile_instance.look_at(target.global_position)
-		skin.look_at(target.global_position)
+	projectile_instance.rotation = skin.rotation
+	
 	projectile_instance.global_position = shootingPoint.global_position
 	owner.add_child(projectile_instance)
 	
@@ -44,16 +42,9 @@ func getNearest(group:Array):
 	return nearest
 
 func _process(delta):
-	var targets = get_tree().get_nodes_in_group("Enemy")
-	if targets.size() != 0:
-		var target = getNearest(targets)
-		skin.look_at(target.global_position)
-		var rotaGun = int(skin.rotation_degrees) % 360
-		rotaGun = 360+rotaGun if rotaGun < 0 else rotaGun
-		if 90 <	rotaGun and rotaGun < 270:
-			skin.flip_v = true
-		else :
-			skin.flip_v = false
+	
+		
+		
 	if Input.is_action_pressed("shooting"):
 		state_machine.set_state("shooting")
 		countTime += delta
@@ -81,6 +72,10 @@ func _input(_event: InputEvent) -> void:
 		state_machine.set_state("Attack")
 	
 	_update_state()
+
+func _ready():
+	skin.play("Idle") 
+	
 
 #### LOGIC ####
 
