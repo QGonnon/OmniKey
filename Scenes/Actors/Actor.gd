@@ -67,7 +67,6 @@ func _ready() -> void:
 func _update_animation() -> void:
 	var dir_name = _find_dir_name(facing_direction)
 	var state_name = state_machine.get_state_name()
-	
 	animated_sprite.play(state_name + dir_name)
 
 
