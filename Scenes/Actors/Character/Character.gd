@@ -20,16 +20,19 @@ func look_in_direction(direction):
 	elif direction.x < 0:
 		skin.scale.x = -1
 
-func shoot():
-	var projectile_instance = bullet.instance()
-	state_machine.set_state("shooting")
-	skin.play("shooting")  # Jouer l'animation "shooting"
-	projectile_instance.global_position = position
-	var targets = get_tree().get_nodes_in_group("Enemy")
-	projectile_instance.rotation = skin.rotation
+func shoot(delta):
+	countTime += delta
+	if countTime > delay:
+		var projectile_instance = bullet.instance()
+#		state_machine.set_state("shooting")
+		skin.play("shooting")  # Jouer l'animation "shooting"
+		projectile_instance.global_position = position
+		var targets = get_tree().get_nodes_in_group("Enemy")
+		projectile_instance.rotation = skin.rotation
+		projectile_instance.global_position = shootingPoint.global_position
+		owner.add_child(projectile_instance)
+		countTime = 0
 	
-	projectile_instance.global_position = shootingPoint.global_position
-	owner.add_child(projectile_instance)
 	
 func getNearest(group:Array):
 	var dist = INF
@@ -40,21 +43,6 @@ func getNearest(group:Array):
 			dist = nodeDist
 			nearest = node
 	return nearest
-
-func _process(delta):
-	
-		
-		
-	if Input.is_action_pressed("shooting"):
-		state_machine.set_state("shooting")
-		countTime += delta
-		if countTime > delay:
-			shoot()
-			countTime = 0
-	else:
-		if state_machine.get_state_name() == "shooting":
-			state_machine.set_state("Idle")
-			skin.play("Idle")  # Revenir à l'animation "Idle" ou une autre animation par défaut
 
 #### BUILT-IN ####
 
@@ -71,7 +59,7 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		state_machine.set_state("Attack")
 	
-	_update_state()
+	
 
 func _ready():
 	skin.play("Idle") 
