@@ -587,11 +587,11 @@ custom_styles/fg = SubResource( 41 )
 custom_styles/bg = SubResource( 42 )
 value = 100.0
 
-[node name="TirBtn" type="TouchScreenButton" parent="UI_Container/UI/HUD"]
+[node name="SpellBtn1" type="TouchScreenButton" parent="UI_Container/UI/HUD"]
 position = Vector2( 589, 303 )
 scale = Vector2( 0.195, 0.2 )
 normal = ExtResource( 23 )
-action = "shooting"
+action = "spellCast1"
 
 [node name="Joystick" parent="UI_Container/UI/HUD" instance=ExtResource( 24 )]
 position = Vector2( 96, 280 )
