@@ -46,7 +46,8 @@ Credits song for my death... but i don't give up! - grippel's Music
 
 Visuals Credits
 
-Romain GUILLON"
+SplashArt by AI
+PixelArt by MalibuDarby"
 text = "Development Credits
 
 Noah DARMON
@@ -65,6 +66,7 @@ Credits song for my death... but i don't give up! - grippel's Music
 
 Visuals Credits
 
-Romain GUILLON"
+SplashArt by AI
+PixelArt by MalibuDarby"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]

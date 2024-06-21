@@ -493,21 +493,21 @@ tile_data = PoolIntArray( 0, 4, 0, 1, 4, 3, 2, 4, 3, 3, 4, 3, 4, 4, 3, 5, 4, 3, 
 script = ExtResource( 12 )
 
 [node name="Character" parent="." instance=ExtResource( 1 )]
-position = Vector2( 329.413, 187.832 )
+position = Vector2( 76, 207 )
 
 [node name="Jar2" parent="." instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 304, 272 )
 
 [node name="Jar3" parent="." instance=ExtResource( 3 )]
-visible = false
-position = Vector2( 208, 368 )
+position = Vector2( 623, 438 )
 
 [node name="Jar4" parent="." instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 688, 240 )
 
 [node name="Chest" parent="." instance=ExtResource( 4 )]
-position = Vector2( 272, 112 )
+position = Vector2( 625, 366 )
 
 [node name="UI_Container" type="CanvasLayer" parent="."]
 
@@ -665,22 +665,25 @@ position = Vector2( 608, 323 )
 script = ExtResource( 11 )
 
 [node name="Skeleton" parent="." instance=ExtResource( 5 )]
-position = Vector2( 496, 144 )
+position = Vector2( 653, 402 )
 
 [node name="Door" parent="." instance=ExtResource( 14 )]
 visible = false
 position = Vector2( 512, 32 )
 
 [node name="Item" parent="." instance=ExtResource( 15 )]
-position = Vector2( 688, 432 )
+visible = false
+position = Vector2( 471, 361 )
 item_data = ExtResource( 16 )
 
 [node name="Item3" parent="." instance=ExtResource( 15 )]
-position = Vector2( 235, 296 )
+visible = false
+position = Vector2( 349, 237 )
 item_data = ExtResource( 21 )
 
 [node name="Item2" parent="." instance=ExtResource( 15 )]
-position = Vector2( 304, 464 )
+visible = false
+position = Vector2( 350, 358 )
 item_data = ExtResource( 16 )
 
 [connection signal="hidden_changed" from="UI_Container/UI/Inventory" to="UI_Container/UI/BlackVeil" method="_on_Inventory_hidden_changed"]
