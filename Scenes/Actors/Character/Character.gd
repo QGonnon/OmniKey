@@ -30,6 +30,7 @@ func shoot(delta):
 		var targets = get_tree().get_nodes_in_group("Enemy")
 		projectile_instance.rotation = skin.rotation
 		projectile_instance.global_position = shootingPoint.global_position
+		projectile_instance.scale *= 0.75
 		owner.add_child(projectile_instance)
 		countTime = 0
 	
