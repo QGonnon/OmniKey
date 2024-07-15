@@ -24,7 +24,9 @@ func shoot(delta):
 	countTime += delta
 	if countTime > delay:
 		var projectile_instance = bullet.instance()
-#		state_machine.set_state("shooting")
+		projectile_instance.CollisionLayer(2)
+		projectile_instance.CollisionMask(1)
+		
 		skin.play("shooting")  # Jouer l'animation "shooting"
 		projectile_instance.global_position = position
 		var targets = get_tree().get_nodes_in_group("Enemy")

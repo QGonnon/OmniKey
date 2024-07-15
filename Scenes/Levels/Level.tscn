@@ -56,13 +56,13 @@ __meta__ = {
 position = Vector2( 76, 207 )
 
 [node name="Jar2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 304, 272 )
+position = Vector2( 311, 344 )
 
 [node name="Jar3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 623, 438 )
 
 [node name="Jar4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 688, 240 )
+position = Vector2( 436, 427 )
 
 [node name="Chest" parent="." instance=ExtResource( 4 )]
 position = Vector2( 625, 366 )

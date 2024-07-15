@@ -5,6 +5,7 @@ onready var behaviour_tree = $BehaviourTree
 onready var chase_area = $ChaseArea
 onready var attack_area = $AttackArea
 onready var path_line = $PathLine
+onready var bullet = preload("res://Scenes/Actors/Shoot/projectile.tscn")
 
 var target : Node2D = null
 var path : Array = []
@@ -13,6 +14,9 @@ var pathfinder : Pathfinder = null
 
 var target_in_chase_area : bool = false setget set_target_in_chase_area
 var target_in_attack_area : bool = false setget set_target_in_attack_area
+
+var delay = 0.75
+var countTime = 0
 
 signal target_in_chase_area_changed
 signal target_in_attack_area_changed
@@ -44,7 +48,24 @@ func _ready() -> void:
 	
 	path_line.set_as_toplevel(true)
 
+func _process(delta):
+	if behaviour_tree.get_state_name() == "Chase":
+		shoot(delta)
+
 #### LOGIC ####
+
+func shoot(delta):
+	countTime += delta
+	if countTime > delay:
+		var projectile_instance = bullet.instance()
+		projectile_instance.CollisionLayer(1)
+		projectile_instance.CollisionMask(2)
+		
+		projectile_instance.global_position = position
+		projectile_instance.rotation = projectile_instance.get_angle_to(target.position)
+		projectile_instance.scale *= 0.75
+		owner.add_child(projectile_instance)
+		countTime = 0
 
 func _update_target() -> void:
 	if !target_in_attack_area && !target_in_chase_area:
@@ -53,17 +74,15 @@ func _update_target() -> void:
 func _update_behaviour_state() -> void:
 	if state_machine.get_state_name() == "Dead":
 		return
-	
-	if target_in_attack_area:
-		if $BehaviourTree/Attack.is_cooldown_running():
-			behaviour_tree.set_state("Inactive")
-			path = []
-		else:
-			behaviour_tree.set_state("Attack")
 		
-	elif target_in_chase_area:
+	if target_in_chase_area:
 		behaviour_tree.set_state("Chase")
-	
+		if target_in_attack_area:
+			if $BehaviourTree/Attack.is_cooldown_running():
+				behaviour_tree.set_state("Inactive")
+				path = []
+			else:
+				behaviour_tree.set_state("Attack")
 	else:
 		behaviour_tree.set_state("Wander")
 

@@ -2,10 +2,18 @@ extends Area2D
 
 var speed = 1000
 var damage = 1  # Définir les dégâts infligés par la balle
+var type
 
 func _ready():
 	connect("body_entered", self, "_on_Projectile_body_entered")
 
+func CollisionMask(CollisionLayer:int):
+	set_collision_mask_bit(CollisionLayer-1,true)
+
+func CollisionLayer(CollisionLayer:int):
+	set_collision_layer_bit(CollisionLayer-1,true)
+	
+	
 func _process(delta):
 	position += Vector2(1,0).rotated(rotation) * speed * delta
 
