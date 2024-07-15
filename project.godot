@@ -278,7 +278,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Zeldisaac"
+config/name="OmniKey"
 run/main_scene="res://Scenes/Menu/IntroScreen.tscn"
 config/icon="res://icon.png"
 
