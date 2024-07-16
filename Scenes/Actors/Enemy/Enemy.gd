@@ -60,6 +60,7 @@ func shoot(delta):
 		var projectile_instance = bullet.instance()
 		projectile_instance.CollisionLayer(1)
 		projectile_instance.CollisionMask(2)
+		projectile_instance.speed=500
 		
 		projectile_instance.global_position = position
 		projectile_instance.rotation = projectile_instance.get_angle_to(target.position)

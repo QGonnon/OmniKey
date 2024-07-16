@@ -7,6 +7,10 @@ onready var bullet = preload("res://Scenes/Actors/Shoot/projectile.tscn")
 onready var shootingPoint = $gun/ShootingPoint
 onready var skin = $gun
 
+var base_move_speed = 250
+var move_speed
+
+var skill1
 
 var delay = 0.25
 var countTime = 0
@@ -29,7 +33,6 @@ func shoot(delta):
 		
 		skin.play("shooting")  # Jouer l'animation "shooting"
 		projectile_instance.global_position = position
-		var targets = get_tree().get_nodes_in_group("Enemy")
 		projectile_instance.rotation = skin.rotation
 		projectile_instance.global_position = shootingPoint.global_position
 		projectile_instance.scale *= 0.75
@@ -66,7 +69,8 @@ func _input(_event: InputEvent) -> void:
 
 func _ready():
 	skin.play("Idle") 
-	
+	move_speed = base_move_speed
+	skill1 = Skill.new("boost")
 
 #### LOGIC ####
 

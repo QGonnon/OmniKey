@@ -42,6 +42,8 @@ frames = ExtResource( 3 )
 animation = "IdleDown"
 
 [node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( -1.33333, -1.33333 )
+scale = Vector2( 0.626669, 0.68 )
 shape = ExtResource( 4 )
 
 [node name="CollisionShape2D" parent="AttackHitBox" index="0"]

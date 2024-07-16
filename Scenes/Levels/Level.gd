@@ -1,21 +1,14 @@
 extends YSort
 
 onready var pathfinder = $Tilemap/Pathfinder
-export var move_speed = 250
 onready var character = $Character
 onready var attackJoystick = $UI_Container/UI/HUD/AttackJoystick
 onready var moveJoystick = $UI_Container/UI/HUD/Joystick
+onready var spellBtn1 = $UI_Container/UI/HUD/SpellBtn1
+
 var velocity = Vector2(0,0)
 var attackVelocity = Vector2(0,0)
 onready var skin = character.get_node("gun")
-
-# Variables pour le skill de boost
-var is_boosted = false
-var is_on_cooldown = false
-var boost_timer = null
-var cooldown_timer = null
-export var boost_duration = 10 # Durée du boost en secondes
-export var cooldown_duration = 5 # Durée du cooldown en secondes
 
 func _ready() -> void:
 	var __ = EVENTS.connect("actor_died", self, "_on_EVENTS_actor_died")
@@ -25,21 +18,9 @@ func _ready() -> void:
 	for enemy in enemies_array:
 		enemy.pathfinder = pathfinder
 	
-	# Créer et ajouter les timers
-	boost_timer = Timer.new()
-	add_child(boost_timer)
-	boost_timer.connect("timeout", self, "_on_boost_timeout")
+	add_child(character.skill1.active_timer)
+	add_child(character.skill1.cooldown_timer)
 	
-	cooldown_timer = Timer.new()
-	add_child(cooldown_timer)
-	cooldown_timer.connect("timeout", self, "_on_cooldown_timeout")
-	
-	# Assigner l'action pour activer le skill
-	var input_event = InputEventKey.new()
-	input_event.scancode = KEY_S  # Remplacez KEY_S par la touche désirée
-	InputMap.add_action("activate_skill")
-	InputMap.action_add_event("activate_skill", input_event)
-
 func _process(delta):
 	velocity = moveJoystick.get_velo()
 	var joyAngle = rad2deg(velocity.angle())
@@ -68,7 +49,7 @@ func _process(delta):
 	var dir = Vector2(right - left, down - up)
 	
 	# Appliquer la vitesse boostée si nécessaire
-	var current_speed = move_speed * 2 if is_boosted else move_speed
+	var current_speed = character.move_speed * character.skill1.speedModifier
 	character.move_and_slide(velocity * current_speed, Vector2.UP)
 
 	if moveJoystick.touched:
@@ -80,24 +61,18 @@ func _process(delta):
 	
 	# Activer le skill de boost de vitesse
 	if Input.is_action_just_pressed("spellCast1"):
-		activate_skill()
-	pass
-
-func activate_skill():
-	if is_boosted or is_on_cooldown:
-		return  # Ne pas réactiver si déjà boosté ou en cooldown
-
-	is_boosted = true
-	print("Boost activé")
-	boost_timer.start(boost_duration)  # Durée du boost en secondes
-
-func _on_boost_timeout():
-	is_boosted = false
-	is_on_cooldown = true
-	cooldown_timer.start(cooldown_duration)  # Démarrer le cooldown
-
-func _on_cooldown_timeout():
-	is_on_cooldown = false
+		character.skill1.activate()
+		#print(character.skill1.active_timer.time_left)
+	
+	var skill1 = character.skill1
+	if not skill1.active_timer.is_stopped():
+		spellBtn1.get_node("ActifProgress").value = skill1.active_timer.time_left/skill1.active_timer_duration*100
+		spellBtn1.get_node("Label").text = str(stepify(skill1.active_timer.time_left, 0.1))
+	elif not skill1.cooldown_timer.is_stopped():
+		spellBtn1.get_node("InactifProgress").value = skill1.cooldown_timer.time_left/skill1.cooldown_timer_duration*100
+		spellBtn1.get_node("Label").text = str(stepify(skill1.cooldown_timer.time_left, 0.1))
+	else:
+		spellBtn1.get_node("Label").text = ""
 
 func _on_EVENTS_actor_died(actor: Actor) -> void:
 	if actor is Enemy:

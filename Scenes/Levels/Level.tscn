@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scenes/Actors/Character/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Joystick/Attack/WhiteCircle.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/InteractiveObjects/Jar/Jar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/InteractiveObjects/Chest/Chest.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn" type="PackedScene" id=5]
@@ -150,6 +151,37 @@ position = Vector2( 471, 296 )
 scale = Vector2( 0.195, 0.2 )
 normal = ExtResource( 23 )
 action = "spellCast1"
+
+[node name="ActifProgress" type="TextureProgress" parent="UI_Container/UI/HUD/SpellBtn1"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 185.0
+margin_bottom = 185.0
+texture_progress = ExtResource( 2 )
+fill_mode = 4
+tint_progress = Color( 0, 0.929412, 1, 0.439216 )
+radial_initial_angle = 360.0
+nine_patch_stretch = true
+
+[node name="InactifProgress" type="TextureProgress" parent="UI_Container/UI/HUD/SpellBtn1"]
+margin_left = 15.3848
+margin_top = 15.0
+margin_right = 185.385
+margin_bottom = 185.0
+texture_progress = ExtResource( 2 )
+fill_mode = 4
+tint_progress = Color( 0.219608, 0.219608, 0.219608, 0.490196 )
+radial_initial_angle = 360.0
+nine_patch_stretch = true
+
+[node name="Label" type="Label" parent="UI_Container/UI/HUD/SpellBtn1"]
+margin_left = 51.2822
+margin_top = 60.0
+margin_right = 72.2822
+margin_bottom = 76.0
+rect_scale = Vector2( 5, 5 )
+align = 1
+valign = 1
 
 [node name="Joystick" parent="UI_Container/UI/HUD" instance=ExtResource( 24 )]
 position = Vector2( 96, 280 )
