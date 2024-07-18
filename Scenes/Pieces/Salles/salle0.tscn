@@ -1,4 +1,4 @@
-[gd_scene load_steps=594 format=2]
+[gd_scene load_steps=595 format=2]
 
 [ext_resource path="res://Scenes/Pieces/Props/Low-TownB.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Actors/Character/Character.tscn" type="PackedScene" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Themes/Font/BabaMediumPixels.ttf" type="DynamicFontData" id=27]
 [ext_resource path="res://Themes/MainTheme.tres" type="Theme" id=28]
 [ext_resource path="res://Scenes/Pieces/Salles/salle.gd" type="Script" id=29]
+[ext_resource path="res://Scenes/Joystick/Attack/WhiteCircle.png" type="Texture" id=30]
 
 [sub_resource type="TileSet" id=2]
 0/name = "floor2.png 0"
@@ -9064,6 +9065,37 @@ position = Vector2( 471, 296 )
 scale = Vector2( 0.195, 0.2 )
 normal = ExtResource( 26 )
 action = "spellCast1"
+
+[node name="ActifProgress" type="TextureProgress" parent="YSort/UI_Container/UI/HUD/SpellBtn1"]
+margin_left = 473.925
+margin_top = 299.0
+margin_right = 643.925
+margin_bottom = 469.0
+texture_progress = ExtResource( 30 )
+fill_mode = 4
+tint_progress = Color( 0, 0.929412, 1, 0.439216 )
+radial_initial_angle = 360.0
+nine_patch_stretch = true
+
+[node name="InactifProgress" type="TextureProgress" parent="YSort/UI_Container/UI/HUD/SpellBtn1"]
+margin_left = 474.0
+margin_top = 299.0
+margin_right = 644.0
+margin_bottom = 469.0
+texture_progress = ExtResource( 30 )
+fill_mode = 4
+tint_progress = Color( 0.219608, 0.219608, 0.219608, 0.490196 )
+radial_initial_angle = 360.0
+nine_patch_stretch = true
+
+[node name="Label" type="Label" parent="YSort/UI_Container/UI/HUD/SpellBtn1"]
+margin_left = 472.95
+margin_top = 299.0
+margin_right = 508.95
+margin_bottom = 334.0
+rect_scale = Vector2( 5, 5 )
+align = 1
+valign = 1
 
 [node name="Joystick" parent="YSort/UI_Container/UI/HUD" instance=ExtResource( 19 )]
 position = Vector2( 96, 280 )

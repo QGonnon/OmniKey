@@ -29,7 +29,7 @@ func _process(delta):
 	
 	var rotaGun = int(skin.rotation_degrees) % 360
 	rotaGun = 360 + rotaGun if rotaGun < 0 else rotaGun
-	var scaleGun = 0.75
+	var scaleGun = 0.50
 	if 90 < rotaGun and rotaGun < 270:
 		skin.scale.y = -scaleGun
 		skin.scale.x = scaleGun

@@ -7,7 +7,7 @@ onready var bullet = preload("res://Scenes/Actors/Shoot/projectile.tscn")
 onready var shootingPoint = $gun/ShootingPoint
 onready var skin = $gun
 
-var base_move_speed = 250
+var base_move_speed = 10
 var move_speed
 
 var skill1

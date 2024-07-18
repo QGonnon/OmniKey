@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Scenes/UI/Inventory/InventoryDataManager.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Pieces/Salles/salle.gd" type="Script" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://Scenes/Pieces/Tilesets/Mid-TownA5.png" type="Texture" id=30]
 [ext_resource path="res://Scenes/Pieces/Props/Low-TownD.png" type="Texture" id=31]
 [ext_resource path="res://Scenes/Pieces/Props/Mid-TownC.png" type="Texture" id=32]
+[ext_resource path="res://Scenes/Joystick/Attack/WhiteCircle.png" type="Texture" id=33]
 
 [sub_resource type="TileSet" id=858]
 0/name = "floor2.png 0"
@@ -5958,7 +5959,6 @@ tile_data = PoolIntArray( 1572917, 1, 786440, 1572924, 1, 786441, 1703989, 1, 85
 position = Vector2( 44, 172 )
 
 [node name="UI_Container" type="CanvasLayer" parent="YSort"]
-visible = false
 
 [node name="UI" type="Control" parent="YSort/UI_Container"]
 pause_mode = 2
@@ -6041,6 +6041,37 @@ position = Vector2( 471, 296 )
 scale = Vector2( 0.195, 0.2 )
 normal = ExtResource( 18 )
 action = "spellCast1"
+
+[node name="InactifProgress" type="TextureProgress" parent="YSort/UI_Container/UI/HUD/SpellBtn1"]
+margin_left = 15.3848
+margin_top = 15.0
+margin_right = 185.385
+margin_bottom = 185.0
+texture_progress = ExtResource( 33 )
+fill_mode = 4
+tint_progress = Color( 0.219608, 0.219608, 0.219608, 0.490196 )
+radial_initial_angle = 360.0
+nine_patch_stretch = true
+
+[node name="Label" type="Label" parent="YSort/UI_Container/UI/HUD/SpellBtn1"]
+margin_left = 10.0
+margin_top = 15.0
+margin_right = 46.0
+margin_bottom = 50.0
+rect_scale = Vector2( 5, 5 )
+align = 1
+valign = 1
+
+[node name="ActifProgress" type="TextureProgress" parent="YSort/UI_Container/UI/HUD/SpellBtn1"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 185.0
+margin_bottom = 185.0
+texture_progress = ExtResource( 33 )
+fill_mode = 4
+tint_progress = Color( 0, 0.929412, 1, 0.439216 )
+radial_initial_angle = 360.0
+nine_patch_stretch = true
 
 [node name="Joystick" parent="YSort/UI_Container/UI/HUD" instance=ExtResource( 28 )]
 position = Vector2( 96, 280 )

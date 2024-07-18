@@ -60,10 +60,10 @@ position = Vector2( 324, 183 )
 texture = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -16.0
-margin_top = -17.0
-margin_right = 666.0
-margin_bottom = 383.0
+margin_left = -15.0
+margin_top = -16.0
+margin_right = 667.0
+margin_bottom = 384.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
