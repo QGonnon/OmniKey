@@ -26,7 +26,7 @@ func look_in_direction(direction):
 
 func shoot(delta):
 	countTime += delta
-	if countTime > delay:
+	if countTime > delay/skill1.attackSpeedModifier:
 		var projectile_instance = bullet.instance()
 		projectile_instance.CollisionLayer(2)
 		projectile_instance.CollisionMask(1)
@@ -70,7 +70,7 @@ func _input(_event: InputEvent) -> void:
 func _ready():
 	skin.play("Idle") 
 	move_speed = base_move_speed
-	skill1 = Skill.new("boost")
+	skill1 = Skill.new("damageReduction")
 
 #### LOGIC ####
 

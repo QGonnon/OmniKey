@@ -175,10 +175,10 @@ radial_initial_angle = 360.0
 nine_patch_stretch = true
 
 [node name="Label" type="Label" parent="UI_Container/UI/HUD/SpellBtn1"]
-margin_left = 51.2822
-margin_top = 60.0
-margin_right = 72.2822
-margin_bottom = 76.0
+margin_left = 10.0
+margin_top = 15.0
+margin_right = 46.0
+margin_bottom = 50.0
 rect_scale = Vector2( 5, 5 )
 align = 1
 valign = 1

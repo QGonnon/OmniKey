@@ -22,7 +22,10 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_Projectile_body_entered(body):
 	if body.has_method("hurt"):
-		body.hurt(damage)
+		if body.name == "Character":
+			body.hurt(damage/body.skill1.damageReductionModifier)
+		else:
+			body.hurt(damage)
 	
 	if body.has_method("destroy"):
 		body.destroy()
