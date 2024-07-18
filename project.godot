@@ -200,6 +200,11 @@ _global_script_classes=[ {
 "path": "res://Scenes/Levels/Pathfinder.gd"
 }, {
 "base": "Node",
+"class": "Skill",
+"language": "GDScript",
+"path": "res://Scenes/Actors/Character/Skill.gd"
+}, {
+"base": "Node",
 "class": "State",
 "language": "GDScript",
 "path": "res://StateMachine/State.gd"
@@ -268,6 +273,7 @@ _global_script_class_icons={
 "ItemFactory": "",
 "Maths": "",
 "Pathfinder": "",
+"Skill": "",
 "State": "",
 "StateLabel": "",
 "StateMachine": "",
@@ -278,7 +284,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Zeldisaac"
+config/name="OmniKey"
 run/main_scene="res://Scenes/Menu/IntroScreen.tscn"
 config/icon="res://icon.png"
 

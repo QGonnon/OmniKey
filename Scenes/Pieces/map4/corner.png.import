@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/nova2.webp-c39da78098552df65cc9a8dd776290ce.stex"
+path="res://.import/corner.png-0df5b3f95eabe3fa1150b5a061ac4bc3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Actors/Character/Sprites/nova2.webp"
-dest_files=[ "res://.import/nova2.webp-c39da78098552df65cc9a8dd776290ce.stex" ]
+source_file="res://Scenes/Pieces/map4/corner.png"
+dest_files=[ "res://.import/corner.png-0df5b3f95eabe3fa1150b5a061ac4bc3.stex" ]
 
 [params]
 
