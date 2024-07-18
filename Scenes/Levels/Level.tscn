@@ -22,7 +22,7 @@
 [ext_resource path="res://Resources/ItemData/MP_Potion.tres" type="Resource" id=21]
 [ext_resource path="res://Scenes/UI/BlackVeil.gd" type="Script" id=22]
 [ext_resource path="res://Scenes/UI/HUD/attack.png" type="Texture" id=23]
-[ext_resource path="res://Scenes/Joystick/Movement/Joystick2.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Joystick/Movement/MoveJoystick.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Pieces/hub.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Joystick/Attack/AttackJoystick.tscn" type="PackedScene" id=26]
 
@@ -54,6 +54,7 @@ __meta__ = {
 [node name="Hub" parent="." instance=ExtResource( 25 )]
 
 [node name="Character" parent="." instance=ExtResource( 1 )]
+unique_name_in_owner = true
 position = Vector2( 76, 207 )
 
 [node name="Jar2" parent="." instance=ExtResource( 3 )]
@@ -183,7 +184,7 @@ rect_scale = Vector2( 5, 5 )
 align = 1
 valign = 1
 
-[node name="Joystick" parent="UI_Container/UI/HUD" instance=ExtResource( 24 )]
+[node name="MoveJoystick" parent="UI_Container/UI/HUD" instance=ExtResource( 24 )]
 position = Vector2( 96, 280 )
 
 [node name="BlackVeil" type="ColorRect" parent="UI_Container/UI"]

@@ -30,6 +30,9 @@ func _init(skill:String):
 		"damageReduction":
 			active_timer_duration = 10
 			cooldown_timer_duration = 15
+		"heal":
+			active_timer_duration = 0
+			cooldown_timer_duration = 60
 	
 	active_timer.one_shot=true
 	active_timer.connect("timeout", self, "_on_active_timeout")
@@ -37,10 +40,15 @@ func _init(skill:String):
 	cooldown_timer.one_shot=true
 
 func activate():
-	if active_timer.time_left==0 and cooldown_timer.time_left ==0:
+	if active_timer.time_left==0 and cooldown_timer.time_left==0:
 		if selectedSkill != "Error":
-			active_timer.start(active_timer_duration)
-		call(selectedSkill,"Start")
+			if active_timer_duration>0:
+				active_timer.start(active_timer_duration)
+				return call(selectedSkill,"Start")
+			else:
+				cooldown_timer.start(cooldown_timer_duration)
+				return call(selectedSkill)
+		call(selectedSkill)
 	
 func _on_active_timeout():
 	call(selectedSkill,"End")
@@ -72,3 +80,6 @@ func damageReduction(action:String):
 		damageReductionModifier += 1
 	elif action == "End":
 		damageReductionModifier -= 1
+
+func heal():
+	return 5
