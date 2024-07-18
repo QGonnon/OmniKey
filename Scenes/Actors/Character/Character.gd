@@ -8,7 +8,7 @@ onready var shootingPoint = $gun/ShootingPoint
 onready var skin = $gun
 
 
-var delay = 0.25
+var delay = 0.5
 var countTime = 0
 
 func look_in_direction(direction):
@@ -25,6 +25,7 @@ func shoot(delta):
 	if countTime > delay:
 		var projectile_instance = bullet.instance()
 #		state_machine.set_state("shooting")
+		
 		skin.play("shooting")  # Jouer l'animation "shooting"
 		projectile_instance.global_position = position
 		var targets = get_tree().get_nodes_in_group("Enemy")
@@ -33,7 +34,10 @@ func shoot(delta):
 		projectile_instance.scale *= 0.75
 		owner.add_child(projectile_instance)
 		countTime = 0
-	
+		
+func _animationFinished():
+	skin.frame=0
+	skin.stop()
 	
 func getNearest(group:Array):
 	var dist = INF
@@ -64,6 +68,8 @@ func _input(_event: InputEvent) -> void:
 
 func _ready():
 	skin.play("Idle") 
+	skin.connect("animation_finished", self, "_animationFinished")
+	
 	
 
 #### LOGIC ####
