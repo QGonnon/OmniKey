@@ -12,7 +12,7 @@ var move_speed
 
 var skill1
 
-var delay = 0.25
+var delay = 0.5
 var countTime = 0
 
 func look_in_direction(direction):
@@ -28,6 +28,7 @@ func shoot(delta):
 	countTime += delta
 	if countTime > delay/skill1.attackSpeedModifier:
 		var projectile_instance = bullet.instance()
+#		state_machine.set_state("shooting")
 		projectile_instance.CollisionLayer(2)
 		projectile_instance.CollisionMask(1)
 		
@@ -38,7 +39,10 @@ func shoot(delta):
 		projectile_instance.scale *= 0.75
 		owner.add_child(projectile_instance)
 		countTime = 0
-	
+		
+func _animationFinished():
+	skin.frame=0
+	skin.stop()
 	
 func getNearest(group:Array):
 	var dist = INF
@@ -69,6 +73,7 @@ func _input(_event: InputEvent) -> void:
 
 func _ready():
 	skin.play("Idle") 
+	skin.connect("animation_finished", self, "_animationFinished")
 	move_speed = base_move_speed
 	skill1 = Skill.new("damageReduction")
 
