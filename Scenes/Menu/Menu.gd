@@ -4,7 +4,7 @@ func _on_Play_pressed():
 # condition à créé si on à jamais joué :
 #	get_tree().change_scene("res://Scenes/NarrativePages/NarrativeIntro.tscn")
 # sinon :
- get_tree().change_scene("res://Scenes/Levels/Level.tscn")
+ 	get_tree().change_scene("res://Scenes/Levels/Level.tscn")
 
 
 func _on_Options_pressed():

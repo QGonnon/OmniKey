@@ -90,12 +90,13 @@ func _attack_effect() -> void:
 	for body in bodies_array:
 		if body == self:
 			continue
-		
 		if body.has_method("hurt"):
 			body.face_position(global_position)
 			var damage = _compute_damage(body)
-			body.hurt(damage)
-		
+			if body.name == "Character":
+				body.hurt(damage/body.skill1.damageReductionModifier)
+			else:
+				body.hurt(damage)
 		elif body.has_method("destroy"):
 			body.destroy()
 

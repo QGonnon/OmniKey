@@ -7,6 +7,10 @@ onready var bullet = preload("res://Scenes/Actors/Shoot/projectile.tscn")
 onready var shootingPoint = $gun/ShootingPoint
 onready var skin = $gun
 
+var base_move_speed = 250
+var move_speed
+
+var skill1
 
 var delay = 0.5
 var countTime = 0
@@ -22,13 +26,14 @@ func look_in_direction(direction):
 
 func shoot(delta):
 	countTime += delta
-	if countTime > delay:
+	if countTime > delay/skill1.attackSpeedModifier:
 		var projectile_instance = bullet.instance()
 #		state_machine.set_state("shooting")
+		projectile_instance.CollisionLayer(2)
+		projectile_instance.CollisionMask(1)
 		
 		skin.play("shooting")  # Jouer l'animation "shooting"
 		projectile_instance.global_position = position
-		var targets = get_tree().get_nodes_in_group("Enemy")
 		projectile_instance.rotation = skin.rotation
 		projectile_instance.global_position = shootingPoint.global_position
 		projectile_instance.scale *= 0.75
@@ -69,8 +74,8 @@ func _input(_event: InputEvent) -> void:
 func _ready():
 	skin.play("Idle") 
 	skin.connect("animation_finished", self, "_animationFinished")
-	
-	
+	move_speed = base_move_speed
+	skill1 = Skill.new("damageReduction")
 
 #### LOGIC ####
 
