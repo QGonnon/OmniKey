@@ -345,22 +345,22 @@ animations = [ {
 "frames": [ SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ) ],
 "loop": false,
 "name": "AttackDown",
-"speed": 10.0
+"speed": 60.0
 }, {
 "frames": [ SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ) ],
 "loop": false,
 "name": "AttackLeft",
-"speed": 10.0
+"speed": 60.0
 }, {
 "frames": [ SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ) ],
 "loop": false,
 "name": "AttackRight",
-"speed": 10.0
+"speed": 60.0
 }, {
 "frames": [ SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ) ],
 "loop": false,
 "name": "AttackUp",
-"speed": 10.0
+"speed": 60.0
 }, {
 "frames": [ SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ) ],
 "loop": false,
@@ -456,6 +456,7 @@ radius = 162.16
 radius = 28.3384
 
 [node name="Skeleton" instance=ExtResource( 1 )]
+scale = Vector2( 0.75, 0.75 )
 collision_mask = 2
 speed = 170.0
 
