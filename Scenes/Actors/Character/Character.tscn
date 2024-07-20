@@ -30,8 +30,8 @@ shader_param/flash_color = Color( 1, 1, 1, 1 )
 shader_param/opacity = 0.0
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 17.0212
-height = 24.7811
+radius = 13.8297
+height = 33.1248
 
 [node name="Character" instance=ExtResource( 5 )]
 scale = Vector2( 0.75, 0.75 )
@@ -46,7 +46,7 @@ frames = ExtResource( 3 )
 animation = "IdleDown"
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -1.33333, 2.66667 )
+position = Vector2( -0.666667, 3.33333 )
 scale = Vector2( 0.626669, 0.68 )
 shape = SubResource( 3 )
 
