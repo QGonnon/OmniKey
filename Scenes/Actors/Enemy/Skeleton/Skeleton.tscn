@@ -443,8 +443,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="CircleShape2D" id=34]
-radius = 6.91074
+[sub_resource type="CapsuleShape2D" id=116]
 
 [sub_resource type="RectangleShape2D" id=35]
 extents = Vector2( 20, 10 )
@@ -467,7 +466,8 @@ frames = SubResource( 33 )
 animation = "IdleDown"
 
 [node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource( 34 )
+position = Vector2( -1.33333, 2.66667 )
+shape = SubResource( 116 )
 
 [node name="CollisionShape2D" parent="AttackHitBox" index="0"]
 shape = SubResource( 35 )
