@@ -22,17 +22,20 @@ func _init(skill:String):
 			active_timer_duration = 10
 			cooldown_timer_duration = 15
 		"attackSpeedBoost":
-			active_timer_duration = 10
+			active_timer_duration = 8
 			cooldown_timer_duration = 15
 		"attackDamageBoost":
-			active_timer_duration = 10
+			active_timer_duration = 8
 			cooldown_timer_duration = 15
 		"damageReduction":
-			active_timer_duration = 10
+			active_timer_duration = 7
 			cooldown_timer_duration = 15
 		"heal":
 			active_timer_duration = 0
 			cooldown_timer_duration = 60
+		"offensiveShield":
+			active_timer_duration = 10
+			cooldown_timer_duration = 15
 	
 	active_timer.one_shot=true
 	active_timer.connect("timeout", self, "_on_active_timeout")
@@ -83,3 +86,6 @@ func damageReduction(action:String):
 
 func heal():
 	return 5
+
+func offensiveShield():
+	pass

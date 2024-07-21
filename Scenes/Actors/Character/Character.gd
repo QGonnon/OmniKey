@@ -8,8 +8,7 @@ onready var shootingPoint = $gun/ShootingPoint
 onready var skin = $gun
 onready var spellBtn1 = $"../UI_Container/UI/HUD/SpellBtn1"
 
-var base_move_speed = 250
-var move_speed
+var move_speed = 250
 
 var skill1
 
@@ -75,8 +74,7 @@ func _input(_event: InputEvent) -> void:
 func _ready():
 	skin.play("Idle") 
 	skin.connect("animation_finished", self, "_animationFinished")
-	move_speed = base_move_speed
-	skill1 = Skill.new("heal")
+	skill1 = Skill.new("speedBoost")
 	add_child(skill1.active_timer)
 	add_child(skill1.cooldown_timer)
 	
@@ -84,11 +82,14 @@ func _process(delta):
 	# Activer le skill de boost de vitesse
 	if Input.is_action_just_pressed("spellCast1"):
 		var valueToModify = skill1.activate()
-		match skill1.selectedSkill:
-			"heal":
-				set_hp(get_hp()+valueToModify)
-				if get_hp()>max_hp:
-					set_hp(max_hp)
+		if skill1.active_timer == 0 and skill1.cooldown_timer==0:
+			match skill1.selectedSkill:
+				"heal":
+					set_hp(get_hp()+valueToModify)
+					if get_hp()>max_hp:
+						set_hp(max_hp)
+				"offensiveShield":
+					pass
 					
 	if not skill1.active_timer.is_stopped():
 		spellBtn1.get_node("ActifProgress").value = skill1.active_timer.time_left/skill1.active_timer_duration*100

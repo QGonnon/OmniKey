@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Actors/Character/Character_AttackHitBox.tres" type="Shape2D" id=1]
 [ext_resource path="res://Scenes/Actors/Character/Character.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Actors/Actor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Actors/Character/weapon.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://StateMachine/State.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Actors/Character/Skills/SandWall/SandWall.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Shader" id=1]
 resource_local_to_scene = true
@@ -71,3 +72,7 @@ offset = Vector2( -10, -20 )
 [node name="ShootingPoint" type="Position2D" parent="gun" index="0"]
 position = Vector2( 40, -6 )
 scale = Vector2( 1, -1 )
+
+[node name="SandWall" parent="." index="7" instance=ExtResource( 8 )]
+default_color = Color( 0, 0.788235, 1, 0.733333 )
+texture = null
