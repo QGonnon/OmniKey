@@ -1,11 +1,25 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scenes/Actors/Character/Character_AttackHitBox.tres" type="Shape2D" id=1]
 [ext_resource path="res://Scenes/Actors/Character/Character.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Actors/Character/Charcater_SpriteFrame.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://Themes/Font/BabaMediumPixels.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Scenes/Actors/Actor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Actors/Character/weapon.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://StateMachine/State.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Joystick/Attack/AttackJoystick.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Joystick/Movement/Joystick2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/UI/HUD/HUD.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/UI/Inventory/InventoryDataManager.gd" type="Script" id=11]
+[ext_resource path="res://Themes/MainTheme.tres" type="Theme" id=12]
+[ext_resource path="res://Scenes/UI/HUD/HUD.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/UI/HUD/attack.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/Joystick/Attack/WhiteCircle.png" type="Texture" id=15]
+[ext_resource path="res://Scenes/UI/HUD/HUD_Mask.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/UI/HUD/Portrait.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/UI/Inventory/InventoryItemList.gd" type="Script" id=18]
+[ext_resource path="res://Scenes/UI/Inventory/Inventory.gd" type="Script" id=19]
+[ext_resource path="res://Scenes/UI/BlackVeil.gd" type="Script" id=20]
 
 [sub_resource type="Shader" id=1]
 resource_local_to_scene = true
@@ -33,7 +47,24 @@ shader_param/opacity = 0.0
 radius = 13.8297
 height = 33.1248
 
-[node name="Character" instance=ExtResource( 5 )]
+[sub_resource type="DynamicFont" id=4]
+outline_size = 2
+outline_color = Color( 0.321569, 0, 0.176471, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.862745, 0.156863, 0.156863, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.862745, 0.156863, 0.156863, 0 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.239216, 0.639216, 0.74902, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.239216, 0.639216, 0.74902, 0 )
+
+[node name="Character" groups=["Character"] instance=ExtResource( 5 )]
 scale = Vector2( 0.75, 0.75 )
 collision_layer = 2
 script = ExtResource( 2 )
@@ -76,3 +107,190 @@ offset = Vector2( -10, -20 )
 [node name="ShootingPoint" type="Position2D" parent="gun" index="0"]
 position = Vector2( 40, -6 )
 scale = Vector2( 1, -1 )
+
+[node name="UI_Container" type="CanvasLayer" parent="." index="7"]
+
+[node name="UI" type="Control" parent="UI_Container" index="0"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HUD" type="TextureRect" parent="UI_Container/UI" index="0"]
+light_mask = 0
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 13 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="AttackJoystick" parent="UI_Container/UI/HUD" index="0" instance=ExtResource( 8 )]
+position = Vector2( 575, 296 )
+
+[node name="Portrait" type="TextureRect" parent="UI_Container/UI/HUD" index="1"]
+margin_left = 3.0
+margin_top = 6.0
+margin_right = 51.0
+margin_bottom = 54.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Light2D" type="Light2D" parent="UI_Container/UI/HUD" index="2"]
+position = Vector2( 75.5, 32.5 )
+texture = ExtResource( 16 )
+mode = 3
+range_layer_min = 1
+range_layer_max = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CoinCounter" type="Label" parent="UI_Container/UI/HUD" index="3"]
+light_mask = 0
+margin_left = 75.2471
+margin_top = 33.2053
+margin_right = 115.247
+margin_bottom = 49.2053
+custom_fonts/font = SubResource( 4 )
+text = "0"
+
+[node name="HP_Bar" type="ProgressBar" parent="UI_Container/UI/HUD" index="4"]
+margin_left = 49.0
+margin_top = 6.0
+margin_right = 134.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0, 0, 0, 0 )
+custom_styles/fg = SubResource( 5 )
+custom_styles/bg = SubResource( 6 )
+max_value = 10.0
+step = 1.0
+value = 10.0
+rounded = true
+
+[node name="MP_Bar" type="ProgressBar" parent="UI_Container/UI/HUD" index="5"]
+margin_left = 54.0
+margin_top = 19.0
+margin_right = 118.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 0, 0, 0, 0 )
+custom_styles/fg = SubResource( 7 )
+custom_styles/bg = SubResource( 8 )
+value = 100.0
+
+[node name="SpellBtn1" type="TouchScreenButton" parent="UI_Container/UI/HUD" index="6"]
+position = Vector2( 471, 296 )
+scale = Vector2( 0.195, 0.2 )
+normal = ExtResource( 14 )
+action = "spellCast1"
+
+[node name="ActifProgress" type="TextureProgress" parent="UI_Container/UI/HUD/SpellBtn1" index="0"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 185.0
+margin_bottom = 185.0
+texture_progress = ExtResource( 15 )
+fill_mode = 4
+tint_progress = Color( 0, 0.929412, 1, 0.439216 )
+radial_initial_angle = 360.0
+nine_patch_stretch = true
+
+[node name="InactifProgress" type="TextureProgress" parent="UI_Container/UI/HUD/SpellBtn1" index="1"]
+margin_left = 15.3848
+margin_top = 15.0
+margin_right = 185.385
+margin_bottom = 185.0
+texture_progress = ExtResource( 15 )
+fill_mode = 4
+tint_progress = Color( 0.219608, 0.219608, 0.219608, 0.490196 )
+radial_initial_angle = 360.0
+nine_patch_stretch = true
+
+[node name="Label" type="Label" parent="UI_Container/UI/HUD/SpellBtn1" index="2"]
+margin_left = 10.0
+margin_top = 15.0
+margin_right = 46.0
+margin_bottom = 50.0
+rect_scale = Vector2( 5, 5 )
+align = 1
+valign = 1
+
+[node name="Joystick" parent="UI_Container/UI/HUD" index="7" instance=ExtResource( 9 )]
+position = Vector2( 96, 280 )
+
+[node name="BlackVeil" type="ColorRect" parent="UI_Container/UI" index="1"]
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="UI_Container/UI/BlackVeil" index="0"]
+
+[node name="Inventory" type="Control" parent="UI_Container/UI" index="2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="InventoryDataManager" type="Node" parent="UI_Container/UI/Inventory" index="0"]
+script = ExtResource( 11 )
+
+[node name="Panel" type="Panel" parent="UI_Container/UI/Inventory" index="1"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 176.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI_Container/UI/Inventory/Panel" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI_Container/UI/Inventory/Panel/VBoxContainer" index="0"]
+margin_right = 160.0
+margin_bottom = 16.0
+text = "Inventory"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="UI_Container/UI/Inventory/Panel/VBoxContainer" index="1"]
+margin_top = 20.0
+margin_right = 160.0
+margin_bottom = 344.0
+rect_clip_content = false
+size_flags_vertical = 3
+script = ExtResource( 18 )
+
+[node name="Tween" type="Tween" parent="UI_Container/UI/Inventory" index="2"]
+
+[connection signal="hidden_changed" from="UI_Container/UI/Inventory" to="UI_Container/UI/BlackVeil" method="_on_Inventory_hidden_changed"]
+[connection signal="hidden_changed" from="UI_Container/UI/Inventory" to="UI_Container/UI/Inventory/Panel/VBoxContainer/ItemList" method="_on_Inventory_hidden_changed"]
+[connection signal="item_added" from="UI_Container/UI/Inventory/InventoryDataManager" to="UI_Container/UI/Inventory/Panel/VBoxContainer/ItemList" method="_on_InventoryDataManager_item_added"]
+[connection signal="item_removed" from="UI_Container/UI/Inventory/InventoryDataManager" to="UI_Container/UI/Inventory/Panel/VBoxContainer/ItemList" method="_on_InventoryDataManager_item_removed"]

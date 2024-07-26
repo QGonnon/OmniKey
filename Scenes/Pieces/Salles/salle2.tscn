@@ -1,9 +1,11 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scenes/Pieces/Salles/wall.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Pieces/Salles/props.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Pieces/Salles/floor.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Pieces/Salles/EntryTeleporter.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Pieces/Salles/ExitTeleporter.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/UI/HUD/Portrait.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/UI/HUD/attack.png" type="Texture" id=17]
 [ext_resource path="res://Scenes/UI/HUD/HUD_Mask.png" type="Texture" id=18]
@@ -11,8 +13,6 @@
 [ext_resource path="res://Themes/MainTheme.tres" type="Theme" id=20]
 [ext_resource path="res://Scenes/Joystick/Attack/AttackJoystick.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Joystick/Movement/Joystick2.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Actors/Character/Character.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/Pieces/Salles/salle.gd" type="Script" id=24]
 [ext_resource path="res://Scenes/UI/Inventory/InventoryDataManager.gd" type="Script" id=25]
 [ext_resource path="res://Scenes/UI/Inventory/Inventory.gd" type="Script" id=26]
 [ext_resource path="res://Scenes/UI/HUD/HUD.gd" type="Script" id=27]
@@ -38,10 +38,15 @@ bg_color = Color( 0.239216, 0.639216, 0.74902, 1 )
 [sub_resource type="StyleBoxFlat" id=887]
 bg_color = Color( 0.239216, 0.639216, 0.74902, 0 )
 
+[sub_resource type="CircleShape2D" id=888]
+radius = 20.2237
+
+[sub_resource type="CircleShape2D" id=889]
+radius = 20.2237
+
 [node name="Node2D" type="Node2D"]
 
 [node name="YSort" type="YSort" parent="."]
-script = ExtResource( 24 )
 
 [node name="Floor" type="TileMap" parent="YSort"]
 z_index = -100
@@ -162,10 +167,6 @@ cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
 tile_data = PoolIntArray( 2359328, 0, 28, 2359329, 0, 29, 2359330, 0, 30, 2359331, 0, 31, 2424864, 0, 65564, 2424865, 0, 65565, 2424866, 0, 65566, 2424867, 0, 65567, 2490400, 0, 131100, 2490401, 0, 131101, 2490402, 0, 131102, 2490403, 0, 131103, 2555936, 0, 196636, 2555937, 0, 196637, 2555938, 0, 196638, 2555939, 0, 196639 )
-
-[node name="Character" parent="YSort" instance=ExtResource( 23 )]
-position = Vector2( 75, 150 )
-z_index = 101
 
 [node name="Skeleton3" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 356, 161 )
@@ -357,6 +358,28 @@ size_flags_vertical = 3
 script = ExtResource( 28 )
 
 [node name="Tween" type="Tween" parent="YSort/UI_Container/UI/Inventory"]
+
+[node name="EntryTeleporter" type="Area2D" parent="."]
+position = Vector2( 441, 97 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntryTeleporter"]
+position = Vector2( -1, 1 )
+shape = SubResource( 888 )
+
+[node name="Position2D" type="Position2D" parent="EntryTeleporter"]
+position = Vector2( -3, 2 )
+
+[node name="ExitTeleporter" type="Area2D" parent="."]
+position = Vector2( 78, 105 )
+script = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTeleporter"]
+position = Vector2( 0, -1 )
+shape = SubResource( 889 )
+
+[node name="Position2D" type="Position2D" parent="ExitTeleporter"]
+position = Vector2( 0, -1 )
 
 [connection signal="hidden_changed" from="YSort/UI_Container/UI/Inventory" to="YSort/UI_Container/UI/BlackVeil" method="_on_Inventory_hidden_changed"]
 [connection signal="hidden_changed" from="YSort/UI_Container/UI/Inventory" to="YSort/UI_Container/UI/Inventory/Panel/VBoxContainer/ItemList" method="_on_Inventory_hidden_changed"]

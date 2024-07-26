@@ -20,7 +20,6 @@ export var cooldown_duration = 5 # Durée du cooldown en secondes
 
 func _ready() -> void:
 	var __ = EVENTS.connect("actor_died", self, "_on_EVENTS_actor_died")
-	cascade.play("default")
 	var enemies_array = get_tree().get_nodes_in_group("Enemy")
 	
 	for enemy in enemies_array:

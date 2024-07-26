@@ -1,7 +1,6 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Scenes/UI/Inventory/InventoryDataManager.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Pieces/Salles/salle.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Pieces/Tilesets/wall3.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Pieces/Tilesets/wall6.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Pieces/Tilesets/wall2.png" type="Texture" id=5]
@@ -28,11 +27,12 @@
 [ext_resource path="res://Scenes/UI/HUD/HUD.gd" type="Script" id=26]
 [ext_resource path="res://Scenes/Joystick/Attack/AttackJoystick.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Joystick/Movement/Joystick2.tscn" type="PackedScene" id=28]
-[ext_resource path="res://Scenes/Actors/Character/Character.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Scenes/Pieces/Tilesets/Mid-TownA5.png" type="Texture" id=30]
 [ext_resource path="res://Scenes/Pieces/Props/Low-TownD.png" type="Texture" id=31]
 [ext_resource path="res://Scenes/Pieces/Props/Mid-TownC.png" type="Texture" id=32]
 [ext_resource path="res://Scenes/Joystick/Attack/WhiteCircle.png" type="Texture" id=33]
+[ext_resource path="res://Scenes/Pieces/Salles/ExitTeleporter.gd" type="Script" id=34]
+[ext_resource path="res://Scenes/Pieces/Salles/EntryTeleporter.gd" type="Script" id=35]
 
 [sub_resource type="TileSet" id=858]
 0/name = "floor2.png 0"
@@ -5909,10 +5909,15 @@ bg_color = Color( 0.239216, 0.639216, 0.74902, 1 )
 [sub_resource type="StyleBoxFlat" id=867]
 bg_color = Color( 0.239216, 0.639216, 0.74902, 0 )
 
+[sub_resource type="CircleShape2D" id=890]
+radius = 20.2237
+
+[sub_resource type="CircleShape2D" id=891]
+radius = 20.2237
+
 [node name="Node2D" type="Node2D"]
 
 [node name="YSort" type="YSort" parent="."]
-script = ExtResource( 2 )
 
 [node name="Floor" type="TileMap" parent="YSort"]
 tile_set = SubResource( 858 )
@@ -5955,10 +5960,7 @@ cell_size = Vector2( 8, 8 )
 format = 1
 tile_data = PoolIntArray( 1572917, 1, 786440, 1572924, 1, 786441, 1703989, 1, 851976, 1703996, 1, 851977, 1769501, 1, 589830, 1769503, 1, 589828, 1769505, 1, 589829, 1835032, -1610612735, 393221, 1835061, 1, 851976, 1835068, 1, 851977, 1900597, 1, 851976, 1966104, -1610612735, 393222, 1966140, 1, 851977, 2031669, 1, 851976, 2097205, 1, 589832, 2097207, 1, 589833, 2097212, 1, 851977, 2162741, 1, 851976, 2228277, 1, 655368, 2228279, 1, 655369, 2228284, 1, 917513, 2293813, 1, 720904, 2293815, 1, 720905, 2293820, 1, 983049, 2949183, 1, 917514, 3080255, 1, 983050, 3407880, 2, 262144, 3407882, 2, 262145, 3407884, 2, 262145, 3407886, 2, 262145, 3407888, 2, 262145, 3407890, 2, 262146, 3538952, 2, 327680, 3538953, 0, 655363, 3538961, 0, 655362, 3538962, 2, 327682, 3670024, 2, 327680, 3670025, 0, 720899, 3670033, 0, 720898, 3670034, 2, 327682, 3801096, 2, 393216, 3801106, 2, 393218 )
 
-[node name="Character" parent="YSort" instance=ExtResource( 29 )]
-position = Vector2( 44, 172 )
-
-[node name="UI_Container" type="CanvasLayer" parent="YSort"]
+[node name="UI_Container" type="CanvasLayer" parent="YSort" groups=["Character"]]
 
 [node name="UI" type="Control" parent="YSort/UI_Container"]
 pause_mode = 2
@@ -6139,6 +6141,28 @@ size_flags_vertical = 3
 script = ExtResource( 25 )
 
 [node name="Tween" type="Tween" parent="YSort/UI_Container/UI/Inventory"]
+
+[node name="ExitTeleporter" type="Area2D" parent="."]
+position = Vector2( 123, 614 )
+script = ExtResource( 34 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTeleporter"]
+position = Vector2( 0, -1 )
+shape = SubResource( 890 )
+
+[node name="Position2D" type="Position2D" parent="ExitTeleporter"]
+position = Vector2( 0, -1 )
+
+[node name="EntryTeleporter" type="Area2D" parent="."]
+position = Vector2( 201, 133 )
+script = ExtResource( 35 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntryTeleporter"]
+position = Vector2( -3, 2 )
+shape = SubResource( 891 )
+
+[node name="Position2D" type="Position2D" parent="EntryTeleporter"]
+position = Vector2( -3, 3 )
 
 [connection signal="hidden_changed" from="YSort/UI_Container/UI/Inventory" to="YSort/UI_Container/UI/BlackVeil" method="_on_Inventory_hidden_changed"]
 [connection signal="hidden_changed" from="YSort/UI_Container/UI/Inventory" to="YSort/UI_Container/UI/Inventory/Panel/VBoxContainer/ItemList" method="_on_Inventory_hidden_changed"]
