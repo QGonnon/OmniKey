@@ -69,17 +69,12 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		state_machine.set_state("Attack")
 	
-func _on_teleport(destination):
-	print("Character: teleporting to ", destination)
-	global_position = destination 	
 
 func _ready():
 	skin.play("Idle") 
 	skin.connect("animation_finished", self, "_animationFinished")
 	move_speed = base_move_speed
 	skill1 = Skill.new("damageReduction")
-	for teleporter in get_tree().get_nodes_in_group("Teleporter"):
-		teleporter.connect("teleport", self, "_on_teleport")
 
 #### LOGIC ####
 
