@@ -5,6 +5,7 @@
 [ext_resource path="res://Scenes/UI/HUD/HUD_Mask.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/UI/HUD/HUD.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Joystick/Attack/WhiteCircle.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Pieces/Salles/salle.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Joystick/Movement/Joystick2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Joystick/Attack/AttackJoystick.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/UI/BlackVeil.gd" type="Script" id=9]
@@ -13,14 +14,13 @@
 [ext_resource path="res://Scenes/Pieces/Salles/wall.tres" type="TileSet" id=12]
 [ext_resource path="res://Scenes/Pieces/Salles/floor.tres" type="TileSet" id=13]
 [ext_resource path="res://Themes/Font/BabaMediumPixels.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://Scenes/Pieces/Salles/ExitTeleporter.gd" type="Script" id=15]
 [ext_resource path="res://Scenes/UI/Inventory/Inventory.gd" type="Script" id=16]
 [ext_resource path="res://Scenes/UI/HUD/HUD.gd" type="Script" id=17]
 [ext_resource path="res://Scenes/UI/Inventory/InventoryDataManager.gd" type="Script" id=18]
 [ext_resource path="res://Themes/MainTheme.tres" type="Theme" id=19]
 [ext_resource path="res://Scenes/Pieces/Animation/!$Spout.png" type="Texture" id=20]
 [ext_resource path="res://Scenes/Pieces/Salles/cascade.gd" type="Script" id=21]
-[ext_resource path="res://Scenes/Pieces/Salles/ExitTeleporter.gd" type="Script" id=22]
-[ext_resource path="res://Scenes/Pieces/Salles/EntryTeleporter.gd" type="Script" id=23]
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 20 )
@@ -63,11 +63,12 @@ bg_color = Color( 0.239216, 0.639216, 0.74902, 0 )
 radius = 20.2237
 
 [sub_resource type="CircleShape2D" id=11]
-radius = 20.2237
+radius = 14.0357
 
 [node name="Node2D" type="Node2D"]
 
 [node name="YSort" type="YSort" parent="."]
+script = ExtResource( 6 )
 
 [node name="Floor" type="TileMap" parent="YSort"]
 z_index = -100
@@ -151,7 +152,6 @@ format = 1
 tile_data = PoolIntArray( 196609, 1, 786432, 196610, 1, 786433, 196611, 1, 786437, 262145, 1, 851968, 262146, 1, 851969, 262147, 1, 851973, 262162, 2, 655375, 327681, 1, 917504, 327682, 1, 983041, 327683, 1, 917509, 589832, -1610612734, 983052, 2424833, -1610612735, 131081, 2490369, -1610612735, 131081 )
 
 [node name="Props" type="TileMap" parent="YSort"]
-z_index = 100
 z_as_relative = false
 format = 1
 
@@ -378,7 +378,10 @@ script = ExtResource( 10 )
 
 [node name="ExitTeleporter" type="Area2D" parent="."]
 position = Vector2( 200, 105 )
-script = ExtResource( 22 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTeleporter"]
 position = Vector2( 0, -1 )
@@ -388,11 +391,10 @@ shape = SubResource( 10 )
 position = Vector2( 0, -1 )
 
 [node name="EntryTeleporter" type="Area2D" parent="."]
-position = Vector2( 569, 93 )
-script = ExtResource( 23 )
+position = Vector2( 565, 111 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EntryTeleporter"]
-position = Vector2( -1, 1 )
+position = Vector2( -1, 0 )
 shape = SubResource( 11 )
 
 [node name="Position2D" type="Position2D" parent="EntryTeleporter"]

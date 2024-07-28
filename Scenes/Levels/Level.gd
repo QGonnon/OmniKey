@@ -2,9 +2,9 @@ extends YSort
 
 onready var pathfinder = $Tilemap/Pathfinder
 onready var character = $Character
-onready var attackJoystick = $UI_Container/UI/HUD/AttackJoystick
-onready var moveJoystick = $UI_Container/UI/HUD/Joystick
-onready var spellBtn1 = $UI_Container/UI/HUD/SpellBtn1
+onready var attackJoystick = character.get_node("UI_Container/UI/HUD/AttackJoystick")
+onready var moveJoystick = character.get_node("UI_Container/UI/HUD/Joystick")
+onready var spellBtn1 = character.get_node("UI_Container/UI/HUD/SpellBtn1")
 
 var velocity = Vector2(0,0)
 var attackVelocity = Vector2(0,0)
