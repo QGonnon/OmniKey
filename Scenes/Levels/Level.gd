@@ -6,6 +6,7 @@ onready var attackJoystick = character.get_node("UI_Container/UI/HUD/AttackJoyst
 onready var moveJoystick = character.get_node("UI_Container/UI/HUD/Joystick")
 onready var spellBtn1 = character.get_node("UI_Container/UI/HUD/SpellBtn1")
 
+
 var velocity = Vector2(0,0)
 var attackVelocity = Vector2(0,0)
 onready var skin = character.get_node("gun")
@@ -80,3 +81,4 @@ func _on_EVENTS_actor_died(actor: Actor) -> void:
 		
 		if enemies_array == [actor]:
 			EVENTS.emit_signal("room_finished")
+

@@ -20,7 +20,7 @@ var character
 # Pour stocker les références aux EntryTeleporters
 var entry_teleporters = []
 var exit_teleporters = []
-var last_scene = -1
+var last_scene = 0
 #### FONCTIONS INTÉGRÉES ####
 
 func _ready() -> void:
