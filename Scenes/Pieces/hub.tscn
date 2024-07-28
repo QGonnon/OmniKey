@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Pieces/cyberpunk_tilset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Pieces/cyberpunk2.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Pieces/cyberpunkD.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/Pieces/TownB.tres" type="TileSet" id=4]
+[ext_resource path="res://Scenes/Actors/Character/Character.tscn" type="PackedScene" id=5]
 
 [node name="Hub" type="TileMap"]
 tile_set = ExtResource( 1 )
@@ -103,3 +104,6 @@ cell_size = Vector2( 8, 8 )
 cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
 format = 1
 tile_data = PoolIntArray( 65602, 130, 0, 65604, 131, 0, 65606, 132, 0, 65608, 133, 0, 65610, 134, 0, 196674, 145, 0, 196676, 146, 0, 196678, 147, 0, 196680, 148, 0, 196682, 149, 0, 262145, 197, 0, 262147, 198, 0, 327746, 161, 0, 327748, 162, 0, 327750, 163, 0, 327752, 164, 0, 327754, 165, 0, 393217, 213, 0, 393219, 214, 0, 458818, 177, 0, 458820, 178, 0, 458822, 179, 0, 458824, 180, 0, 458826, 181, 0, 524289, 225, 0, 524291, 226, 0, 655361, 241, 0, 1572868, 111, 0, 1572870, 112, 0, 1703940, 127, 0, 1703942, 128, 0, 1835012, 142, 0, 1835014, 143, 0 )
+
+[node name="Character" parent="." instance=ExtResource( 5 )]
+position = Vector2( 71, 168 )

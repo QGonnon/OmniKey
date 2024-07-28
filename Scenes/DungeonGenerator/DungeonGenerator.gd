@@ -1,7 +1,7 @@
 extends Node2D
 class_name DungeonGenerator
 
-const MIN_DUNGEON_DEPTH = 10
+const MIN_DUNGEON_DEPTH = 5
 
 var scenes = [
 	preload("res://Scenes/Pieces/Salles/salle0.tscn"),
@@ -89,7 +89,7 @@ func _on_exit_teleporter_teleport(body: Node, next_room_index: int) -> void:
 		else:
 			print("Erreur : EntryTeleporter introuvable pour la salle index: ", next_room_index)
 	else:
-		
 		print("Erreur : index de salle suivant hors limites / dernière salle atteinte")
+		get_tree().change_scene("res://Scenes/Pieces/hub.tscn")
 	
 
