@@ -19,7 +19,8 @@ var character
 
 # Pour stocker les références aux EntryTeleporters
 var entry_teleporters = []
-
+var exit_teleporters = []
+var last_scene = -1
 #### FONCTIONS INTÉGRÉES ####
 
 func _ready() -> void:
@@ -42,19 +43,19 @@ func _generate_dungeon() -> void:
 		
 		if entry_teleporter:
 			# Mettre à jour la position du EntryTeleporter
-			entry_teleporter.position.x += current_x
+#			entry_teleporter.position.x += current_x
 			entry_teleporters.append(entry_teleporter)
-			print("EntryTeleporter ajouté à la position: ", entry_teleporter.position)
+#			print("EntryTeleporter ajouté à la position: ", entry_teleporter.position)
 		
 		if exit_teleporter:
 			# Mettre à jour la position du ExitTeleporter
-			exit_teleporter.position.x += current_x
-			if i > 0:
-				var prev_instance = get_child(get_child_count() - 2)
-				var prev_exit_teleporter = prev_instance.get_node("ExitTeleporter")
-				if prev_exit_teleporter:
-					prev_exit_teleporter.connect("teleport", self, "_on_exit_teleporter_teleport", [i])
-					print("ExitTeleporter connecté à la salle suivante avec index: ", i)
+#			exit_teleporter.position.x += current_x
+			exit_teleporters.append(exit_teleporter)
+			
+#			print("ExitTeleporter ajouté à la position: ", exit_teleporter.position)
+#
+			exit_teleporter.connect("teleport", self, "_on_exit_teleporter_teleport", [i+1])
+#					print("ExitTeleporter connecté à la salle suivante avec index: ", i)
 		
 		if i == 0 and entry_teleporter:
 			# Déplacer le personnage à la position de l'entry_teleporter dans la première salle
@@ -65,8 +66,13 @@ func _generate_dungeon() -> void:
 		
 	print("Génération terminée")
 
+
+
 func _place_scene(position: Vector2) -> Node2D:
-	var random_scene = scenes[randi() % scenes.size()]
+	var num = last_scene
+	while num == last_scene:
+		num = randi() % scenes.size()
+	var random_scene = scenes[num]
 	var instance = random_scene.instance()
 	instance.position = position
 	add_child(instance)
@@ -74,15 +80,16 @@ func _place_scene(position: Vector2) -> Node2D:
 	return instance
 
 func _on_exit_teleporter_teleport(body: Node, next_room_index: int) -> void:
-	if body == character:
-		if next_room_index < entry_teleporters.size():
-			var next_entry_teleporter = entry_teleporters[next_room_index]
-			if next_entry_teleporter:
-				character.position = next_entry_teleporter.position
-				print("Personnage téléporté à la position de l'entry teleporter: ", next_entry_teleporter.position)
+	print("Signal de téléportation reçu pour la salle index: ", next_room_index)
+	if next_room_index < entry_teleporters.size():
+		var next_entry_teleporter = entry_teleporters[next_room_index]
+		if next_entry_teleporter:
+			character.global_position = next_entry_teleporter.global_position
+			print("Personnage téléporté à la position de l'entry teleporter: ", next_entry_teleporter.position)
+		else:
+			print("Erreur : EntryTeleporter introuvable pour la salle index: ", next_room_index)
+	else:
+		
+		print("Erreur : index de salle suivant hors limites / dernière salle atteinte")
+	
 
-#### ENTRÉES ####
-
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		_generate_dungeon()

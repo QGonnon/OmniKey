@@ -7,4 +7,5 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.name == "Character":
+		print("character touched")
 		emit_signal("teleport", body)
