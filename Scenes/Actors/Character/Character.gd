@@ -10,7 +10,7 @@ onready var skin = $gun
 var velocity = Vector2(0,0)
 var attackVelocity = Vector2(0,0)
 
-var base_move_speed = 250
+var base_move_speed = 100
 var move_speed
 
 var skill1

@@ -21,6 +21,7 @@ var character
 var entry_teleporters = []
 var exit_teleporters = []
 var last_scene = 0
+var enemies = []
 #### FONCTIONS INTÉGRÉES ####
 
 func _ready() -> void:
@@ -40,22 +41,20 @@ func _generate_dungeon() -> void:
 		# Assurez-vous que les noms des téléporteurs sont corrects
 		var entry_teleporter = instance.get_node("EntryTeleporter")
 		var exit_teleporter = instance.get_node("ExitTeleporter")
+		var enemies_in_room = instance.get_tree().get_nodes_in_group("Enemy")
+		
+		enemies.append(enemies_in_room)  # Store the enemies of the current room
+		
+		for enemy in enemies_in_room:
+			if not enemy.is_connected("died", self, "_on_enemy_died"):
+				enemy.connect("died", self, "_on_enemy_died", [i, enemy])
 		
 		if entry_teleporter:
-			# Mettre à jour la position du EntryTeleporter
-#			entry_teleporter.position.x += current_x
 			entry_teleporters.append(entry_teleporter)
-#			print("EntryTeleporter ajouté à la position: ", entry_teleporter.position)
 		
 		if exit_teleporter:
-			# Mettre à jour la position du ExitTeleporter
-#			exit_teleporter.position.x += current_x
 			exit_teleporters.append(exit_teleporter)
-			
-#			print("ExitTeleporter ajouté à la position: ", exit_teleporter.position)
-#
 			exit_teleporter.connect("teleport", self, "_on_exit_teleporter_teleport", [i+1])
-#					print("ExitTeleporter connecté à la salle suivante avec index: ", i)
 		
 		if i == 0 and entry_teleporter:
 			# Déplacer le personnage à la position de l'entry_teleporter dans la première salle
@@ -65,8 +64,6 @@ func _generate_dungeon() -> void:
 		current_x += spacing_x
 		
 	print("Génération terminée")
-
-
 
 func _place_scene(position: Vector2) -> Node2D:
 	var num = last_scene
@@ -81,15 +78,41 @@ func _place_scene(position: Vector2) -> Node2D:
 
 func _on_exit_teleporter_teleport(body: Node, next_room_index: int) -> void:
 	print("Signal de téléportation reçu pour la salle index: ", next_room_index)
-	if next_room_index < entry_teleporters.size():
-		var next_entry_teleporter = entry_teleporters[next_room_index]
-		if next_entry_teleporter:
-			character.global_position = next_entry_teleporter.global_position
-			print("Personnage téléporté à la position de l'entry teleporter: ", next_entry_teleporter.position)
+	_cleanup_deleted_objects(next_room_index-1)
+	print(enemies[next_room_index-1].size())
+	if _on_enemy_exited(next_room_index-1):
+		if next_room_index < entry_teleporters.size():
+			var next_entry_teleporter = entry_teleporters[next_room_index]
+			if next_entry_teleporter:
+				character.global_position = next_entry_teleporter.global_position
+				print("Personnage téléporté à la position de l'entry teleporter: ", next_entry_teleporter.position)
+			else:
+				print("Erreur : EntryTeleporter introuvable pour la salle index: ", next_room_index)
 		else:
-			print("Erreur : EntryTeleporter introuvable pour la salle index: ", next_room_index)
+			print("Erreur : index de salle suivant hors limites / dernière salle atteinte")
+			get_tree().change_scene("res://Scenes/Levels/Level.tscn")
 	else:
-		print("Erreur : index de salle suivant hors limites / dernière salle atteinte")
-		get_tree().change_scene("res://Scenes/Pieces/hub.tscn")
-	
+		pass
 
+func _cleanup_deleted_objects(room_index: int) -> void:
+	if room_index < enemies.size():
+		for i in range(enemies[room_index].size() - 1, -1, -1):
+			if not is_instance_valid(enemies[room_index][i]):
+				enemies[room_index].remove(i)
+		print("Objets supprimés nettoyés pour la salle index: ", room_index)
+
+func _on_enemy_died(room_index: int, enemy: Node) -> void:
+	enemies[room_index].erase(enemy)
+	print("Ennemi supprimé de la salle index: ", room_index)
+	# Vérifiez si tous les ennemis de la salle sont morts
+	if enemies[room_index].size() == 0:
+		print("Tous les ennemis de la salle index ", room_index, " sont morts.")
+		# Ici, vous pouvez ajouter une logique supplémentaire si nécessaire
+	else:
+		print("Erreur : index de salle invalide ", room_index)
+
+func _on_enemy_exited(room_index: int) -> bool:
+	if room_index < enemies.size() and enemies[room_index].size() == 0:
+		return true
+	else:
+		return false

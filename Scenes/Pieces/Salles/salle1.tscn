@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Scenes/UI/Inventory/InventoryDataManager.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Pieces/Salles/salle.gd" type="Script" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Scenes/Pieces/Props/Low-TownD.png" type="Texture" id=31]
 [ext_resource path="res://Scenes/Pieces/Props/Mid-TownC.png" type="Texture" id=32]
 [ext_resource path="res://Scenes/Joystick/Attack/WhiteCircle.png" type="Texture" id=33]
+[ext_resource path="res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn" type="PackedScene" id=34]
 
 [sub_resource type="TileSet" id=858]
 0/name = "floor2.png 0"
@@ -5920,6 +5921,12 @@ radius = 20.2237
 [node name="YSort" type="YSort" parent="."]
 script = ExtResource( 2 )
 
+[node name="Skeleton2" parent="YSort" instance=ExtResource( 34 )]
+position = Vector2( 480, 162 )
+
+[node name="Skeleton" parent="YSort" instance=ExtResource( 34 )]
+position = Vector2( 313, 317 )
+
 [node name="Floor" type="TileMap" parent="YSort"]
 tile_set = SubResource( 858 )
 cell_size = Vector2( 16, 16 )
@@ -6143,6 +6150,12 @@ size_flags_vertical = 3
 script = ExtResource( 25 )
 
 [node name="Tween" type="Tween" parent="YSort/UI_Container/UI/Inventory"]
+
+[node name="Skeleton3" parent="YSort" instance=ExtResource( 34 )]
+position = Vector2( 548, 497 )
+
+[node name="Skeleton4" parent="YSort" instance=ExtResource( 34 )]
+position = Vector2( 574, 199 )
 
 [node name="ExitTeleporter" type="Area2D" parent="."]
 position = Vector2( 123, 614 )

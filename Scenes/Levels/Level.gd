@@ -23,42 +23,42 @@ func _ready() -> void:
 	add_child(character.skill1.cooldown_timer)
 	
 func _process(delta):
-	velocity = moveJoystick.get_velo()
-	var joyAngle = rad2deg(velocity.angle())
+#	velocity = moveJoystick.get_velo()
+#	var joyAngle = rad2deg(velocity.angle())
+#
+#	skin.rotation = attackJoystick.get_velo().angle()
+#
+#	var rotaGun = int(skin.rotation_degrees) % 360
+#	rotaGun = 360 + rotaGun if rotaGun < 0 else rotaGun
+#	var scaleGun = 0.50
+#	if 90 < rotaGun and rotaGun < 270:
+#		skin.scale.y = -scaleGun
+#		skin.scale.x = scaleGun
+#	else:
+#		skin.scale.y = scaleGun
+#		skin.scale.x = scaleGun
+#
+#	if attackJoystick.touched:
+#		character.shoot(delta)
+#	else:
+#		skin.play("Idle")  # Revenir à l'animation "Idle" ou une autre animation par défaut
 	
-	skin.rotation = attackJoystick.get_velo().angle()
-	
-	var rotaGun = int(skin.rotation_degrees) % 360
-	rotaGun = 360 + rotaGun if rotaGun < 0 else rotaGun
-	var scaleGun = 0.50
-	if 90 < rotaGun and rotaGun < 270:
-		skin.scale.y = -scaleGun
-		skin.scale.x = scaleGun
-	else:
-		skin.scale.y = scaleGun
-		skin.scale.x = scaleGun
-
-	if attackJoystick.touched:
-		character.shoot(delta)
-	else:
-		skin.play("Idle")  # Revenir à l'animation "Idle" ou une autre animation par défaut
-	
-	var up = int(-135 < joyAngle and joyAngle < -45)
-	var down = int(45 < joyAngle and joyAngle < 135)
-	var right = int(-45 < joyAngle and joyAngle < 45)
-	var left = int(135 < joyAngle or joyAngle < -135)
-	var dir = Vector2(right - left, down - up)
+#	var up = int(-135 < joyAngle and joyAngle < -45)
+#	var down = int(45 < joyAngle and joyAngle < 135)
+#	var right = int(-45 < joyAngle and joyAngle < 45)
+#	var left = int(135 < joyAngle or joyAngle < -135)
+#	var dir = Vector2(right - left, down - up)
 	
 	# Appliquer la vitesse boostée si nécessaire
-	var current_speed = character.move_speed * character.skill1.speedModifier
-	character.move_and_slide(velocity * current_speed, Vector2.UP)
-
-	if moveJoystick.touched:
-		character.state_machine.set_state("Move")
-	else:
-		character.state_machine.set_state("Idle")
-
-	character.set_facing_direction(dir.normalized())
+#	var current_speed = character.move_speed * character.skill1.speedModifier
+#	character.move_and_slide(velocity * current_speed, Vector2.UP)
+#
+#	if moveJoystick.touched:
+#		character.state_machine.set_state("Move")
+#	else:
+#		character.state_machine.set_state("Idle")
+#
+#	character.set_facing_direction(dir.normalized())
 	
 	# Activer le skill de boost de vitesse
 	if Input.is_action_just_pressed("spellCast1"):

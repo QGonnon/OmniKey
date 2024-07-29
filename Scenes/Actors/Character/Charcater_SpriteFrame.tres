@@ -362,22 +362,22 @@ animations = [ {
 "frames": [ SubResource( 76 ), SubResource( 77 ), SubResource( 78 ) ],
 "loop": true,
 "name": "MoveDown",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [ SubResource( 79 ), SubResource( 80 ), SubResource( 81 ) ],
 "loop": true,
 "name": "MoveLeft",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [ SubResource( 82 ), SubResource( 83 ), SubResource( 84 ) ],
 "loop": true,
 "name": "MoveRight",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [ SubResource( 85 ), SubResource( 86 ), SubResource( 87 ) ],
 "loop": true,
 "name": "MoveUp",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ) ],
 "loop": false,
