@@ -96,7 +96,7 @@ func _attack_effect() -> void:
 			if body.name == "Character":
 				body.hurt(damage/body.skill1.damageReductionModifier)
 			else:
-				body.hurt(damage)
+				body.hurt(damage*body.skill1.attackDamageModifier)
 		elif body.has_method("destroy"):
 			body.destroy()
 
