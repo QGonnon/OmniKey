@@ -2,6 +2,7 @@ extends YSort
 
 onready var pathfinder = $Tilemap/Pathfinder
 onready var character = $Character
+
 onready var attackJoystick = character.get_node("UI_Container/UI/HUD/AttackJoystick")
 onready var moveJoystick = character.get_node("UI_Container/UI/HUD/Joystick")
 onready var spellBtn1 = character.get_node("UI_Container/UI/HUD/SpellBtn1")
@@ -11,6 +12,7 @@ var velocity = Vector2(0,0)
 var attackVelocity = Vector2(0,0)
 onready var skin = character.get_node("gun")
 
+
 func _ready() -> void:
 	var __ = EVENTS.connect("actor_died", self, "_on_EVENTS_actor_died")
 	
@@ -19,6 +21,7 @@ func _ready() -> void:
 	for enemy in enemies_array:
 		enemy.pathfinder = pathfinder
 	
+
 	add_child(character.skill1.active_timer)
 	add_child(character.skill1.cooldown_timer)
 	
@@ -74,6 +77,7 @@ func _process(delta):
 		spellBtn1.get_node("Label").text = str(stepify(skill1.cooldown_timer.time_left, 0.1))
 	else:
 		spellBtn1.get_node("Label").text = ""
+
 
 func _on_EVENTS_actor_died(actor: Actor) -> void:
 	if actor is Enemy:

@@ -27,13 +27,16 @@
 [ext_resource path="res://Scenes/UI/Inventory/InventoryItemList.gd" type="Script" id=25]
 [ext_resource path="res://Scenes/UI/HUD/HUD.gd" type="Script" id=26]
 [ext_resource path="res://Scenes/Joystick/Attack/AttackJoystick.tscn" type="PackedScene" id=27]
+
 [ext_resource path="res://Scenes/Joystick/Movement/Joystick2.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Scenes/Pieces/Salles/ExitTeleporter.gd" type="Script" id=29]
+
 [ext_resource path="res://Scenes/Pieces/Tilesets/Mid-TownA5.png" type="Texture" id=30]
 [ext_resource path="res://Scenes/Pieces/Props/Low-TownD.png" type="Texture" id=31]
 [ext_resource path="res://Scenes/Pieces/Props/Mid-TownC.png" type="Texture" id=32]
 [ext_resource path="res://Scenes/Joystick/Attack/WhiteCircle.png" type="Texture" id=33]
 [ext_resource path="res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn" type="PackedScene" id=34]
+
 
 [sub_resource type="TileSet" id=858]
 0/name = "floor2.png 0"

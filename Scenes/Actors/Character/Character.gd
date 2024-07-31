@@ -7,11 +7,13 @@ onready var attackJoystick = $UI_Container/UI/HUD/AttackJoystick
 onready var bullet = preload("res://Scenes/Actors/Shoot/projectile.tscn")
 onready var shootingPoint = $gun/ShootingPoint
 onready var skin = $gun
+
 var velocity = Vector2(0,0)
 var attackVelocity = Vector2(0,0)
 
 var base_move_speed = 100
 var move_speed
+
 
 var skill1
 
@@ -112,8 +114,31 @@ func _input(_event: InputEvent) -> void:
 func _ready():
 	skin.play("Idle") 
 	skin.connect("animation_finished", self, "_animationFinished")
-	move_speed = base_move_speed
-	skill1 = Skill.new("damageReduction")
+	skill1 = Skill.new("speedBoost")
+	add_child(skill1.active_timer)
+	add_child(skill1.cooldown_timer)
+	
+func _process(delta):
+	# Activer le skill de boost de vitesse
+	if Input.is_action_just_pressed("spellCast1"):
+		var valueToModify = skill1.activate()
+		if skill1.active_timer == 0 and skill1.cooldown_timer==0:
+			match skill1.selectedSkill:
+				"heal":
+					set_hp(get_hp()+valueToModify)
+					if get_hp()>max_hp:
+						set_hp(max_hp)
+				"offensiveShield":
+					pass
+					
+	if not skill1.active_timer.is_stopped():
+		spellBtn1.get_node("ActifProgress").value = skill1.active_timer.time_left/skill1.active_timer_duration*100
+		spellBtn1.get_node("Label").text = str(stepify(skill1.active_timer.time_left, 0.1))
+	elif not skill1.cooldown_timer.is_stopped():
+		spellBtn1.get_node("InactifProgress").value = skill1.cooldown_timer.time_left/skill1.cooldown_timer_duration*100
+		spellBtn1.get_node("Label").text = str(stepify(skill1.cooldown_timer.time_left, 0.1))
+	else:
+		spellBtn1.get_node("Label").text = ""
 
 #### LOGIC ####
 
