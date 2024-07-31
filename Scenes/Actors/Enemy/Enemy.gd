@@ -21,6 +21,7 @@ var countTime = 0
 signal target_in_chase_area_changed
 signal target_in_attack_area_changed
 signal move_path_finished
+signal died
 
 #### ACCESSORS ####
 
@@ -120,6 +121,7 @@ func can_attack() -> bool:
 func die() -> void:
 	.die()
 	behaviour_tree.set_state("Inactive")
+	emit_signal("died")
 
 # Méthode hurt pour infliger des dégâts
 func hurt(damage: int) -> void:

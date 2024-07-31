@@ -2,12 +2,15 @@ extends Actor
 class_name Character
 
 #### SHOOTING ####
-
+onready var moveJoystick = $UI_Container/UI/HUD/Joystick
+onready var attackJoystick = $UI_Container/UI/HUD/AttackJoystick
 onready var bullet = preload("res://Scenes/Actors/Shoot/projectile.tscn")
 onready var shootingPoint = $gun/ShootingPoint
 onready var skin = $gun
+var velocity = Vector2(0,0)
+var attackVelocity = Vector2(0,0)
 
-var base_move_speed = 250
+var base_move_speed = 100
 var move_speed
 
 var skill1
@@ -44,6 +47,42 @@ func _animationFinished():
 	skin.frame=0
 	skin.stop()
 	
+func _process(delta):
+	velocity = moveJoystick.get_velo()
+	var joyAngle = rad2deg(velocity.angle())
+	skin.rotation = attackJoystick.get_velo().angle()
+	var rotaGun = int(skin.rotation_degrees) % 360
+	rotaGun = 360 + rotaGun if rotaGun < 0 else rotaGun
+	var scaleGun = 0.75
+	if 90 < rotaGun and rotaGun < 270:
+		skin.scale.y = -scaleGun
+		skin.scale.x = scaleGun
+	else:
+		skin.scale.y = scaleGun
+		skin.scale.x = scaleGun
+
+	if attackJoystick.touched:
+		shoot(delta)
+	else:
+		skin.play("Idle")
+	
+	var up = int(-135 < joyAngle and joyAngle < -45)
+	var down = int(45 < joyAngle and joyAngle < 135)
+	var right = int(-45 < joyAngle and joyAngle < 45)
+	var left = int(135 < joyAngle or joyAngle < -135)
+	var dir = Vector2(right - left, down - up)
+	
+	# Appliquer la vitesse boostée si nécessaire
+	
+	if moveJoystick.touched:
+		state_machine.set_state("Move")
+	else:
+		state_machine.set_state("Idle")
+
+	set_facing_direction(dir.normalized())
+	
+	move_and_slide(velocity * base_move_speed, Vector2.UP)
+	
 func getNearest(group:Array):
 	var dist = INF
 	var nearest = null
@@ -68,7 +107,6 @@ func _input(_event: InputEvent) -> void:
 	# Update the state based on the input
 	if Input.is_action_just_pressed("ui_accept"):
 		state_machine.set_state("Attack")
-	
 	
 
 func _ready():
