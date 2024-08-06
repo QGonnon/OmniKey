@@ -1,6 +1,6 @@
 extends Line2D
 
-onready var character = $"%Character"
+#onready var character = $"%Character"
 
 
 func _ready():
