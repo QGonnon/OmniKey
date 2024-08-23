@@ -6181,6 +6181,17 @@ shape = SubResource( 891 )
 [node name="Position2D" type="Position2D" parent="EntryTeleporter"]
 position = Vector2( -3, 3 )
 
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="SpawnItem2" type="Position2D" parent="SpawnPoints" groups=["SpawnItem"]]
+position = Vector2( 551, 147 )
+
+[node name="SpawnItem3" type="Position2D" parent="SpawnPoints" groups=["SpawnItem"]]
+position = Vector2( 338, 551 )
+
+[node name="SpawnItem" type="Position2D" parent="SpawnPoints" groups=["SpawnItem"]]
+position = Vector2( 233, 302 )
+
 [connection signal="hidden_changed" from="YSort/UI_Container/UI/Inventory" to="YSort/UI_Container/UI/BlackVeil" method="_on_Inventory_hidden_changed"]
 [connection signal="hidden_changed" from="YSort/UI_Container/UI/Inventory" to="YSort/UI_Container/UI/Inventory/Panel/VBoxContainer/ItemList" method="_on_Inventory_hidden_changed"]
 [connection signal="item_added" from="YSort/UI_Container/UI/Inventory/InventoryDataManager" to="YSort/UI_Container/UI/Inventory/Panel/VBoxContainer/ItemList" method="_on_InventoryDataManager_item_added"]

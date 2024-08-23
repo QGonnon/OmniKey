@@ -10,6 +10,9 @@ var scenes = [
 	preload("res://Scenes/Pieces/Salles/salle3.tscn"),
 	preload("res://Scenes/Pieces/Salles/salle4.tscn")
 ]
+var jar = preload("res://Scenes/InteractiveObjects/Jar/Jar.tscn")
+var chest = preload("res://Scenes/InteractiveObjects/Chest/Chest.tscn")
+var items = [jar, chest]
 
 export var spacing_x := 1000
 var current_x := 0
@@ -71,10 +74,36 @@ func _place_scene(position: Vector2) -> Node2D:
 		num = randi() % scenes.size()
 	var random_scene = scenes[num]
 	var instance = random_scene.instance()
+	
 	instance.position = position
 	add_child(instance)
-	print("Scène placée à: ", position)
+	var spawnPoints = instance.get_node("SpawnPoints")
+	if spawnPoints != null:
+		placeItems(instance, spawnPoints.get_children())
+	
+	# Vérifier et obtenir les points de spawn
+	
+	
+	print("Scene placed at: ", position)
 	return instance
+	
+func placeItems(salle, spawn_points):
+	
+	print("spawn point : ",  spawn_points)
+	# Placer aléatoirement les items
+	for spawn_point in spawn_points:
+		if spawn_point:
+			
+			var item_scene = items[randi() % items.size()]
+			var item_instance = item_scene.instance()
+			item_instance.position = salle.position + spawn_point.position
+			print("spawn point : ",  item_instance.position)
+			print("Adding item at position: ", item_instance.global_position)
+			add_child(item_instance)  # Ajouter l'objet comme enfant du point de spawn
+		else:
+			print("Spawn point is null.")
+
+
 
 func _on_exit_teleporter_teleport(body: Node, next_room_index: int) -> void:
 	print("Signal de téléportation reçu pour la salle index: ", next_room_index)

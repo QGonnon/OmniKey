@@ -170,3 +170,14 @@ shape = SubResource( 889 )
 
 [node name="Position2D" type="Position2D" parent="ExitTeleporter"]
 position = Vector2( 0, -1 )
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="SpawnItem" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 574, 191 )
+
+[node name="SpawnItem2" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 25, 459 )
+
+[node name="SpawnItem3" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 38, 205 )
