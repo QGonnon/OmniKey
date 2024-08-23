@@ -14,6 +14,10 @@ var jar = preload("res://Scenes/InteractiveObjects/Jar/Jar.tscn")
 var chest = preload("res://Scenes/InteractiveObjects/Chest/Chest.tscn")
 var items = [jar, chest]
 
+var ennemy1 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn")
+var ennemy2 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton2.tscn")
+var ennemies = [ennemy1, ennemy2]
+
 export var spacing_x := 1000
 var current_x := 0
 
@@ -78,8 +82,11 @@ func _place_scene(position: Vector2) -> Node2D:
 	instance.position = position
 	add_child(instance)
 	var spawnPoints = instance.get_node("SpawnPoints")
+	var spawnEnnemyPoints = instance.get_node("SpawnEnnemy")
 	if spawnPoints != null:
 		placeItems(instance, spawnPoints.get_children())
+	if spawnEnnemyPoints != null:
+		placeEnnemy(instance, spawnEnnemyPoints.get_children())
 	
 	# Vérifier et obtenir les points de spawn
 	
@@ -87,6 +94,18 @@ func _place_scene(position: Vector2) -> Node2D:
 	print("Scene placed at: ", position)
 	return instance
 	
+func placeEnnemy(salle, spawn_points):
+	
+	for spawn_point in spawn_points:
+		if spawn_point:
+			
+			var ennemy_scene = ennemies[randi() % ennemies.size()]
+			var ennemy_instance = ennemy_scene.instance()
+			ennemy_instance.position = salle.position + spawn_point.position
+			add_child(ennemy_instance)
+		else:
+			print("Spawn point is null.")
+
 func placeItems(salle, spawn_points):
 	
 	print("spawn point : ",  spawn_points)
@@ -102,8 +121,6 @@ func placeItems(salle, spawn_points):
 			add_child(item_instance)  # Ajouter l'objet comme enfant du point de spawn
 		else:
 			print("Spawn point is null.")
-
-
 
 func _on_exit_teleporter_teleport(body: Node, next_room_index: int) -> void:
 	print("Signal de téléportation reçu pour la salle index: ", next_room_index)

@@ -59,14 +59,20 @@ func shoot(delta):
 	countTime += delta
 	if countTime > delay:
 		var projectile_instance = bullet.instance()
-		projectile_instance.CollisionLayer(1)
-		projectile_instance.CollisionMask(2)
-		projectile_instance.speed=500
+		projectile_instance.collision_layer = 1
+		projectile_instance.collision_mask = 2
+		projectile_instance.speed = 500
 		
 		projectile_instance.global_position = position
 		projectile_instance.rotation = projectile_instance.get_angle_to(target.position)
 		projectile_instance.scale *= 0.75
-		owner.add_child(projectile_instance)
+		
+		# Vérification si owner est null
+		if owner:
+			owner.add_child(projectile_instance)
+		else:
+			print("Owner is null, using root as fallback.")
+			get_tree().root.add_child(projectile_instance)
 		countTime = 0
 
 func _update_target() -> void:

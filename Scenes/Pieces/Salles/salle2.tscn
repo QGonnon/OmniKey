@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Pieces/Salles/wall.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Pieces/Salles/props.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Pieces/Salles/floor.tres" type="TileSet" id=3]
-[ext_resource path="res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Pieces/Salles/salle.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Pieces/Salles/ExitTeleporter.gd" type="Script" id=6]
 
@@ -138,15 +137,6 @@ cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
 tile_data = PoolIntArray( 2359328, 0, 28, 2359329, 0, 29, 2359330, 0, 30, 2359331, 0, 31, 2424864, 0, 65564, 2424865, 0, 65565, 2424866, 0, 65566, 2424867, 0, 65567, 2490400, 0, 131100, 2490401, 0, 131101, 2490402, 0, 131102, 2490403, 0, 131103, 2555936, 0, 196636, 2555937, 0, 196637, 2555938, 0, 196638, 2555939, 0, 196639 )
 
-[node name="Skeleton3" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 356, 161 )
-
-[node name="Skeleton2" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 69, 519 )
-
-[node name="Skeleton" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 587, 422 )
-
 [node name="EntryTeleporter" type="Area2D" parent="."]
 position = Vector2( 440, 109 )
 
@@ -181,3 +171,14 @@ position = Vector2( 25, 459 )
 
 [node name="SpawnItem3" type="Position2D" parent="SpawnPoints"]
 position = Vector2( 38, 205 )
+
+[node name="SpawnEnnemy" type="Node" parent="."]
+
+[node name="SpawnEnnemy" type="Position2D" parent="SpawnEnnemy"]
+position = Vector2( 112, 381 )
+
+[node name="SpawnEnnemy2" type="Position2D" parent="SpawnEnnemy"]
+position = Vector2( 572, 295 )
+
+[node name="SpawnEnnemy3" type="Position2D" parent="SpawnEnnemy"]
+position = Vector2( 545, 441 )
