@@ -278,23 +278,31 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Button1" type="Button" parent="MissionsMenu/CanvasLayer/Panel/VBoxContainer"]
+visible = false
 margin_right = 101.0
 margin_bottom = 20.0
-text = "Extermination"
+text = "Aller en mission"
 icon_align = 2
 
 [node name="Button2" type="Button" parent="MissionsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_top = 24.0
-margin_right = 101.0
-margin_bottom = 44.0
+visible = false
+margin_right = 83.0
+margin_bottom = 20.0
 text = "Exploration"
 icon_align = 2
 
 [node name="Button3" type="Button" parent="MissionsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_top = 48.0
-margin_right = 101.0
-margin_bottom = 68.0
+visible = false
+margin_right = 76.0
+margin_bottom = 20.0
 text = "Sauvetage"
+icon_align = 2
+
+[node name="Button4" type="Button" parent="MissionsMenu/CanvasLayer/Panel/VBoxContainer"]
+visible = false
+margin_right = 101.0
+margin_bottom = 20.0
+text = "Extermination"
 icon_align = 2
 
 [node name="WeaponsMenu" parent="." instance=ExtResource( 33 )]
@@ -333,66 +341,6 @@ margin_bottom = 122.0
 text = "arme 3"
 icon = ExtResource( 29 )
 
-[node name="HeavySkillsMenu" parent="." instance=ExtResource( 33 )]
-position = Vector2( 430, 98 )
-script = null
-
-[node name="CanvasLayer" type="CanvasLayer" parent="HeavySkillsMenu"]
-script = ExtResource( 34 )
-
-[node name="Panel" type="Panel" parent="HeavySkillsMenu/CanvasLayer"]
-margin_left = 181.0
-margin_top = 216.0
-margin_right = 518.0
-margin_bottom = 387.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HeavySkillsMenu/CanvasLayer/Panel"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="Button1" type="Button" parent="HeavySkillsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_right = 91.0
-margin_bottom = 20.0
-text = "heavy skill1"
-icon_align = 2
-
-[node name="Button2" type="Button" parent="HeavySkillsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_top = 24.0
-margin_right = 91.0
-margin_bottom = 44.0
-text = "heavy skill 2"
-icon_align = 2
-
-[node name="MediumSkillsMenu" parent="." instance=ExtResource( 33 )]
-position = Vector2( 430, 96 )
-script = null
-
-[node name="CanvasLayer" type="CanvasLayer" parent="MediumSkillsMenu"]
-script = ExtResource( 35 )
-
-[node name="Panel" type="Panel" parent="MediumSkillsMenu/CanvasLayer"]
-margin_left = 181.0
-margin_top = 216.0
-margin_right = 518.0
-margin_bottom = 387.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MediumSkillsMenu/CanvasLayer/Panel"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="Button1" type="Button" parent="MediumSkillsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_right = 108.0
-margin_bottom = 20.0
-text = "medium skill1"
-icon_align = 2
-
-[node name="Button2" type="Button" parent="MediumSkillsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_top = 24.0
-margin_right = 108.0
-margin_bottom = 44.0
-text = "medium skill 2"
-icon_align = 2
-
 [node name="LightSkillsMenu" parent="." instance=ExtResource( 33 )]
 position = Vector2( 430, 98 )
 script = null
@@ -402,25 +350,85 @@ script = ExtResource( 32 )
 
 [node name="Panel" type="Panel" parent="LightSkillsMenu/CanvasLayer"]
 margin_left = 181.0
-margin_top = 216.0
+margin_top = 50.0
 margin_right = 518.0
-margin_bottom = 387.0
+margin_bottom = 221.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LightSkillsMenu/CanvasLayer/Panel"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 335.0
+margin_bottom = 168.0
 
 [node name="Button1" type="Button" parent="LightSkillsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_right = 82.0
+margin_right = 335.0
 margin_bottom = 20.0
-text = "light skill1"
+text = "Vitesse supersonique"
 icon_align = 2
 
 [node name="Button2" type="Button" parent="LightSkillsMenu/CanvasLayer/Panel/VBoxContainer"]
 margin_top = 24.0
-margin_right = 82.0
+margin_right = 335.0
 margin_bottom = 44.0
-text = "light skill 2"
+text = "Balles à haute vélocité"
+icon_align = 2
+
+[node name="MediumSkillsMenu" parent="." instance=ExtResource( 33 )]
+position = Vector2( 430, 98 )
+script = null
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MediumSkillsMenu"]
+script = ExtResource( 35 )
+
+[node name="Panel" type="Panel" parent="MediumSkillsMenu/CanvasLayer"]
+margin_left = 181.0
+margin_top = 50.0
+margin_right = 518.0
+margin_bottom = 221.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MediumSkillsMenu/CanvasLayer/Panel"]
+margin_right = 335.0
+margin_bottom = 168.0
+
+[node name="Button1" type="Button" parent="MediumSkillsMenu/CanvasLayer/Panel/VBoxContainer"]
+margin_right = 335.0
+margin_bottom = 20.0
+text = "Piqure revigorante"
+icon_align = 2
+
+[node name="Button2" type="Button" parent="MediumSkillsMenu/CanvasLayer/Panel/VBoxContainer"]
+margin_top = 24.0
+margin_right = 335.0
+margin_bottom = 44.0
+text = "Balles perforantes"
+icon_align = 2
+
+[node name="HeavySkillsMenu" parent="." instance=ExtResource( 33 )]
+position = Vector2( 430, 98 )
+script = null
+
+[node name="CanvasLayer" type="CanvasLayer" parent="HeavySkillsMenu"]
+script = ExtResource( 34 )
+
+[node name="Panel" type="Panel" parent="HeavySkillsMenu/CanvasLayer"]
+margin_left = 181.0
+margin_top = 50.0
+margin_right = 518.0
+margin_bottom = 221.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HeavySkillsMenu/CanvasLayer/Panel"]
+margin_right = 335.0
+margin_bottom = 168.0
+
+[node name="Button1" type="Button" parent="HeavySkillsMenu/CanvasLayer/Panel/VBoxContainer"]
+margin_right = 335.0
+margin_bottom = 20.0
+text = "Renforcement ultime"
+icon_align = 2
+
+[node name="Button2" type="Button" parent="HeavySkillsMenu/CanvasLayer/Panel/VBoxContainer"]
+margin_top = 24.0
+margin_right = 335.0
+margin_bottom = 44.0
+text = "Bouclier d'ondes"
 icon_align = 2
 
 [node name="ArmorsMenu" parent="." instance=ExtResource( 33 )]
