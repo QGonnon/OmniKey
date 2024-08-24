@@ -18,7 +18,7 @@
 [ext_resource path="res://Scenes/UI/Inventory/InventoryDataManager.gd" type="Script" id=16]
 [ext_resource path="res://Scenes/UI/HUD/HUD.gd" type="Script" id=17]
 [ext_resource path="res://Scenes/Joystick/Attack/AttackJoystick.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/Joystick/Movement/Joystick2.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Joystick/Movement/MoveJoystick.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/UI/Inventory/InventoryItemList.gd" type="Script" id=20]
 [ext_resource path="res://Scenes/UI/Inventory/Inventory.gd" type="Script" id=21]
 [ext_resource path="res://Scenes/UI/BlackVeil.gd" type="Script" id=22]
@@ -30,6 +30,7 @@
 [ext_resource path="res://Themes/MainTheme.tres" type="Theme" id=28]
 [ext_resource path="res://Scenes/Pieces/Salles/ExitTeleporter.gd" type="Script" id=29]
 [ext_resource path="res://Scenes/Joystick/Attack/WhiteCircle.png" type="Texture" id=30]
+
 
 [sub_resource type="TileSet" id=2]
 0/name = "floor2.png 0"

@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=29 format=2]
+
 
 [ext_resource path="res://Scenes/Actors/Character/Character_AttackHitBox.tres" type="Shape2D" id=1]
 [ext_resource path="res://Scenes/Actors/Character/Character.gd" type="Script" id=2]
@@ -20,6 +22,7 @@
 [ext_resource path="res://Scenes/UI/Inventory/InventoryItemList.gd" type="Script" id=18]
 [ext_resource path="res://Scenes/UI/Inventory/Inventory.gd" type="Script" id=19]
 [ext_resource path="res://Scenes/UI/BlackVeil.gd" type="Script" id=20]
+
 
 [sub_resource type="Shader" id=1]
 resource_local_to_scene = true
@@ -107,6 +110,7 @@ offset = Vector2( -10, -20 )
 [node name="ShootingPoint" type="Position2D" parent="gun" index="0"]
 position = Vector2( 40, -6 )
 scale = Vector2( 1, -1 )
+
 
 [node name="UI_Container" type="CanvasLayer" parent="." index="7"]
 
@@ -294,3 +298,5 @@ script = ExtResource( 18 )
 [connection signal="hidden_changed" from="UI_Container/UI/Inventory" to="UI_Container/UI/Inventory/Panel/VBoxContainer/ItemList" method="_on_Inventory_hidden_changed"]
 [connection signal="item_added" from="UI_Container/UI/Inventory/InventoryDataManager" to="UI_Container/UI/Inventory/Panel/VBoxContainer/ItemList" method="_on_InventoryDataManager_item_added"]
 [connection signal="item_removed" from="UI_Container/UI/Inventory/InventoryDataManager" to="UI_Container/UI/Inventory/Panel/VBoxContainer/ItemList" method="_on_InventoryDataManager_item_removed"]
+
+

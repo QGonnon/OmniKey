@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/credits song for my death.mp3-49a4dd9394e46da765bd2a3218e2dce2.mp3str"
+
+[deps]
+
+source_file="res://Themes/Audio/credits song for my death.mp3"
+dest_files=[ "res://.import/credits song for my death.mp3-49a4dd9394e46da765bd2a3218e2dce2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

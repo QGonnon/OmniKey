@@ -59,21 +59,12 @@ func _process(delta):
 #		character.state_machine.set_state("Idle")
 #
 #	character.set_facing_direction(dir.normalized())
+
 	
-	# Activer le skill de boost de vitesse
-	if Input.is_action_just_pressed("spellCast1"):
-		character.skill1.activate()
-		#print(character.skill1.active_timer.time_left)
+	var enemies_array = get_tree().get_nodes_in_group("Enemy")
 	
-	var skill1 = character.skill1
-	if not skill1.active_timer.is_stopped():
-		spellBtn1.get_node("ActifProgress").value = skill1.active_timer.time_left/skill1.active_timer_duration*100
-		spellBtn1.get_node("Label").text = str(stepify(skill1.active_timer.time_left, 0.1))
-	elif not skill1.cooldown_timer.is_stopped():
-		spellBtn1.get_node("InactifProgress").value = skill1.cooldown_timer.time_left/skill1.cooldown_timer_duration*100
-		spellBtn1.get_node("Label").text = str(stepify(skill1.cooldown_timer.time_left, 0.1))
-	else:
-		spellBtn1.get_node("Label").text = ""
+#	for enemy in enemies_array:
+#		enemy.pathfinder = pathfinder
 
 func _on_EVENTS_actor_died(actor: Actor) -> void:
 	if actor is Enemy:
