@@ -8,7 +8,10 @@ var scenes = [
 	preload("res://Scenes/Pieces/Salles/salle1.tscn"),
 	preload("res://Scenes/Pieces/Salles/salle2.tscn"),
 	preload("res://Scenes/Pieces/Salles/salle3.tscn"),
-	preload("res://Scenes/Pieces/Salles/salle4.tscn")
+	preload("res://Scenes/Pieces/Salles/salle4.tscn"),
+	preload("res://Scenes/Pieces/Salles/salle5.tscn"),
+	preload("res://Scenes/Pieces/Salles/salle6.tscn")
+	
 ]
 var jar = preload("res://Scenes/InteractiveObjects/Jar/Jar.tscn")
 var chest = preload("res://Scenes/InteractiveObjects/Chest/Chest.tscn")

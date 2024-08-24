@@ -7,7 +7,7 @@ onready var attackJoystick = $UI_Container/UI/HUD/AttackJoystick
 onready var moveJoystick = $UI_Container/UI/HUD/Joystick
 var velocity = Vector2(0,0)
 var attackVelocity = Vector2(0,0)
-onready var skin = character.get_node("gun")
+#onready var skin = character.get_node("gun")
 onready var cascade = $Cascade
 
 # Variables pour le skill de boost
