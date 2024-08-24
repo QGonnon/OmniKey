@@ -2,7 +2,6 @@ extends Area2D
 
 onready var joystick_base = $Base
 onready var joystick_petit = $Base/Petit
-onready var character = $"%Character"
 
 onready var max_distance = $CollisionShape2D.shape.radius
 
@@ -32,28 +31,13 @@ func _input(event):
 
 func _process(delta):
 	if touched:
-		character.state_machine.set_state("Move")
 		var distance = get_global_mouse_position().distance_to(joystick_base.global_position)
 		if distance < max_distance:
 			joystick_petit.global_position = get_global_mouse_position()
 		else:
 			var direction = (get_global_mouse_position() - joystick_base.global_position).normalized()
 			joystick_petit.global_position = joystick_base.global_position + direction * max_distance
-	else:
-		character.state_machine.set_state("Idle")
-		
-	var velocity = get_velo()
-	var joyAngle = rad2deg(get_velo().angle())
-	var up = int(-135 < joyAngle and joyAngle < -45)
-	var down = int(45 < joyAngle and joyAngle < 135)
-	var right = int(-45 < joyAngle and joyAngle < 45)
-	var left = int(135 < joyAngle or joyAngle < -135)
-	var dir = Vector2(right - left, down - up)
-	# Appliquer la vitesse boostée si nécessaire
-	var current_speed = character.move_speed * character.skill1.speedModifier
-	character.move_and_slide(velocity * current_speed, Vector2.UP)
 
-	character.set_facing_direction(dir.normalized())
 func get_velo():
 	var joy_velo = Vector2(0, 0)
 	joy_velo.x = joystick_petit.position.x / max_distance
