@@ -17,6 +17,11 @@ var jar = preload("res://Scenes/InteractiveObjects/Jar/Jar.tscn")
 var chest = preload("res://Scenes/InteractiveObjects/Chest/Chest.tscn")
 var items = [jar, chest]
 
+var nbKill = 0;
+
+onready var endMenu = $EndMissons/CanvasLayer
+onready var nbKillMenu = $EndMissons/CanvasLayer/Panel/NbKill
+
 var ennemy1 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn")
 var ennemy2 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton2.tscn")
 var ennemies = [ennemy1, ennemy2]
@@ -139,7 +144,9 @@ func _on_exit_teleporter_teleport(body: Node, next_room_index: int) -> void:
 				print("Erreur : EntryTeleporter introuvable pour la salle index: ", next_room_index)
 		else:
 			print("Erreur : index de salle suivant hors limites / dernière salle atteinte")
-			get_tree().change_scene("res://Scenes/Levels/Level.tscn")
+			nbKillMenu.text = str("Nombre de kill : ", nbKill)
+			endMenu.visible = true	
+#			get_tree().change_scene("res://Scenes/Levels/Level.tscn")
 	else:
 		pass
 
@@ -152,6 +159,7 @@ func _cleanup_deleted_objects(room_index: int) -> void:
 
 func _on_enemy_died(room_index: int, enemy: Node) -> void:
 	enemies[room_index].erase(enemy)
+	nbKill += 1
 	print("Ennemi supprimé de la salle index: ", room_index)
 	# Vérifiez si tous les ennemis de la salle sont morts
 	if enemies[room_index].size() == 0:

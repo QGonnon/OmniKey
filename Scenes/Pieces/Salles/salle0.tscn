@@ -9188,13 +9188,13 @@ shape = SubResource( 1159 )
 
 [node name="SpawnPoints" type="Node" parent="."]
 
-[node name="SpawnItem" type="Position2D" parent="SpawnPoints"]
+[node name="SpawnItem" type="Position2D" parent="SpawnPoints" groups=["Obstacle"]]
 position = Vector2( 133, 473 )
 
-[node name="SpawnItem2" type="Position2D" parent="SpawnPoints"]
+[node name="SpawnItem2" type="Position2D" parent="SpawnPoints" groups=["Obstacle"]]
 position = Vector2( 430, 390 )
 
-[node name="SpawnItem3" type="Position2D" parent="SpawnPoints"]
+[node name="SpawnItem3" type="Position2D" parent="SpawnPoints" groups=["Obstacle"]]
 position = Vector2( 138, 292 )
 
 [node name="SpawnEnnemy" type="Node" parent="."]
