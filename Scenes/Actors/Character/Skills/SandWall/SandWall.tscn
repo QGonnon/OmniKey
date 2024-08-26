@@ -1,8 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scenes/Actors/Character/Skills/SandWall/sand.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Actors/Character/Skills/SandWall/SandWall.gd" type="Script" id=2]
 
 [node name="Node2D" type="Line2D"]
-texture = ExtResource( 1 )
 script = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
