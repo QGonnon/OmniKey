@@ -74,7 +74,7 @@ func _input(_event: InputEvent) -> void:
 func _ready():
 	skin.play("Idle") 
 	skin.connect("animation_finished", self, "_animationFinished")
-	skill1 = Skill.new("speedBoost")
+	skill1 = Skill.new("offensiveShield", self)
 	add_child(skill1.active_timer)
 	add_child(skill1.cooldown_timer)
 	
@@ -82,14 +82,12 @@ func _process(delta):
 	# Activer le skill de boost de vitesse
 	if Input.is_action_just_pressed("spellCast1"):
 		var valueToModify = skill1.activate()
-		if skill1.active_timer == 0 and skill1.cooldown_timer==0:
+		if skill1.cooldown_timer.time_left==0:
 			match skill1.selectedSkill:
 				"heal":
 					set_hp(get_hp()+valueToModify)
 					if get_hp()>max_hp:
 						set_hp(max_hp)
-				"offensiveShield":
-					pass
 					
 	if not skill1.active_timer.is_stopped():
 		spellBtn1.get_node("ActifProgress").value = skill1.active_timer.time_left/skill1.active_timer_duration*100
