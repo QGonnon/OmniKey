@@ -89,12 +89,12 @@ func damageReduction(action:String):
 	elif action == "End":
 		damageReductionModifier -= 1
 
-func heal(action:String):
-	return 5
+func heal():
+	onNode.set_hp(onNode.get_hp()+5)
+	if onNode.get_hp()>onNode.max_hp:
+		onNode.set_hp(onNode.max_hp)
 
 func offensiveShield(action:String):
-	print(sandWall)
-#	return
 	if action == "Start":
 		selectedSkillNode = sandWall.instance()
 		onNode.add_child(selectedSkillNode)
