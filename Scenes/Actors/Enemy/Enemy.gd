@@ -73,6 +73,7 @@ func shoot(delta):
 		else:
 			print("Owner is null, using root as fallback.")
 			get_tree().root.add_child(projectile_instance)
+		behaviour_tree.set_state("Attack")
 		countTime = 0
 
 func _update_target() -> void:

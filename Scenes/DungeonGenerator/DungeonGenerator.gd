@@ -1,7 +1,7 @@
 extends Node2D
 class_name DungeonGenerator
 
-const MIN_DUNGEON_DEPTH = 5
+const MIN_DUNGEON_DEPTH = 2
 
 var scenes = [
 	preload("res://Scenes/Pieces/Salles/salle0.tscn"),
@@ -21,6 +21,7 @@ var nbKill = 0;
 
 onready var endMenu = $EndMissons/CanvasLayer
 onready var nbKillMenu = $EndMissons/CanvasLayer/Panel/NbKill
+
 
 var ennemy1 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn")
 var ennemy2 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton2.tscn")
@@ -145,8 +146,8 @@ func _on_exit_teleporter_teleport(body: Node, next_room_index: int) -> void:
 		else:
 			print("Erreur : index de salle suivant hors limites / dernière salle atteinte")
 			nbKillMenu.text = str("Nombre de kill : ", nbKill)
-			endMenu.visible = true	
-#			get_tree().change_scene("res://Scenes/Levels/Level.tscn")
+			endMenu.visible = true
+#			
 	else:
 		pass
 
@@ -173,3 +174,4 @@ func _on_enemy_exited(room_index: int) -> bool:
 		return true
 	else:
 		return false
+

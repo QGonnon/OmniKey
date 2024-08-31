@@ -108,7 +108,7 @@ margin_right = 28.896
 margin_bottom = 9.918
 alignment = 1
 
-[node name="Button" type="Button" parent="EndMissons/CanvasLayer/Panel/VBoxContainer"]
+[node name="Quitter" type="Button" parent="EndMissons/CanvasLayer/Panel/VBoxContainer"]
 margin_right = 66.0
 margin_bottom = 20.0
 text = "Quitter"
@@ -123,5 +123,7 @@ align = 1
 valign = 1
 
 [node name="NbKill" type="Label" parent="EndMissons/CanvasLayer/Panel"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 93.0
+margin_top = 86.0
+margin_right = 158.0
+margin_bottom = 105.0

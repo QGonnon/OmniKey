@@ -2,7 +2,7 @@ extends CanvasLayer
 
 func _ready():
 
-	$Panel/VBoxContainer/Button.connect("pressed", self, "_on_Button_pressed", [1])
+	$Panel/VBoxContainer/Quitter.connect("pressed", self, "_on_Button_pressed", [1])
 	visible=false
 
 func _on_Button_pressed(value):
