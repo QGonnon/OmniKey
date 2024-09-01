@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Menu/IntroScreen.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Menu/IntroLogo.png" type="Texture" id=2]
+[ext_resource path="res://Themes/Audio/intro1SFX.mp3" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fade in"
@@ -70,3 +71,7 @@ color = Color( 0, 0, 0, 1 )
 "anims/Fade in" = SubResource( 1 )
 "anims/Fade out" = SubResource( 4 )
 anims/RESET = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -5.0
