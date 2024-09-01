@@ -4,7 +4,8 @@ onready var pathfinder = $Tilemap/Pathfinder
 onready var character = $Character
 
 func _ready() -> void:
-	var __ = EVENTS.connect("actor_died", self, "_on_EVENTS_actor_died")
+
+	EVENTS.connect("actor_died", self, "_on_EVENTS_actor_died")
 	
 	var enemies_array = get_tree().get_nodes_in_group("Enemy")
 	
