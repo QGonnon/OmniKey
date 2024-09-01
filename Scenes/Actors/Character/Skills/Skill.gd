@@ -1,6 +1,8 @@
 extends Node
 class_name Skill
 
+var sandWall = preload("res://Scenes/Actors/Character/Skills/SandWall/SandWall.tscn")
+
 var speedModifier = 1
 var attackSpeedModifier = 1
 var damageReductionModifier = 1
@@ -11,8 +13,11 @@ var active_timer = Timer.new()
 var cooldown_timer_duration
 var cooldown_timer = Timer.new()
 var selectedSkill
+var onNode
+var selectedSkillNode
 
-func _init(skill:String):
+func _init(skill:String, node: Node2D):
+	onNode = node
 	if has_method(skill):
 		selectedSkill = skill
 	else:
@@ -85,7 +90,13 @@ func damageReduction(action:String):
 		damageReductionModifier -= 1
 
 func heal():
-	return 5
+	onNode.set_hp(onNode.get_hp()+5)
+	if onNode.get_hp()>onNode.max_hp:
+		onNode.set_hp(onNode.max_hp)
 
-func offensiveShield():
-	pass
+func offensiveShield(action:String):
+	if action == "Start":
+		selectedSkillNode = sandWall.instance()
+		onNode.add_child(selectedSkillNode)
+	elif action == "End":
+		selectedSkillNode.queue_free()

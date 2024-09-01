@@ -1,7 +1,7 @@
 extends YSort
 
-#onready var pathfinder = $Tilemap/Pathfinder
-#onready var character = $"%Character"
+onready var pathfinder = $Tilemap/Pathfinder
+onready var character = $Character
 
 func _ready() -> void:
 
@@ -9,8 +9,9 @@ func _ready() -> void:
 	
 	var enemies_array = get_tree().get_nodes_in_group("Enemy")
 	
-#	for enemy in enemies_array:
-#		enemy.pathfinder = pathfinder
+	for enemy in enemies_array:
+		enemy.pathfinder = pathfinder
+	
 
 func _on_EVENTS_actor_died(actor: Actor) -> void:
 	if actor is Enemy:
