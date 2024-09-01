@@ -90,6 +90,9 @@ func _process(delta):
 		spellBtn1.get_node("Label").text = str(stepify(skill1.cooldown_timer.time_left, 0.1))
 	else:
 		spellBtn1.get_node("Label").text = ""
+		spellBtn1.get_node("ActifProgress").value = 0
+		spellBtn1.get_node("InactifProgress").value = 0
+		
 
 #### LOGIC ####
 
