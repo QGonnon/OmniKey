@@ -1,7 +1,7 @@
 extends Node2D
 class_name DungeonGenerator
 
-const MIN_DUNGEON_DEPTH = 2
+const MIN_DUNGEON_DEPTH = 3
 
 var scenes = [
 	preload("res://Scenes/Pieces/Salles/salle0.tscn"),
@@ -11,17 +11,16 @@ var scenes = [
 	preload("res://Scenes/Pieces/Salles/salle4.tscn"),
 	preload("res://Scenes/Pieces/Salles/salle5.tscn"),
 	preload("res://Scenes/Pieces/Salles/salle6.tscn")
-	
 ]
+
 var jar = preload("res://Scenes/InteractiveObjects/Jar/Jar.tscn")
 var chest = preload("res://Scenes/InteractiveObjects/Chest/Chest.tscn")
 var items = [jar, chest]
 
-var nbKill = 0;
+var nbKill = 0
 
 onready var endMenu = $EndMissons/CanvasLayer
 onready var nbKillMenu = $EndMissons/CanvasLayer/Panel/NbKill
-
 
 var ennemy1 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn")
 var ennemy2 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton2.tscn")
@@ -32,21 +31,37 @@ var current_x := 0
 
 # Référence au node du personnage
 var character
+var arrow_sprite: Sprite
 
-# Pour stocker les références aux EntryTeleporters
+# Pour stocker les références aux EntryTeleporters et ExitTeleporters
 var entry_teleporters = []
 var exit_teleporters = []
 var last_scene = 0
 var enemies = []
+var current_room_index = 0  # Index de la salle actuelle où se trouve le joueur
+
 #### FONCTIONS INTÉGRÉES ####
 
 func _ready() -> void:
 	print("Génération du donjon...")
 	character = get_node("Character")
+	arrow_sprite = Sprite.new()
+	arrow_sprite.texture = preload("res://Scenes/DungeonGenerator/fleche-droite.png")
+	arrow_sprite.position = Vector2(0, -50)  # Positionnez la flèche au-dessus du personnage
+	arrow_sprite.scale = Vector2(0.1, 0.1)
+	arrow_sprite.visible = false  # La flèche est cachée par défaut
+	character.add_child(arrow_sprite)
 	_generate_dungeon()
 	print("Donjon généré. Prêt.")
 
 #### LOGIQUE ####
+
+func _process(delta: float) -> void:
+	if arrow_sprite.visible and current_room_index < exit_teleporters.size():
+		var exit_teleporter = exit_teleporters[current_room_index]
+		if exit_teleporter:
+			var direction = (exit_teleporter.global_position - character.global_position).normalized()
+			arrow_sprite.rotation = direction.angle()
 
 func _generate_dungeon() -> void:
 	print("Début de la génération")
@@ -59,7 +74,7 @@ func _generate_dungeon() -> void:
 		var exit_teleporter = instance.get_node("ExitTeleporter")
 		var enemies_in_room = instance.get_tree().get_nodes_in_group("Enemy")
 		
-		enemies.append(enemies_in_room)  # Store the enemies of the current room
+		enemies.append(enemies_in_room)  # Stocker les ennemis de la salle actuelle
 		
 		for enemy in enemies_in_room:
 			if not enemy.is_connected("died", self, "_on_enemy_died"):
@@ -75,6 +90,7 @@ func _generate_dungeon() -> void:
 		if i == 0 and entry_teleporter:
 			# Déplacer le personnage à la position de l'entry_teleporter dans la première salle
 			character.position = entry_teleporter.position
+			current_room_index = 0  # Définir la première salle comme salle actuelle
 			print("Personnage déplacé à la position de l'entry teleporter: ", entry_teleporter.position)
 		
 		current_x += spacing_x
@@ -97,17 +113,12 @@ func _place_scene(position: Vector2) -> Node2D:
 	if spawnEnnemyPoints != null:
 		placeEnnemy(instance, spawnEnnemyPoints.get_children())
 	
-	# Vérifier et obtenir les points de spawn
-	
-	
 	print("Scene placed at: ", position)
 	return instance
 	
 func placeEnnemy(salle, spawn_points):
-	
 	for spawn_point in spawn_points:
 		if spawn_point:
-			
 			var ennemy_scene = ennemies[randi() % ennemies.size()]
 			var ennemy_instance = ennemy_scene.instance()
 			ennemy_instance.position = salle.position + spawn_point.position
@@ -116,16 +127,11 @@ func placeEnnemy(salle, spawn_points):
 			print("Spawn point is null.")
 
 func placeItems(salle, spawn_points):
-	
-	print("spawn point : ",  spawn_points)
-	# Placer aléatoirement les items
 	for spawn_point in spawn_points:
 		if spawn_point:
-			
 			var item_scene = items[randi() % items.size()]
 			var item_instance = item_scene.instance()
 			item_instance.position = salle.position + spawn_point.position
-			print("spawn point : ",  item_instance.position)
 			print("Adding item at position: ", item_instance.global_position)
 			add_child(item_instance)  # Ajouter l'objet comme enfant du point de spawn
 		else:
@@ -133,9 +139,11 @@ func placeItems(salle, spawn_points):
 
 func _on_exit_teleporter_teleport(body: Node, next_room_index: int) -> void:
 	print("Signal de téléportation reçu pour la salle index: ", next_room_index)
+	current_room_index = next_room_index  # Mise à jour de l'index de la salle actuelle
 	_cleanup_deleted_objects(next_room_index-1)
-	print(enemies[next_room_index-1].size())
+	
 	if _on_enemy_exited(next_room_index-1):
+		arrow_sprite.visible = false  # Cache la flèche lorsqu'on change de pièce
 		if next_room_index < entry_teleporters.size():
 			var next_entry_teleporter = entry_teleporters[next_room_index]
 			if next_entry_teleporter:
@@ -145,11 +153,8 @@ func _on_exit_teleporter_teleport(body: Node, next_room_index: int) -> void:
 				print("Erreur : EntryTeleporter introuvable pour la salle index: ", next_room_index)
 		else:
 			print("Erreur : index de salle suivant hors limites / dernière salle atteinte")
-			nbKillMenu.text = str("Nombre de kill : ", nbKill)
+			nbKillMenu.text = "Nombre de kills : %d" % nbKill
 			endMenu.visible = true
-#			
-	else:
-		pass
 
 func _cleanup_deleted_objects(room_index: int) -> void:
 	if room_index < enemies.size():
@@ -162,16 +167,20 @@ func _on_enemy_died(room_index: int, enemy: Node) -> void:
 	enemies[room_index].erase(enemy)
 	nbKill += 1
 	print("Ennemi supprimé de la salle index: ", room_index)
+	
 	# Vérifiez si tous les ennemis de la salle sont morts
 	if enemies[room_index].size() == 0:
 		print("Tous les ennemis de la salle index ", room_index, " sont morts.")
-		# Ici, vous pouvez ajouter une logique supplémentaire si nécessaire
-	else:
-		print("Erreur : index de salle invalide ", room_index)
+		# Montre la flèche si c'est la salle actuelle
+		if room_index == current_room_index:
+			arrow_sprite.visible = true  
+		else:
+			# Si le joueur est encore dans une ancienne salle, mettez à jour la flèche
+			if current_room_index < exit_teleporters.size():
+				arrow_sprite.visible = true
 
 func _on_enemy_exited(room_index: int) -> bool:
 	if room_index < enemies.size() and enemies[room_index].size() == 0:
 		return true
 	else:
 		return false
-
