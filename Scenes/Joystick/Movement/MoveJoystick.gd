@@ -2,7 +2,7 @@ extends Area2D
 
 onready var joystick_base = $Base
 onready var joystick_petit = $Base/Petit
-onready var character = $"%Character"
+onready var character = get_tree().get_nodes_in_group("Character")[0]
 
 onready var max_distance = $CollisionShape2D.shape.radius
 

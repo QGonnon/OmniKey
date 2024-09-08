@@ -9,4 +9,4 @@ func _ready():
 	hide() # Hide the menu initially
 
 func _on_Button_pressed(value):
-	print(String(value) + " sélectionné")
+	get_tree().change_scene("res://Scenes/DungeonGenerator/DungeonGenerator.tscn")

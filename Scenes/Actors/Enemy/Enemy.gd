@@ -65,7 +65,12 @@ func shoot(delta):
 		projectile_instance.global_position = position
 		projectile_instance.rotation = projectile_instance.get_angle_to(target.position)
 		projectile_instance.scale *= 0.75
-		owner.add_child(projectile_instance)
+		if owner:
+			owner.add_child(projectile_instance)
+		else:
+			print("Owner is null, using root as fallback.")
+			get_tree().root.add_child(projectile_instance)
+		behaviour_tree.set_state("Attack")
 		countTime = 0
 
 func _update_target() -> void:

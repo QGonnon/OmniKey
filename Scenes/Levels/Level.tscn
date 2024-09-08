@@ -1,31 +1,18 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Actors/Character/Character.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Joystick/Attack/WhiteCircle.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/UI/HUD/UI_Container.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/InteractiveObjects/Jar/Jar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/InteractiveObjects/Chest/Chest.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/UI/HUD/HUD.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/UI/HUD/Portrait.png" type="Texture" id=7]
-[ext_resource path="res://Themes/Font/BabaMediumPixels.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://Scenes/UI/HUD/HUD_Mask.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/UI/HUD/HUD.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Levels/ItemFactory.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/Levels/Level.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Levels/Menu/WeaponMenu.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/InteractiveObjects/Door/Door.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/InteractiveObjects/Item/Item.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Resources/ItemData/HP_Potion.tres" type="Resource" id=16]
-[ext_resource path="res://Scenes/UI/Inventory/InventoryDataManager.gd" type="Script" id=17]
-[ext_resource path="res://Scenes/UI/Inventory/Inventory.gd" type="Script" id=18]
-[ext_resource path="res://Scenes/UI/Inventory/InventoryItemList.gd" type="Script" id=19]
-[ext_resource path="res://Themes/MainTheme.tres" type="Theme" id=20]
 [ext_resource path="res://Resources/ItemData/MP_Potion.tres" type="Resource" id=21]
-[ext_resource path="res://Scenes/UI/BlackVeil.gd" type="Script" id=22]
-[ext_resource path="res://Scenes/UI/HUD/attack.png" type="Texture" id=23]
-[ext_resource path="res://Scenes/Joystick/Movement/MoveJoystick.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Pieces/hub.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Scenes/Joystick/Attack/AttackJoystick.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/Levels/Menu/ArmorMenu.gd" type="Script" id=27]
 [ext_resource path="res://Weapons/2D_Pixel_Gun_Assets/Shotgun_75x32.png" type="Texture" id=28]
 [ext_resource path="res://Weapons/2D_Pixel_Gun_Assets/Ar_80x32.png" type="Texture" id=29]
@@ -36,23 +23,6 @@
 [ext_resource path="res://Scenes/Levels/Menu/HeavySkillMenu.gd" type="Script" id=34]
 [ext_resource path="res://Scenes/Levels/Menu/MediumSkillMenu.gd" type="Script" id=35]
 [ext_resource path="res://Themes/Audio/Intro_audio.mp3" type="AudioStream" id=36]
-
-[sub_resource type="DynamicFont" id=38]
-outline_size = 2
-outline_color = Color( 0.321569, 0, 0.176471, 1 )
-font_data = ExtResource( 8 )
-
-[sub_resource type="StyleBoxFlat" id=39]
-bg_color = Color( 0.862745, 0.156863, 0.156863, 1 )
-
-[sub_resource type="StyleBoxFlat" id=40]
-bg_color = Color( 0.862745, 0.156863, 0.156863, 0 )
-
-[sub_resource type="StyleBoxFlat" id=41]
-bg_color = Color( 0.239216, 0.639216, 0.74902, 1 )
-
-[sub_resource type="StyleBoxFlat" id=42]
-bg_color = Color( 0.239216, 0.639216, 0.74902, 0 )
 
 [node name="Level" type="YSort"]
 script = ExtResource( 12 )
@@ -80,187 +50,7 @@ position = Vector2( 436, 427 )
 [node name="Chest" parent="." instance=ExtResource( 4 )]
 position = Vector2( 625, 366 )
 
-[node name="UI_Container" type="CanvasLayer" parent="."]
-
-[node name="UI" type="Control" parent="UI_Container"]
-pause_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = ExtResource( 20 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="HUD" type="TextureRect" parent="UI_Container/UI"]
-light_mask = 0
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 6 )
-script = ExtResource( 10 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="AttackJoystick" parent="UI_Container/UI/HUD" instance=ExtResource( 26 )]
-position = Vector2( 575, 296 )
-
-[node name="Portrait" type="TextureRect" parent="UI_Container/UI/HUD"]
-margin_left = 3.0
-margin_top = 6.0
-margin_right = 51.0
-margin_bottom = 54.0
-texture = ExtResource( 7 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Light2D" type="Light2D" parent="UI_Container/UI/HUD"]
-position = Vector2( 75.5, 32.5 )
-texture = ExtResource( 9 )
-mode = 3
-range_layer_min = 1
-range_layer_max = 1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CoinCounter" type="Label" parent="UI_Container/UI/HUD"]
-light_mask = 0
-margin_left = 75.2471
-margin_top = 33.2053
-margin_right = 115.247
-margin_bottom = 49.2053
-custom_fonts/font = SubResource( 38 )
-text = "0"
-
-[node name="HP_Bar" type="ProgressBar" parent="UI_Container/UI/HUD"]
-margin_left = 49.0
-margin_top = 6.0
-margin_right = 134.0
-margin_bottom = 20.0
-custom_colors/font_color = Color( 0, 0, 0, 0 )
-custom_styles/fg = SubResource( 39 )
-custom_styles/bg = SubResource( 40 )
-max_value = 10.0
-step = 1.0
-value = 10.0
-rounded = true
-
-[node name="MP_Bar" type="ProgressBar" parent="UI_Container/UI/HUD"]
-margin_left = 54.0
-margin_top = 19.0
-margin_right = 118.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 0 )
-custom_styles/fg = SubResource( 41 )
-custom_styles/bg = SubResource( 42 )
-value = 100.0
-
-[node name="SpellBtn1" type="TouchScreenButton" parent="UI_Container/UI/HUD"]
-position = Vector2( 471, 296 )
-scale = Vector2( 0.195, 0.2 )
-normal = ExtResource( 23 )
-action = "spellCast1"
-
-[node name="ActifProgress" type="TextureProgress" parent="UI_Container/UI/HUD/SpellBtn1"]
-margin_left = 15.0
-margin_top = 15.0
-margin_right = 185.0
-margin_bottom = 185.0
-texture_progress = ExtResource( 2 )
-fill_mode = 4
-tint_progress = Color( 0, 0.929412, 1, 0.439216 )
-radial_initial_angle = 360.0
-nine_patch_stretch = true
-
-[node name="InactifProgress" type="TextureProgress" parent="UI_Container/UI/HUD/SpellBtn1"]
-margin_left = 15.3848
-margin_top = 15.0
-margin_right = 185.385
-margin_bottom = 185.0
-texture_progress = ExtResource( 2 )
-fill_mode = 4
-tint_progress = Color( 0.219608, 0.219608, 0.219608, 0.490196 )
-radial_initial_angle = 360.0
-nine_patch_stretch = true
-
-[node name="Label" type="Label" parent="UI_Container/UI/HUD/SpellBtn1"]
-margin_left = 10.0
-margin_top = 15.0
-margin_right = 46.0
-margin_bottom = 50.0
-rect_scale = Vector2( 5, 5 )
-align = 1
-valign = 1
-
-[node name="MoveJoystick" parent="UI_Container/UI/HUD" instance=ExtResource( 24 )]
-position = Vector2( 96, 280 )
-
-[node name="BlackVeil" type="ColorRect" parent="UI_Container/UI"]
-light_mask = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0 )
-script = ExtResource( 22 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Tween" type="Tween" parent="UI_Container/UI/BlackVeil"]
-
-[node name="Inventory" type="Control" parent="UI_Container/UI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 18 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="InventoryDataManager" type="Node" parent="UI_Container/UI/Inventory"]
-script = ExtResource( 17 )
-
-[node name="Panel" type="Panel" parent="UI_Container/UI/Inventory"]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 176.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI_Container/UI/Inventory/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -8.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="UI_Container/UI/Inventory/Panel/VBoxContainer"]
-margin_right = 160.0
-margin_bottom = 16.0
-text = "Inventory"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemList" type="ItemList" parent="UI_Container/UI/Inventory/Panel/VBoxContainer"]
-margin_top = 20.0
-margin_right = 160.0
-margin_bottom = 344.0
-rect_clip_content = false
-size_flags_vertical = 3
-script = ExtResource( 19 )
-
-[node name="Tween" type="Tween" parent="UI_Container/UI/Inventory"]
+[node name="UI_Container" parent="." instance=ExtResource( 2 )]
 
 [node name="MissionsMenu" parent="." instance=ExtResource( 33 )]
 position = Vector2( 570, 47 )
@@ -286,22 +76,25 @@ icon_align = 2
 
 [node name="Button2" type="Button" parent="MissionsMenu/CanvasLayer/Panel/VBoxContainer"]
 visible = false
-margin_right = 83.0
-margin_bottom = 20.0
+margin_top = 24.0
+margin_right = 117.0
+margin_bottom = 44.0
 text = "Exploration"
 icon_align = 2
 
 [node name="Button3" type="Button" parent="MissionsMenu/CanvasLayer/Panel/VBoxContainer"]
 visible = false
-margin_right = 76.0
-margin_bottom = 20.0
+margin_top = 24.0
+margin_right = 117.0
+margin_bottom = 44.0
 text = "Sauvetage"
 icon_align = 2
 
 [node name="Button4" type="Button" parent="MissionsMenu/CanvasLayer/Panel/VBoxContainer"]
 visible = false
-margin_right = 101.0
-margin_bottom = 20.0
+margin_top = 24.0
+margin_right = 117.0
+margin_bottom = 44.0
 text = "Extermination"
 icon_align = 2
 
@@ -432,6 +225,7 @@ text = "Bouclier d'ondes"
 icon_align = 2
 
 [node name="ArmorsMenu" parent="." instance=ExtResource( 33 )]
+visible = false
 position = Vector2( 430, 98 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ArmorsMenu"]
@@ -501,8 +295,3 @@ stream = ExtResource( 36 )
 volume_db = -10.0
 pitch_scale = 1.2
 autoplay = true
-
-[connection signal="hidden_changed" from="UI_Container/UI/Inventory" to="UI_Container/UI/BlackVeil" method="_on_Inventory_hidden_changed"]
-[connection signal="hidden_changed" from="UI_Container/UI/Inventory" to="UI_Container/UI/Inventory/Panel/VBoxContainer/ItemList" method="_on_Inventory_hidden_changed"]
-[connection signal="item_added" from="UI_Container/UI/Inventory/InventoryDataManager" to="UI_Container/UI/Inventory/Panel/VBoxContainer/ItemList" method="_on_InventoryDataManager_item_added"]
-[connection signal="item_removed" from="UI_Container/UI/Inventory/InventoryDataManager" to="UI_Container/UI/Inventory/Panel/VBoxContainer/ItemList" method="_on_InventoryDataManager_item_removed"]
