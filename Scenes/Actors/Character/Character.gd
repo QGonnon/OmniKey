@@ -12,7 +12,7 @@ var move_speed = 250
 
 var skill1
 
-var delay = 0.5
+var delay = 0.75
 var countTime = 0
 
 func look_in_direction(direction):

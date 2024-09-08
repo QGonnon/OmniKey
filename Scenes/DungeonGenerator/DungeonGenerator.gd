@@ -1,215 +1,186 @@
 extends Node2D
 class_name DungeonGenerator
 
-const MIN_DUNGEON_DEPTH = 10
+const MIN_DUNGEON_DEPTH = 1
 
-enum CELL_TYPE {
-	EMPTY,
-	WALL
-}
-onready var tilemap = $TileMap
+var scenes = [
+	preload("res://Scenes/Pieces/Salles/salle0.tscn"),
+	preload("res://Scenes/Pieces/Salles/salle1.tscn"),
+	preload("res://Scenes/Pieces/Salles/salle2.tscn"),
+	preload("res://Scenes/Pieces/Salles/salle3.tscn"),
+	preload("res://Scenes/Pieces/Salles/salle4.tscn"),
+	preload("res://Scenes/Pieces/Salles/salle5.tscn"),
+	preload("res://Scenes/Pieces/Salles/salle6.tscn")
+]
 
-export var grid_size := Vector2(10, 10)
-var grid : Array = []
+var jar = preload("res://Scenes/InteractiveObjects/Jar/Jar.tscn")
+var chest = preload("res://Scenes/InteractiveObjects/Chest/Chest.tscn")
+var items = [jar, chest]
 
-var walker_array = []
+var nbKill = 0
 
-var dijkstra_map = []
+onready var endMenu = $EndMissons/CanvasLayer
+onready var nbKillMenu = $EndMissons/CanvasLayer/Panel/NbKill
 
-var entry_cell : Vector2
-var exit_cell : Vector2
+var ennemy1 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn")
+var ennemy2 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton2.tscn")
+var ennemies = [ennemy1, ennemy2]
 
+export var spacing_x := 1000
+var current_x := 0
 
-class CellDistance:
-	var cell := Vector2.INF
-	var dist : int = -1
+# Référence au node du personnage
+var character
+var arrow_sprite: Sprite
 
-	func _init(_cell: Vector2, _dist: int) -> void:
-		cell = _cell
-		dist = _dist
+# Pour stocker les références aux EntryTeleporters et ExitTeleporters
+var entry_teleporters = []
+var exit_teleporters = []
+var last_scene = 0
+var enemies = []
+var current_room_index = 0  # Index de la salle actuelle où se trouve le joueur
 
-#### ACCESSORS ####
-
-func is_class(value: String): return value == "DungeonGenerator" or .is_class(value)
-func get_class() -> String: return "DungeonGenerator"
-
-
-#### BUILT-IN ####
+#### FONCTIONS INTÉGRÉES ####
 
 func _ready() -> void:
-	_init_grid()
-	_update_grid_display()
+	print("Génération du donjon...")
+	character = get_node("Character")
+	arrow_sprite = Sprite.new()
+	arrow_sprite.texture = preload("res://Scenes/DungeonGenerator/fleche-droite.png")
+	arrow_sprite.position = Vector2(0, -50)  # Positionnez la flèche au-dessus du personnage
+	arrow_sprite.scale = Vector2(0.1, 0.1)
+	arrow_sprite.visible = false  # La flèche est cachée par défaut
+	character.add_child(arrow_sprite)
+	_generate_dungeon()
+	print("Donjon généré. Prêt.")
 
+#### LOGIQUE ####
 
-
-#### VIRTUALS ####
-
-
-
-#### LOGIC ####
-
+func _process(delta: float) -> void:
+	if arrow_sprite.visible and current_room_index < exit_teleporters.size():
+		var exit_teleporter = exit_teleporters[current_room_index]
+		if exit_teleporter:
+			var direction = (exit_teleporter.global_position - character.global_position).normalized()
+			arrow_sprite.rotation = direction.angle()
 
 func _generate_dungeon() -> void:
-	print("Generation started")
-	dijkstra_map = []
-	while(get_dungeon_depth() < MIN_DUNGEON_DEPTH):
-		_init_grid()
+	print("Début de la génération")
 
-		entry_cell = _get_rdm_cell()
-		_place_walker(entry_cell)
-		dijkstra_map = []
-
-		while(!walker_array.empty()):
-			for walker in walker_array:
-				var accessible_cells = _get_accessible_cells(walker.cell) 
-				walker.step(accessible_cells)
-
-		_update_grid_display()
-		compute_cell_distances(entry_cell)
-	var furtherest_cells = get_furtherest_cells()
-	exit_cell = furtherest_cells[randi() % furtherest_cells.size()]
-	_place_entry_and_exit_cells()
-	_display_dijkstra_map()
-	
-	print("Generation finished")
-
-
-func set_cell(cell: Vector2, cell_type: int) -> void:
-	grid[cell.x][cell.y] = cell_type
-
-
-func _init_grid() -> void:
-	grid = []
-	
-	for i in range(grid_size.x):
-		grid.append([])
+	for i in range(MIN_DUNGEON_DEPTH):
+		var instance = _place_scene(Vector2(current_x, 0))
 		
-		for _j in range(grid_size.y):
-			grid[i].append(CELL_TYPE.WALL)
+		# Assurez-vous que les noms des téléporteurs sont corrects
+		var entry_teleporter = instance.get_node("EntryTeleporter")
+		var exit_teleporter = instance.get_node("ExitTeleporter")
+		var enemies_in_room = instance.get_tree().get_nodes_in_group("Enemy")
+		
+		enemies.append(enemies_in_room)  # Stocker les ennemis de la salle actuelle
+		
+		for enemy in enemies_in_room:
+			if not enemy.is_connected("died", self, "_on_enemy_died"):
+				enemy.connect("died", self, "_on_enemy_died", [i, enemy])
+		
+		if entry_teleporter:
+			entry_teleporters.append(entry_teleporter)
+		
+		if exit_teleporter:
+			exit_teleporters.append(exit_teleporter)
+			exit_teleporter.connect("teleport", self, "_on_exit_teleporter_teleport", [i+1])
+		
+		if i == 0 and entry_teleporter:
+			# Déplacer le personnage à la position de l'entry_teleporter dans la première salle
+			character.position = entry_teleporter.position
+			current_room_index = 0  # Définir la première salle comme salle actuelle
+			print("Personnage déplacé à la position de l'entry teleporter: ", entry_teleporter.position)
+		
+		current_x += spacing_x
+		
+	print("Génération terminée")
 
-
-func _update_grid_display() -> void:
-	for i in range(grid_size.x):
-		for j in range(grid_size.y):
-			var cell_type = grid[i][j]
-			
-			$TileMap.set_cell(i, j, cell_type - 1)
-
-
-func _place_walker(cell : Vector2, max_nb_steps: int = 9, nb_sub_walkers: int = 2) -> void:
-	var walker = Walker.new(cell, max_nb_steps, nb_sub_walkers)
-	walker_array.append(walker)
-	add_child(walker)
+func _place_scene(position: Vector2) -> Node2D:
+	var num = last_scene
+	while num == last_scene:
+		num = randi() % scenes.size()
+	var random_scene = scenes[num]
+	var instance = random_scene.instance()
 	
-	var __ = walker.connect("moved", self, "_on_walker_moved")
-	__ = walker.connect("arrived", self, "_on_walker_arrived", [walker])
-	__ = walker.connect("sub_walker_creation", self, "_on_walker_sub_walker_creation")
-
-func _get_rdm_cell() -> Vector2:
-	return Vector2(randi() % int(grid_size.x),
-						randi() % int(grid_size.y))
-
-
-func _get_accessible_cells(cell: Vector2) -> Array:
-	var adjacents = Utils.get_adjacents_cell(cell)
-	var accessibles = []
+	instance.position = position
+	add_child(instance)
+	var spawnPoints = instance.get_node("SpawnPoints")
+	var spawnEnnemyPoints = instance.get_node("SpawnEnnemy")
+	if spawnPoints != null:
+		placeItems(instance, spawnPoints.get_children())
+	if spawnEnnemyPoints != null:
+		placeEnnemy(instance, spawnEnnemyPoints.get_children())
 	
-	for adj in adjacents:
-		if is_inside_grid(adj) && grid[adj.x][adj.y] == CELL_TYPE.WALL:
-			accessibles.append(adj)
+	print("Scene placed at: ", position)
+	return instance
 	
-	return accessibles
+func placeEnnemy(salle, spawn_points):
+	for spawn_point in spawn_points:
+		if spawn_point:
+			var ennemy_scene = ennemies[randi() % ennemies.size()]
+			var ennemy_instance = ennemy_scene.instance()
+			ennemy_instance.position = salle.position + spawn_point.position
+			add_child(ennemy_instance)
+		else:
+			print("Spawn point is null.")
 
+func placeItems(salle, spawn_points):
+	for spawn_point in spawn_points:
+		if spawn_point:
+			var item_scene = items[randi() % items.size()]
+			var item_instance = item_scene.instance()
+			item_instance.position = salle.position + spawn_point.position
+			print("Adding item at position: ", item_instance.global_position)
+			add_child(item_instance)  # Ajouter l'objet comme enfant du point de spawn
+		else:
+			print("Spawn point is null.")
 
-func is_inside_grid(cell: Vector2) -> bool:
-	return cell.x >= 0 && cell.x < grid_size.x && \
-			cell.y >= 0 && cell.y < grid_size.y
+func _on_exit_teleporter_teleport(body: Node, next_room_index: int) -> void:
+	print("Signal de téléportation reçu pour la salle index: ", next_room_index)
+	current_room_index = next_room_index  # Mise à jour de l'index de la salle actuelle
+	_cleanup_deleted_objects(next_room_index-1)
+	
+	if _on_enemy_exited(next_room_index-1):
+		arrow_sprite.visible = false  # Cache la flèche lorsqu'on change de pièce
+		if next_room_index < entry_teleporters.size():
+			var next_entry_teleporter = entry_teleporters[next_room_index]
+			if next_entry_teleporter:
+				character.global_position = next_entry_teleporter.global_position
+				print("Personnage téléporté à la position de l'entry teleporter: ", next_entry_teleporter.position)
+			else:
+				print("Erreur : EntryTeleporter introuvable pour la salle index: ", next_room_index)
+		else:
+			print("Erreur : index de salle suivant hors limites / dernière salle atteinte")
+#			nbKillMenu.text = "Nombre de kills : " + nbKill
+			endMenu.visible = true
 
-func compute_cell_distances(cell : Vector2, distance: int = 0) -> void:
-	if dijkstra_map.empty():
-		dijkstra_map.append((CellDistance.new(cell, 0)))
+func _cleanup_deleted_objects(room_index: int) -> void:
+	if room_index < enemies.size():
+		for i in range(enemies[room_index].size() - 1, -1, -1):
+			if not is_instance_valid(enemies[room_index][i]):
+				enemies[room_index].remove(i)
+		print("Objets supprimés nettoyés pour la salle index: ", room_index)
 
-	distance += 1
+func _on_enemy_died(room_index: int, enemy: Node) -> void:
+	enemies[room_index].erase(enemy)
+	nbKill += 1
+	print("Ennemi supprimé de la salle index: ", room_index)
+	
+	# Vérifiez si tous les ennemis de la salle sont morts
+	if enemies[room_index].size() == 0:
+		print("Tous les ennemis de la salle index ", room_index, " sont morts.")
+		# Montre la flèche si c'est la salle actuelle
+		if room_index == current_room_index:
+			arrow_sprite.visible = true  
+		else:
+			# Si le joueur est encore dans une ancienne salle, mettez à jour la flèche
+			if current_room_index < exit_teleporters.size():
+				arrow_sprite.visible = true
 
-	var adjacents = Utils.get_adjacents_cell(cell)
-
-	for adj in adjacents:
-		var tile_id = $TileMap.get_cell(adj.x, adj.y)
-
-		if tile_id != -1 or !is_inside_grid(adj):
-			continue
-
-		var cell_dist = get_dijkstra_cell_dist(adj)
-
-		if cell_dist == null:
-			dijkstra_map.append(CellDistance.new(adj, distance))
-			compute_cell_distances(adj, distance)
-		elif cell_dist.dist > distance :
-			cell_dist.dist = distance
-			compute_cell_distances(adj, distance)
-
-func get_dijkstra_cell_dist(cell: Vector2) -> CellDistance:
-	for cell_dist in dijkstra_map:
-		if cell_dist.cell.is_equal_approx(cell):
-			return cell_dist
-	return null
-
-
-func _display_dijkstra_map() -> void:
-	for child in $CellDistances.get_children():
-		child.queue_free()
-
-	var cell_size = tilemap.get_cell_size()
-
-	for cell_dist in dijkstra_map:
-		var label = Label.new()
-		label.text = String(cell_dist.dist)
-		label.set_position(cell_dist.cell * cell_size * tilemap.scale)
-		$CellDistances.add_child(label)
-
-func _place_entry_and_exit_cells() -> void:
-
-	var entry_id = tilemap.tile_set.find_tile_by_name("Entry")
-	tilemap.set_cellv(entry_cell, entry_id)
-
-	var exit_id = tilemap.tile_set.find_tile_by_name("Exit")
-	tilemap.set_cellv(exit_cell, exit_id)
-
-func get_furtherest_cells() -> PoolVector2Array:
-	var dungeon_depth = get_dungeon_depth()
-	var furtherest_cells = PoolVector2Array()
-
-	for cell_dist in dijkstra_map:
-		if cell_dist.dist == dungeon_depth:
-			furtherest_cells.append(cell_dist.cell)
-
-	return furtherest_cells
-
-func get_dungeon_depth() -> int:
-	var max_depth = 0
-	for cell_dist in dijkstra_map:
-		if cell_dist.dist > max_depth:
-			max_depth = cell_dist.dist
-	return max_depth
-
-#### INPUTS ####
-
-
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		_generate_dungeon()
-
-
-
-#### SIGNAL RESPONSES ####
-
-func _on_walker_moved(cell: Vector2) -> void:
-	set_cell(cell, CELL_TYPE.EMPTY)
-
-
-func _on_walker_arrived(walker: Walker) -> void:
-	walker_array.erase(walker)
-	walker.queue_free()
-
-func _on_walker_sub_walker_creation(cell: Vector2, max_nb_steps: int, nb_sub_walker: int) -> void:
-		_place_walker(cell, max_nb_steps, nb_sub_walker)
+func _on_enemy_exited(room_index: int) -> bool:
+	if room_index < enemies.size() and enemies[room_index].size() == 0:
+		return true
+	else:
+		return false

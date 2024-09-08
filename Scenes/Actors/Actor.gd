@@ -5,6 +5,7 @@ onready var state_machine = $StateMachine
 onready var animated_sprite = $AnimatedSprite
 onready var attack_hit_box = $AttackHitBox
 onready var tween = $Tween
+onready var character = get_tree().get_nodes_in_group("Character")[0]
 
 var dir_dict : Dictionary = {
 	"Left": Vector2.LEFT,
@@ -94,9 +95,9 @@ func _attack_effect() -> void:
 			body.face_position(global_position)
 			var damage = _compute_damage(body)
 			if body.name == "Character":
-				body.hurt(damage/body.skill1.damageReductionModifier)
+				body.hurt(damage/character.skill1.damageReductionModifier)
 			else:
-				body.hurt(damage*body.skill1.attackDamageModifier)
+				body.hurt(damage*character.skill1.attackDamageModifier)
 		elif body.has_method("destroy"):
 			body.destroy()
 

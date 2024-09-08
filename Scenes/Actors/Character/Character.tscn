@@ -30,7 +30,7 @@ shader = SubResource( 1 )
 shader_param/flash_color = Color( 1, 1, 1, 1 )
 shader_param/opacity = 0.0
 
-[node name="Character" instance=ExtResource( 5 )]
+[node name="Character" groups=["Character"] instance=ExtResource( 5 )]
 scale = Vector2( 0.75, 0.75 )
 collision_layer = 2
 script = ExtResource( 2 )
