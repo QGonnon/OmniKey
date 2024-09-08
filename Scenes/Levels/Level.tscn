@@ -1,10 +1,15 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Scenes/Actors/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/HUD/UI_Container.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/InteractiveObjects/Jar/Jar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/InteractiveObjects/Chest/Chest.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Themes/Font/BabaMediumPixels.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Themes/SplashArts/backGroundMenu_map.jpg" type="Texture" id=7]
+[ext_resource path="res://Themes/SplashArts/backGroundMenu_neutral.jpg" type="Texture" id=8]
+[ext_resource path="res://Themes/SplashArts/backGroundMenu_scientist.jpg" type="Texture" id=9]
+[ext_resource path="res://Themes/SplashArts/backGroundMenu_technologies.jpg" type="Texture" id=10]
 [ext_resource path="res://Scenes/Levels/ItemFactory.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/Levels/Level.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Levels/Menu/WeaponMenu.gd" type="Script" id=13]
@@ -23,6 +28,45 @@
 [ext_resource path="res://Scenes/Levels/Menu/HeavySkillMenu.gd" type="Script" id=34]
 [ext_resource path="res://Scenes/Levels/Menu/MediumSkillMenu.gd" type="Script" id=35]
 [ext_resource path="res://Themes/Audio/Intro_audio.mp3" type="AudioStream" id=36]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=13]
+font_data = ExtResource( 6 )
 
 [node name="Level" type="YSort"]
 script = ExtResource( 12 )
@@ -62,39 +106,50 @@ script = ExtResource( 31 )
 margin_left = 181.0
 margin_top = 216.0
 margin_right = 518.0
-margin_bottom = 387.0
+margin_bottom = 384.0
+
+[node name="TextureRect" type="TextureRect" parent="MissionsMenu/CanvasLayer/Panel"]
+margin_right = 336.0
+margin_bottom = 167.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MissionsMenu/CanvasLayer/Panel"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 112.0
+margin_right = 224.0
+margin_bottom = 167.0
+alignment = 1
 
 [node name="Button1" type="Button" parent="MissionsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_right = 117.0
-margin_bottom = 20.0
+margin_top = 72.0
+margin_right = 126.0
+margin_bottom = 94.0
+custom_fonts/font = SubResource( 1 )
 text = "Aller en mission"
 icon_align = 2
 
 [node name="Button2" type="Button" parent="MissionsMenu/CanvasLayer/Panel/VBoxContainer"]
 visible = false
-margin_top = 24.0
-margin_right = 117.0
-margin_bottom = 44.0
+margin_top = 87.0
+margin_right = 336.0
+margin_bottom = 107.0
 text = "Exploration"
 icon_align = 2
 
 [node name="Button3" type="Button" parent="MissionsMenu/CanvasLayer/Panel/VBoxContainer"]
 visible = false
-margin_top = 24.0
-margin_right = 117.0
-margin_bottom = 44.0
+margin_top = 87.0
+margin_right = 336.0
+margin_bottom = 107.0
 text = "Sauvetage"
 icon_align = 2
 
 [node name="Button4" type="Button" parent="MissionsMenu/CanvasLayer/Panel/VBoxContainer"]
 visible = false
-margin_top = 24.0
-margin_right = 117.0
-margin_bottom = 44.0
+margin_top = 87.0
+margin_right = 336.0
+margin_bottom = 107.0
 text = "Extermination"
 icon_align = 2
 
@@ -108,94 +163,133 @@ script = ExtResource( 13 )
 margin_left = 180.0
 margin_top = 216.0
 margin_right = 517.0
-margin_bottom = 387.0
+margin_bottom = 384.0
+
+[node name="TextureRect" type="TextureRect" parent="WeaponsMenu/CanvasLayer/Panel"]
+margin_right = 336.0
+margin_bottom = 167.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WeaponsMenu/CanvasLayer/Panel"]
-margin_right = 105.0
-margin_bottom = 68.0
+margin_right = 168.0
+margin_bottom = 167.0
 
 [node name="Button1" type="Button" parent="WeaponsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_right = 139.0
+margin_right = 168.0
 margin_bottom = 38.0
+custom_fonts/font = SubResource( 2 )
 text = "arme 1"
 icon = ExtResource( 30 )
+align = 2
 
 [node name="Button2" type="Button" parent="WeaponsMenu/CanvasLayer/Panel/VBoxContainer"]
 margin_top = 42.0
-margin_right = 139.0
+margin_right = 168.0
 margin_bottom = 80.0
+custom_fonts/font = SubResource( 3 )
 text = "arme 2"
 icon = ExtResource( 28 )
+align = 2
 
 [node name="Button3" type="Button" parent="WeaponsMenu/CanvasLayer/Panel/VBoxContainer"]
 margin_top = 84.0
-margin_right = 139.0
+margin_right = 168.0
 margin_bottom = 122.0
+custom_fonts/font = SubResource( 4 )
 text = "arme 3"
 icon = ExtResource( 29 )
+align = 2
 
 [node name="LightSkillsMenu" parent="." instance=ExtResource( 33 )]
-position = Vector2( 430, 98 )
+position = Vector2( 402, 99 )
 script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="LightSkillsMenu"]
 script = ExtResource( 32 )
 
 [node name="Panel" type="Panel" parent="LightSkillsMenu/CanvasLayer"]
-margin_left = 181.0
-margin_top = 50.0
-margin_right = 518.0
-margin_bottom = 221.0
+margin_left = 183.0
+margin_top = 51.0
+margin_right = 519.0
+margin_bottom = 218.0
+
+[node name="TextureRect" type="TextureRect" parent="LightSkillsMenu/CanvasLayer/Panel"]
+margin_right = 336.0
+margin_bottom = 167.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LightSkillsMenu/CanvasLayer/Panel"]
-margin_right = 335.0
+anchor_left = -0.0952381
+anchor_right = 0.0863095
+margin_left = 112.0
+margin_right = 224.0
 margin_bottom = 168.0
+alignment = 1
 
 [node name="Button1" type="Button" parent="LightSkillsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_right = 335.0
-margin_bottom = 20.0
+margin_top = 60.0
+margin_right = 173.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 5 )
 text = "Vitesse supersonique"
 icon_align = 2
 
 [node name="Button2" type="Button" parent="LightSkillsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_top = 24.0
-margin_right = 335.0
-margin_bottom = 44.0
-text = "Balles à haute vélocité"
+margin_top = 86.0
+margin_right = 173.0
+margin_bottom = 108.0
+custom_fonts/font = SubResource( 6 )
+text = "Balles a haute velocite"
 icon_align = 2
 
 [node name="MediumSkillsMenu" parent="." instance=ExtResource( 33 )]
-position = Vector2( 430, 98 )
+position = Vector2( 402, 99 )
 script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="MediumSkillsMenu"]
 script = ExtResource( 35 )
 
 [node name="Panel" type="Panel" parent="MediumSkillsMenu/CanvasLayer"]
-margin_left = 181.0
+margin_left = 183.0
 margin_top = 50.0
 margin_right = 518.0
 margin_bottom = 221.0
 
+[node name="TextureRect" type="TextureRect" parent="MediumSkillsMenu/CanvasLayer/Panel"]
+margin_right = 336.0
+margin_bottom = 171.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MediumSkillsMenu/CanvasLayer/Panel"]
-margin_right = 335.0
+margin_left = 86.0
+margin_right = 233.0
 margin_bottom = 168.0
+alignment = 1
 
 [node name="Button1" type="Button" parent="MediumSkillsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_right = 335.0
-margin_bottom = 20.0
+margin_top = 60.0
+margin_right = 147.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 7 )
 text = "Piqure revigorante"
 icon_align = 2
 
 [node name="Button2" type="Button" parent="MediumSkillsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_top = 24.0
-margin_right = 335.0
-margin_bottom = 44.0
+margin_top = 86.0
+margin_right = 147.0
+margin_bottom = 108.0
+custom_fonts/font = SubResource( 8 )
 text = "Balles perforantes"
 icon_align = 2
 
 [node name="HeavySkillsMenu" parent="." instance=ExtResource( 33 )]
-position = Vector2( 430, 98 )
+position = Vector2( 402, 99 )
 script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="HeavySkillsMenu"]
@@ -207,26 +301,37 @@ margin_top = 50.0
 margin_right = 518.0
 margin_bottom = 221.0
 
+[node name="TextureRect" type="TextureRect" parent="HeavySkillsMenu/CanvasLayer/Panel"]
+margin_right = 336.0
+margin_bottom = 171.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="HeavySkillsMenu/CanvasLayer/Panel"]
-margin_right = 335.0
+margin_left = 81.0
+margin_right = 239.0
 margin_bottom = 168.0
+alignment = 1
 
 [node name="Button1" type="Button" parent="HeavySkillsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_right = 335.0
-margin_bottom = 20.0
+margin_top = 60.0
+margin_right = 158.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 9 )
 text = "Renforcement ultime"
 icon_align = 2
 
 [node name="Button2" type="Button" parent="HeavySkillsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_top = 24.0
-margin_right = 335.0
-margin_bottom = 44.0
+margin_top = 86.0
+margin_right = 158.0
+margin_bottom = 108.0
+custom_fonts/font = SubResource( 10 )
 text = "Bouclier d'ondes"
 icon_align = 2
 
 [node name="ArmorsMenu" parent="." instance=ExtResource( 33 )]
-visible = false
-position = Vector2( 430, 98 )
+position = Vector2( 402, 99 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ArmorsMenu"]
 script = ExtResource( 27 )
@@ -237,34 +342,44 @@ margin_top = 218.0
 margin_right = 520.0
 margin_bottom = 385.0
 
+[node name="TextureRect" type="TextureRect" parent="ArmorsMenu/CanvasLayer/Panel"]
+margin_right = 337.0
+margin_bottom = 165.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="ArmorsMenu/CanvasLayer/Panel"]
-margin_left = 1.0
-margin_top = -1.0
-margin_right = 336.0
-margin_bottom = 167.0
+margin_left = 107.0
+margin_right = 235.0
+margin_bottom = 166.0
+alignment = 1
 
 [node name="LightArmorsButton" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_right = 335.0
-margin_bottom = 20.0
+margin_top = 46.0
+margin_right = 128.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 11 )
 text = "LIGHT ARMOR"
 icon_align = 2
 
 [node name="MediumArmorsButton" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_top = 24.0
-margin_right = 335.0
-margin_bottom = 44.0
+margin_top = 72.0
+margin_right = 128.0
+margin_bottom = 94.0
+custom_fonts/font = SubResource( 12 )
 text = "MEDIUM ARMOR"
 icon_align = 2
 
 [node name="HeavyArmorsButton" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_top = 48.0
-margin_right = 335.0
-margin_bottom = 68.0
+margin_top = 98.0
+margin_right = 128.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 13 )
 text = "HEAVY ARMOR"
 icon_align = 2
 
 [node name="ItemFactory" type="Node2D" parent="."]
-visible = false
 position = Vector2( 599, 266 )
 script = ExtResource( 11 )
 
