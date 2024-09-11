@@ -5,8 +5,10 @@ var damage = 1  # Définir les dégâts infligés par la balle
 var type
 
 func _ready():
-	connect("body_entered", self, "_on_Projectile_body_entered")
-
+	var error_code = connect("body_entered", self, "_on_Projectile_body_entered")
+	if error_code != 0:
+		print("ERROR: ", error_code)
+		
 func CollisionMask(CollisionLayer:int):
 	set_collision_mask_bit(CollisionLayer-1,true)
 
@@ -33,3 +35,6 @@ func _on_Projectile_body_entered(body):
 	if body.has_method("interact"):
 		body.interact()
 	queue_free()
+
+func _on_Projectile_area_entered(body):
+	print(body)

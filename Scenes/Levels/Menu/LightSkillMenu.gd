@@ -3,8 +3,8 @@ onready var character = $"%Character"
 
 func _ready():
 	
-	$Panel/VBoxContainer/Button1.connect("pressed", self, "_on_Button_pressed", ["speedBoost"])
-	$Panel/VBoxContainer/Button2.connect("pressed", self, "_on_Button_pressed", ["attackSpeedBoost"])
+	var _error_code = $Panel/VBoxContainer/Button1.connect("pressed", self, "_on_Button_pressed", ["speedBoost"])
+	_error_code = $Panel/VBoxContainer/Button2.connect("pressed", self, "_on_Button_pressed", ["attackSpeedBoost"])
 	visible=false
 
 func _on_Button_pressed(value: String):

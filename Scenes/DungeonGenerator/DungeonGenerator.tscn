@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/DungeonGenerator/DungeonGenerator.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Themes/Font/BabaMediumPixels.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Themes/Font/Freedom-10eM.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://Themes/SplashArts/backGroundMenu_neutral.jpg" type="Texture" id=10]
+[ext_resource path="res://Scenes/DungeonGenerator/LosingMenu.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 9 )
@@ -127,6 +128,7 @@ position = Vector2( 315, 148 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="LosingMenu"]
 layer = 10
+script = ExtResource( 11 )
 
 [node name="Panel" type="Panel" parent="LosingMenu/CanvasLayer"]
 margin_left = 176.0
@@ -184,3 +186,5 @@ volume_db = -15.0
 autoplay = true
 
 [node name="UI_Container" parent="." instance=ExtResource( 7 )]
+
+[connection signal="hp_changed" from="Character" to="." method="_on_Character_hp_changed"]

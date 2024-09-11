@@ -62,7 +62,7 @@ func _on_active_timeout():
 	call(selectedSkill,"End")
 	cooldown_timer.start(cooldown_timer_duration)
 	
-func Error(action:String):
+func Error(_action:String):
 	print("Skill inexistant")
 
 func speedBoost(action:String):

@@ -2,9 +2,6 @@ extends YSort
 
 onready var pathfinder = $Tilemap/Pathfinder
 export var move_speed = 250
-onready var character = $Character
-onready var attackJoystick = $UI_Container/UI/HUD/AttackJoystick
-onready var moveJoystick = $UI_Container/UI/HUD/Joystick
 var velocity = Vector2(0,0)
 var attackVelocity = Vector2(0,0)
 
@@ -40,19 +37,10 @@ func _ready() -> void:
 	InputMap.add_action("activate_skill")
 	InputMap.action_add_event("activate_skill", input_event)
 
-func _process(delta):
-	
-	# Appliquer la vitesse boostée si nécessaire
-#	var current_speed = move_speed * 2 if is_boosted else move_speed
-#	character.move_and_slide(velocity * current_speed, Vector2.UP)
-
-
-	
-	
+func _process(_delta):
 	# Activer le skill de boost de vitesse
 	if Input.is_action_just_pressed("spellCast1"):
 		activate_skill()
-	pass
 
 func activate_skill():
 	if is_boosted or is_on_cooldown:

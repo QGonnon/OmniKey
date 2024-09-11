@@ -26,7 +26,7 @@ func update(delta: float) -> void:
 	spawn_v_force += GRAVITY
 	var spawn_v_velocity = Vector2(0.0, spawn_v_force)
 	spawn_dir_velocity = spawn_dir * spawn_dir_force
-	spawn_dir_velocity = spawn_dir_velocity.clamped(spawn_dir_velocity.length() - damping)
+	spawn_dir_velocity = spawn_dir_velocity.limit_length(spawn_dir_velocity.length() - damping)
 	
 	var velocity = spawn_v_velocity + spawn_dir_velocity
 	owner.object.position += velocity * delta

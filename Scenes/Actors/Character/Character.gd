@@ -78,7 +78,7 @@ func _ready():
 	add_child(skill1.active_timer)
 	add_child(skill1.cooldown_timer)
 	
-func _process(delta):
+func _process(_delta):
 	# Activer le skill de boost de vitesse
 	if Input.is_action_just_pressed("spellCast1"):
 		skill1.activate()

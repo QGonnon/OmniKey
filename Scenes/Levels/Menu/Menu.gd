@@ -5,8 +5,8 @@ onready var medium_skills_menu = $"../MediumSkillsMenu/CanvasLayer"
 onready var heavy_skills_menu = $"../HeavySkillsMenu/CanvasLayer"
 
 func _ready():
-	$Area.connect("body_entered", self, "_on_body_entered")
-	$Area.connect("body_exited", self, "_on_body_exited")
+	var _error_code = $Area.connect("body_entered", self, "_on_body_entered")
+	_error_code = $Area.connect("body_exited", self, "_on_body_exited")
 	
 func hide_all_skill_menus():
 	light_skills_menu.visible=false

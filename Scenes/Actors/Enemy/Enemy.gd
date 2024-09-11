@@ -21,6 +21,7 @@ var countTime = 0
 signal target_in_chase_area_changed
 signal target_in_attack_area_changed
 signal move_path_finished
+signal died
 
 #### ACCESSORS ####
 
@@ -63,13 +64,13 @@ func shoot(delta):
 		projectile_instance.speed=500
 		
 		projectile_instance.global_position = position
-		projectile_instance.rotation = projectile_instance.get_angle_to(target.position)
 		projectile_instance.scale *= 0.75
 		if owner:
 			owner.add_child(projectile_instance)
 		else:
 			print("Owner is null, using root as fallback.")
 			get_tree().root.add_child(projectile_instance)
+		projectile_instance.rotation = projectile_instance.get_angle_to(target.position)
 		behaviour_tree.set_state("Attack")
 		countTime = 0
 
@@ -125,6 +126,7 @@ func can_attack() -> bool:
 func die() -> void:
 	.die()
 	behaviour_tree.set_state("Inactive")
+	emit_signal("died")
 
 # Méthode hurt pour infliger des dégâts
 func hurt(damage: int) -> void:

@@ -30,7 +30,7 @@ func _input(event):
 			var direction = (event.position - joystick_base.global_position).normalized()
 			joystick_petit.global_position = joystick_base.global_position + direction * max_distance
 
-func _process(delta):
+func _process(_delta):
 	if touched:
 		character.state_machine.set_state("Move")
 		var distance = get_global_mouse_position().distance_to(joystick_base.global_position)

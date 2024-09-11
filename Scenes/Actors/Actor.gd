@@ -18,8 +18,8 @@ export var speed : float = 300.0
 var moving_direction := Vector2.ZERO setget set_moving_direction, get_moving_direction
 var facing_direction := Vector2.DOWN setget set_facing_direction, get_facing_direction
 
-export var max_hp : int = 3
-onready var hp : int = max_hp setget set_hp, get_hp 
+export var max_hp : float = 3.0
+onready var hp : float = max_hp setget set_hp, get_hp 
 
 signal facing_direction_changed
 signal moving_direction_changed
@@ -42,13 +42,13 @@ func set_moving_direction(value: Vector2) -> void:
 func get_moving_direction() -> Vector2:
 	return moving_direction
 
-func set_hp(value: int) -> void:
+func set_hp(value: float) -> void:
 	value = Maths.clampi(value, 0, max_hp)
 	
 	if value != hp:
 		hp = value
 		emit_signal("hp_changed", hp)
-func get_hp() -> int: return hp 
+func get_hp() -> float: return hp 
 
 #### BUILT-IN ####
 
@@ -125,7 +125,7 @@ func die() -> void:
 	EVENTS.emit_signal("actor_died", self)
 	state_machine.set_state("Dead")
 	_death_feedback()
-	$CollisionShape2D.set_disabled(true)
+	$CollisionShape2D.set_deferred("disabled ", true)
 
 
 func _hurt_feedback() -> void:

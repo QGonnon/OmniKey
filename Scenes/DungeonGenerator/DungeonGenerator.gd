@@ -20,7 +20,7 @@ var items = [jar, chest]
 var nbKill = 0
 
 onready var endMenu = $EndMissons/CanvasLayer
-onready var nbKillMenu = $EndMissons/CanvasLayer/Panel/NbKill
+onready var loseMenu = $LosingMenu/CanvasLayer
 
 var ennemy1 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn")
 var ennemy2 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton2.tscn")
@@ -56,7 +56,7 @@ func _ready() -> void:
 
 #### LOGIQUE ####
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if arrow_sprite.visible and current_room_index < exit_teleporters.size():
 		var exit_teleporter = exit_teleporters[current_room_index]
 		if exit_teleporter:
@@ -132,12 +132,12 @@ func placeItems(salle, spawn_points):
 			var item_scene = items[randi() % items.size()]
 			var item_instance = item_scene.instance()
 			item_instance.position = salle.position + spawn_point.position
-			print("Adding item at position: ", item_instance.global_position)
 			add_child(item_instance)  # Ajouter l'objet comme enfant du point de spawn
+			print("Adding item at position: ", item_instance.global_position)
 		else:
 			print("Spawn point is null.")
 
-func _on_exit_teleporter_teleport(body: Node, next_room_index: int) -> void:
+func _on_exit_teleporter_teleport(_body: Node, next_room_index: int) -> void:
 	print("Signal de téléportation reçu pour la salle index: ", next_room_index)
 	current_room_index = next_room_index  # Mise à jour de l'index de la salle actuelle
 	_cleanup_deleted_objects(next_room_index-1)
@@ -152,10 +152,7 @@ func _on_exit_teleporter_teleport(body: Node, next_room_index: int) -> void:
 			else:
 				print("Erreur : EntryTeleporter introuvable pour la salle index: ", next_room_index)
 		else:
-			print("Erreur : index de salle suivant hors limites / dernière salle atteinte")
-#			nbKillMenu.text = "Nombre de kills : " + nbKill
 			endMenu.visible = true
-
 func _cleanup_deleted_objects(room_index: int) -> void:
 	if room_index < enemies.size():
 		for i in range(enemies[room_index].size() - 1, -1, -1):
@@ -184,3 +181,7 @@ func _on_enemy_exited(room_index: int) -> bool:
 		return true
 	else:
 		return false
+
+func _on_Character_hp_changed(hp):
+	if hp==0:
+		loseMenu.visible = true

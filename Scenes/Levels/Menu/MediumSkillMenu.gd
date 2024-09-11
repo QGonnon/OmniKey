@@ -2,9 +2,8 @@ extends CanvasLayer
 onready var character = $"%Character"
 
 func _ready():
-	
-	$Panel/VBoxContainer/Button1.connect("pressed", self, "_on_Button_pressed", ["heal"])
-	$Panel/VBoxContainer/Button2.connect("pressed", self, "_on_Button_pressed", ["attackDamageBoost"])
+	var _error_code = $Panel/VBoxContainer/Button1.connect("pressed", self, "_on_Button_pressed", ["heal"])
+	_error_code = $Panel/VBoxContainer/Button2.connect("pressed", self, "_on_Button_pressed", ["attackDamageBoost"])
 	visible=false
 
 func _on_Button_pressed(value: String):

@@ -11,7 +11,7 @@ func _ready() -> void:
 func _spawn_item(item_data: ItemData, pos: Vector2) -> void:
 	var item = item_scene.instance()
 	
-	owner.add_child(item)
+	owner.call_deferred("add_child", item)
 	
 	item.set_item_data(item_data)
 	item.set_global_position(pos)
@@ -20,7 +20,7 @@ func _spawn_item(item_data: ItemData, pos: Vector2) -> void:
 func _spawn_special_item(special_item_scene: PackedScene, pos: Vector2) -> void:
 	var item = special_item_scene.instance()
 	
-	owner.add_child(item)
+	owner.call_deferred("add_child", item)
 	item.set_global_position(pos)
 
 

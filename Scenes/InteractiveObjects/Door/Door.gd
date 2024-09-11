@@ -8,7 +8,7 @@ func _ready() -> void:
 func open() -> void:
 	$GridSprite.play("Lock", true)
 	$DoorSprite.play("Open")
-	$CollisionShape2D.set_disabled(true)
+	$CollisionShape2D.set_deferred("disabled", true)
 
 
 func _on_EVENTS_room_finished() -> void:

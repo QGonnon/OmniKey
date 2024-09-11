@@ -9096,9 +9096,6 @@ rect_scale = Vector2( 5, 5 )
 align = 1
 valign = 1
 
-[node name="Joystick" parent="YSort/UI_Container/UI/HUD"]
-position = Vector2( 96, 280 )
-
 [node name="BlackVeil" type="ColorRect" parent="YSort/UI_Container/UI"]
 light_mask = 0
 anchor_right = 1.0
