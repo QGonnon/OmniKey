@@ -50,7 +50,7 @@ margin_right = 640.0
 margin_bottom = 304.0
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
-bbcode_text = "[center]Development Credits
+bbcode_text = "[center]Crédits de développement
 
 Noah DARMON
 Quentin GONNON
@@ -58,7 +58,7 @@ Wassim MENSI
 
 ---
 
-Soundtracks Credits
+Crédits des musiques
 
 credits song for my death - vivivivivi
 credit song for my death but I’ve accepted that it’s over - Spook dude
@@ -66,11 +66,11 @@ Credits song for my death... but i don't give up! - grippel's Music
 
 ---
 
-Visuals Credits
+Crédits des visuels
 
 SplashArt by AI
 PixelArt by MalibuDarby"
-text = "Development Credits
+text = "Crédits de développement
 
 Noah DARMON
 Quentin GONNON
@@ -78,7 +78,7 @@ Wassim MENSI
 
 ---
 
-Soundtracks Credits
+Crédits des musiques
 
 credits song for my death - vivivivivi
 credit song for my death but I’ve accepted that it’s over - Spook dude
@@ -86,7 +86,7 @@ Credits song for my death... but i don't give up! - grippel's Music
 
 ---
 
-Visuals Credits
+Crédits des visuels
 
 SplashArt by AI
 PixelArt by MalibuDarby"
