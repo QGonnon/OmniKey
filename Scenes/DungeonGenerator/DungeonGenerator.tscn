@@ -122,6 +122,49 @@ margin_bottom = 164.0
 custom_fonts/font = SubResource( 3 )
 text = "Retour au QG"
 
+[node name="LosingMenu" type="Node2D" parent="."]
+position = Vector2( 315, 148 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="LosingMenu"]
+layer = 10
+
+[node name="Panel" type="Panel" parent="LosingMenu/CanvasLayer"]
+margin_left = 176.0
+margin_top = 50.0
+margin_right = 520.0
+margin_bottom = 234.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="LosingMenu/CanvasLayer/Panel"]
+margin_right = 344.0
+margin_bottom = 184.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="LosingMenu/CanvasLayer/Panel"]
+margin_top = 10.0
+margin_right = 344.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 2 )
+text = "Echec de la mission"
+align = 1
+autowrap = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LosingMenu/CanvasLayer/Panel"]
+margin_left = 114.0
+margin_top = 10.0
+margin_right = 228.0
+margin_bottom = 174.0
+alignment = 2
+
+[node name="Quitter" type="Button" parent="LosingMenu/CanvasLayer/Panel/VBoxContainer"]
+margin_top = 142.0
+margin_right = 114.0
+margin_bottom = 164.0
+custom_fonts/font = SubResource( 3 )
+text = "Retour au QG"
+
 [node name="Character" parent="." instance=ExtResource( 4 )]
 unique_name_in_owner = true
 z_index = 1
