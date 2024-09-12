@@ -1,20 +1,19 @@
 extends CanvasLayer
 
+onready var character = $"%Character"
+
 func _ready():
 	
-	var error_code = $Panel/VBoxContainer/Button1.connect("pressed", self, "_on_Button_pressed", [1])
-	if error_code != 0:
-		print("ERROR: ", error_code)
-		
-	error_code = $Panel/VBoxContainer/Button2.connect("pressed", self, "_on_Button_pressed", [2])
-	if error_code != 0:
-		print("ERROR: ", error_code)
+	# Connexion des boutons pour les armes à la fonction _on_Weapon_pressed
+	var __ = $Panel/VBoxContainer/Weapon1.connect("pressed", self, "_on_Weapon_pressed", ["pistol"])
+	__ = $Panel/VBoxContainer/Weapon2.connect("pressed", self, "_on_Weapon_pressed", ["shotgun"])
+	__ = $Panel/VBoxContainer/Weapon3.connect("pressed", self, "_on_Weapon_pressed", ["assaultRifle"])
 	
-	error_code = $Panel/VBoxContainer/Button3.connect("pressed", self, "_on_Button_pressed", [3])
-	if error_code != 0:
-		print("ERROR: ", error_code)
-
+	# Connexion des boutons pour les actions sur les armes à la fonction _on_Weapon_pressed
+#	__ = $Panel/VBoxContainer/Weapon2.connect("pressed", self, "_on_Weapon_pressed", ["shotgun"])
+#	__ = $Panel/VBoxContainer/Weapon3.connect("pressed", self, "_on_Weapon_pressed", ["assaultRifle"])
+	
 	hide() # Hide the menu initially
 
-func _on_Button_pressed(value):
+func _on_Weapon_pressed(value):
 	print(String(value) + " sélectionné")

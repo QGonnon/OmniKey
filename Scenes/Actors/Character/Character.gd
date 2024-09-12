@@ -1,49 +1,17 @@
 extends Actor
 class_name Character
 
-#### SHOOTING ####
-
-onready var bullet = preload("res://Scenes/Actors/Shoot/projectile.tscn")
-onready var shootingPoint = $gun/ShootingPoint
-onready var skin = $gun
 onready var spellBtn1 = $"../UI_Container/UI/HUD/SpellBtn1"
-
+onready var weapon
 var move_speed = 250
 
 var skill1
 
-var delay = 0.75
-var countTime = 0
-
-func look_in_direction(direction):
-	var angle = direction.angle()
-	skin.rotation = angle
-
-	if direction.x > 0:
-		skin.scale.x = 1
-	elif direction.x < 0:
-		skin.scale.x = -1
-
 func shoot(delta):
-	countTime += delta
-	if countTime > delay/skill1.attackSpeedModifier:
-		var projectile_instance = bullet.instance()
-#		state_machine.set_state("shooting")
-		projectile_instance.CollisionLayer(2)
-		projectile_instance.CollisionMask(1)
-		
-		skin.play("shooting")  # Jouer l'animation "shooting"
-		projectile_instance.global_position = position
-		projectile_instance.rotation = skin.rotation
-		projectile_instance.global_position = shootingPoint.global_position
-		projectile_instance.scale *= 0.75
-		owner.add_child(projectile_instance)
-		countTime = 0
-		
-func _animationFinished():
-	skin.frame=0
-	skin.stop()
-	
+	var bullet = weapon.shoot(delta*skill1.attackSpeedModifier)
+	if bullet != null:
+		owner.add_child(bullet)
+
 func getNearest(group:Array):
 	var dist = INF
 	var nearest = null
@@ -69,19 +37,19 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		state_machine.set_state("Attack")
 	
-	
-
 func _ready():
-	skin.play("Idle") 
-	skin.connect("animation_finished", self, "_animationFinished")
 	skill1 = Skill.new("heal", self)
 	add_child(skill1.active_timer)
 	add_child(skill1.cooldown_timer)
-	
+	weapon = preload("res://Scenes/Actors/Character/Weapons/Pistol/Pistol.tscn").instance()
+	add_child(weapon)
+
 func _process(_delta):
-	# Activer le skill de boost de vitesse
+	# Activer le skill
 	if Input.is_action_just_pressed("spellCast1"):
 		skill1.activate()
+		
+	# Durée et cooldown du skill
 	if not skill1.active_timer.is_stopped():
 		spellBtn1.get_node("ActifProgress").value = skill1.active_timer.time_left/skill1.active_timer_duration*100
 		spellBtn1.get_node("Label").text = str(stepify(skill1.active_timer.time_left, 0.1))
