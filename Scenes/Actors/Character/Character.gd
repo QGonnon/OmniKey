@@ -68,7 +68,7 @@ func _process(_delta):
 #### LOGIC ####
 
 func _update_state() -> void:
-	if not state_machine.get_state_name() in ["Attack", "Parry", "shooting"]:
+	if not state_machine.get_state_name() in ["Attack", "Parry", "shooting", "Death"]:
 		if Input.is_action_pressed("block"):
 			state_machine.set_state("Block")
 		

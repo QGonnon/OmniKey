@@ -6076,9 +6076,6 @@ tint_progress = Color( 0, 0.929412, 1, 0.439216 )
 radial_initial_angle = 360.0
 nine_patch_stretch = true
 
-[node name="Joystick" parent="YSort/UI_Container/UI/HUD"]
-position = Vector2( 96, 280 )
-
 [node name="BlackVeil" type="ColorRect" parent="YSort/UI_Container/UI"]
 light_mask = 0
 anchor_right = 1.0
