@@ -5,26 +5,30 @@ onready var shootingPoint = $ShootingPoint
 
 var weaponData = PLAYERDATA.getEquippedWeapon()
 
-var damage = 1/pow(1.1, weaponData.level)
-var delay = 0.75/pow(1.1, weaponData.level)
+var damage = 0.25/pow(1.1, weaponData.level)
+var delay = 1/pow(1.1, weaponData.level)
 var delay_mili = delay*1000000
 var lastShot = Time.get_ticks_usec()
+var spread = 45
 
 func shoot(modifyAttackSpeed):
 	if Time.get_ticks_usec() > lastShot + (delay_mili/modifyAttackSpeed):
-		var projectile_instance = bullet.instance()
-		projectile_instance.CollisionLayer(2)
-		projectile_instance.CollisionMask(1)
-		
-		play("shooting")  # Jouer l'animation "shooting"
-		projectile_instance.global_position = position
-		projectile_instance.rotation = rotation
-		projectile_instance.global_position = shootingPoint.global_position
-		projectile_instance.scale *= 0.6
-		projectile_instance.damage = damage
-		
+		var bullets = []
+		for _i in range(7):
+			var projectile_instance = bullet.instance()
+			projectile_instance.CollisionLayer(2)
+			projectile_instance.CollisionMask(1)
+			
+			play("shooting")  # Jouer l'animation "shooting"
+			projectile_instance.global_position = position
+			projectile_instance.rotation_degrees = rotation_degrees - rand_range(-spread/2, spread/2)
+			projectile_instance.global_position = shootingPoint.global_position
+			projectile_instance.scale *= 0.6
+			projectile_instance.damage = damage
+			
+			bullets.append(projectile_instance)
 		lastShot = Time.get_ticks_usec()
-		return [projectile_instance]
+		return bullets
 	return []
 	
 func _animationFinished():

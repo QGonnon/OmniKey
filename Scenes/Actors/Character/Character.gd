@@ -7,9 +7,9 @@ var move_speed = 250
 
 var skill1
 
-func shoot(delta):
-	var bullet = weapon.shoot(delta*skill1.attackSpeedModifier)
-	if bullet != null:
+func shoot():
+	var bullets = weapon.shoot(skill1.attackSpeedModifier)
+	for bullet in bullets:
 		owner.add_child(bullet)
 
 func getNearest(group:Array):
@@ -41,7 +41,10 @@ func _ready():
 	skill1 = Skill.new("heal", self)
 	add_child(skill1.active_timer)
 	add_child(skill1.cooldown_timer)
-	weapon = preload("res://Scenes/Actors/Character/Weapons/Pistol/Pistol.tscn").instance()
+	var weaponName = PLAYERDATA.getValue("equippedWeapon")
+	weaponName = weaponName[0].to_upper() + weaponName.substr(1,-1)
+	var weaponScene = "res://Scenes/Actors/Character/Weapons/"+weaponName+"/"+weaponName+".tscn"
+	weapon = load(weaponScene).instance()
 	add_child(weapon)
 
 func _process(_delta):

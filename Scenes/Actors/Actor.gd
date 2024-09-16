@@ -93,11 +93,10 @@ func _attack_effect() -> void:
 			continue
 		if body.has_method("hurt"):
 			body.face_position(global_position)
-			var damage = _compute_damage(body)
 			if body.name == "Character":
-				body.hurt(damage/character.skill1.damageReductionModifier)
-			else:
-				body.hurt(damage*character.skill1.attackDamageModifier)
+				body.hurt(1/character.skill1.damageReductionModifier)
+#			else:
+#				body.hurt(character.weapon.damage*character.skill1.attackDamageModifier)
 		elif body.has_method("destroy"):
 			body.destroy()
 
@@ -108,7 +107,7 @@ func _update_attack_hitbox_direction() -> void:
 	attack_hit_box.set_rotation_degrees(rad2deg(angle) - 90)
 
 
-func hurt(damage: int) -> void:
+func hurt(damage: float) -> void:
 	if state_machine.get_state_name() == "Block":
 		parry()
 	else:

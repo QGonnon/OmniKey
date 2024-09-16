@@ -9,6 +9,7 @@ func set_nb_coins(value: int) -> void:
 	if value != nb_coins:
 		nb_coins = value
 		EVENTS.emit_signal("nb_coins_changed", nb_coins)
+		PLAYERDATA.setValue("coins", nb_coins)
 
 
 func get_nb_coins() -> int: return nb_coins
@@ -22,7 +23,7 @@ func _ready() -> void:
 	randomize()
 	
 	var __ = EVENTS.connect("object_collected", self, "_on_EVENTS_object_collected")
-
+	set_nb_coins(PLAYERDATA.getValue("coins"))
 
 
 #### SIGNAL RESPONSES ####
