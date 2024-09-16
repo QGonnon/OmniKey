@@ -8,6 +8,8 @@
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="Theme" id=2]
@@ -55,7 +57,7 @@ margin_right = 259.0
 margin_bottom = 183.0
 theme = SubResource( 2 )
 custom_fonts/font = SubResource( 4 )
-text = "Play"
+text = "Jouer"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 visible = false
@@ -69,14 +71,14 @@ margin_top = 187.0
 margin_right = 259.0
 margin_bottom = 209.0
 custom_fonts/font = SubResource( 5 )
-text = "Credits"
+text = "Crédits"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 margin_top = 213.0
 margin_right = 259.0
 margin_bottom = 235.0
 custom_fonts/font = SubResource( 6 )
-text = "Quit"
+text = "Quitter"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

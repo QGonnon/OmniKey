@@ -6,7 +6,7 @@ onready var coin_counter = $CoinCounter
 func _ready() -> void:
 	var __ = EVENTS.connect("nb_coins_changed", self, "_on_EVENTS_nb_coins_changed")
 	__ = EVENTS.connect("character_hp_changed", self, "_on_EVENTS_character_hp_changed")
-
+	$CoinCounter.text = str(GAME.get_nb_coins())
 
 
 func _on_EVENTS_nb_coins_changed(nb_coins: int) -> void:

@@ -4,7 +4,6 @@ extends Area2D
 onready var joystick_base = $Base
 onready var joystick_petit = $Base/Petit
 onready var character = get_tree().get_nodes_in_group("Character")[0]
-onready var skin = character.get_node("gun")
 
 onready var max_distance = $CollisionShape2D.shape.radius
 
@@ -32,29 +31,10 @@ func _input(event):
 			var direction = (event.position - joystick_base.global_position).normalized()
 			joystick_petit.global_position = joystick_base.global_position + direction * max_distance
 
-func _process(delta):
+func _process(_delta):
 	if touched:
-		character.shoot(delta)
-		var distance = get_global_mouse_position().distance_to(joystick_base.global_position)
-		if distance < max_distance:
-			joystick_petit.global_position = get_global_mouse_position()
-		else:
-			var direction = (get_global_mouse_position() - joystick_base.global_position).normalized()
-			joystick_petit.global_position = joystick_base.global_position + direction * max_distance
-	else:
-		skin.play("Idle")  # Revenir à l'animation "Idle" ou une autre animation par défaut
-		
-	skin.rotation = get_velo().angle()
-	
-	var rotaGun = int(skin.rotation_degrees) % 360
-	rotaGun = 360 + rotaGun if rotaGun < 0 else rotaGun
-	var scaleGun = 0.6
-	if 90 < rotaGun and rotaGun < 270:
-		skin.scale.x = scaleGun
-		skin.scale.y = -scaleGun
-	else:
-		skin.scale.x = scaleGun
-		skin.scale.y = scaleGun
+		character.shoot()
+	character.weapon.rotation = get_velo().angle()
 
 func get_velo():
 	var joy_velo = Vector2(0, 0)

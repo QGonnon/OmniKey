@@ -129,7 +129,7 @@ func die() -> void:
 	emit_signal("died")
 
 # Méthode hurt pour infliger des dégâts
-func hurt(damage: int) -> void:
+func hurt(damage: float) -> void:
 	set_hp(hp - damage)
 	if hp <= 0:
 		die()

@@ -1,8 +1,8 @@
 extends Control
 
 func _on_Resume_pressed():
-# condition à créé si on à jamais joué :
-	get_tree().change_scene("res://Scenes/NarrativePages/NarrativeIntro.tscn")
+	# condition à créé si on à jamais joué :
+	get_tree().change_scene("res://Scenes/DungeonGenerator/DungeonGenerator.tscn")
 # sinon :
 # 	get_tree().change_scene("res://Scenes/Levels/Level.tscn")
 
