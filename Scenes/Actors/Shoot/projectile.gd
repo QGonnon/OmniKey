@@ -36,5 +36,6 @@ func _on_Projectile_body_entered(body):
 		body.interact()
 	queue_free()
 
-func _on_Projectile_area_entered(body):
-	print(body)
+func _on_Projectile_area_entered(_body):
+#	print(_body)
+	pass

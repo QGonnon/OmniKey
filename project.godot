@@ -200,6 +200,11 @@ _global_script_classes=[ {
 "path": "res://Scenes/Levels/Pathfinder.gd"
 }, {
 "base": "Node",
+"class": "PlayerData",
+"language": "GDScript",
+"path": "res://Autoload/PlayerData.gd"
+}, {
+"base": "Node",
 "class": "Skill",
 "language": "GDScript",
 "path": "res://Scenes/Actors/Character/Skills/Skill.gd"
@@ -273,6 +278,7 @@ _global_script_class_icons={
 "ItemFactory": "",
 "Maths": "",
 "Pathfinder": "",
+"PlayerData": "",
 "Skill": "",
 "State": "",
 "StateLabel": "",
@@ -290,6 +296,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+PLAYERDATA="*res://Autoload/PlayerData.gd"
 GAME="*res://Autoload/Game.gd"
 EVENTS="*res://Autoload/Events.gd"
 
