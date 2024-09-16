@@ -138,7 +138,6 @@ func placeItems(salle, spawn_points):
 			print("Spawn point is null.")
 
 func _on_exit_teleporter_teleport(_body: Node, next_room_index: int) -> void:
-	print("Signal de téléportation reçu pour la salle index: ", next_room_index)
 	current_room_index = next_room_index  # Mise à jour de l'index de la salle actuelle
 	_cleanup_deleted_objects(next_room_index-1)
 	
