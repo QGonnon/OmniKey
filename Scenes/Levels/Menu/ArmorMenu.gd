@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+onready var button_sfx = $"../../SFX_buttons"
+
 onready var light_skills_menu = $"../../LightSkillsMenu/CanvasLayer"
 onready var medium_skills_menu = $"../../MediumSkillsMenu/CanvasLayer"
 onready var heavy_skills_menu = $"../../HeavySkillsMenu/CanvasLayer"
@@ -14,6 +16,7 @@ func _ready():
 	heavyArmorsButton.connect("pressed", self, "_on_HeavyArmorsButton_pressed")
 
 func _on_LightArmorsButton_pressed():
+	button_sfx.play()
 	if lightArmorsButton : 
 		hide_all_skill_menus()
 		light_skills_menu.visible=true
@@ -21,6 +24,7 @@ func _on_LightArmorsButton_pressed():
 		print("print light raté")
 
 func _on_MediumArmorsButton_pressed():
+	button_sfx.play()
 	if mediumArmorsButton : 
 		hide_all_skill_menus()
 		medium_skills_menu.visible=true
@@ -28,6 +32,7 @@ func _on_MediumArmorsButton_pressed():
 		print("print medium raté")
 
 func _on_HeavyArmorsButton_pressed():
+	button_sfx.play()
 	if heavyArmorsButton : 
 		hide_all_skill_menus()
 		heavy_skills_menu.visible=true

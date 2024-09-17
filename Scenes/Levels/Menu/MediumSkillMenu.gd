@@ -1,5 +1,6 @@
 extends CanvasLayer
 onready var character = $"%Character"
+onready var button_sfx = $"../../SFX_buttons"
 
 func _ready():
 	var _error_code = $Panel/VBoxContainer/Button1.connect("pressed", self, "_on_Button_pressed", ["heal"])
@@ -7,6 +8,7 @@ func _ready():
 	visible=false
 
 func _on_Button_pressed(value: String):
+	button_sfx.play()
 	print(value + " sélectionné")
 	character.skill1.active_timer.queue_free()
 	character.skill1.cooldown_timer.queue_free()

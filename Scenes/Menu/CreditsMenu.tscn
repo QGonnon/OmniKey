@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Menu/OptionsMenu.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Menu/CreditMenuTheme.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Themes/Audio/sfxMainMenu.wav" type="AudioStream" id=4]
 [ext_resource path="res://Themes/Font/IdealistSans-Light.otf" type="DynamicFontData" id=5]
 [ext_resource path="res://Themes/Font/IdealistSans.otf" type="DynamicFontData" id=6]
+[ext_resource path="res://Themes/Audio/buttonClick.wav" type="AudioStream" id=7]
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 6 )
@@ -105,5 +106,8 @@ stream = ExtResource( 4 )
 volume_db = -5.0
 pitch_scale = 0.7
 autoplay = true
+
+[node name="SFX_buttons" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]

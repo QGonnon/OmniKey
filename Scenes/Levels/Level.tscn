@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Scenes/Actors/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/HUD/UI_Container.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Scenes/InteractiveObjects/Door/Door.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/InteractiveObjects/Item/Item.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Resources/ItemData/HP_Potion.tres" type="Resource" id=16]
+[ext_resource path="res://Themes/Audio/buttonClick.wav" type="AudioStream" id=17]
 [ext_resource path="res://Weapons/Pistol - Second version sprite sheets (80x48)/Pistol_V1.00 - SHOOTING (ALL FX).png" type="Texture" id=18]
 [ext_resource path="res://Weapons/Shotgun_V1.00/Weapon/[EMPTYING] Shotgun_V1.02.png" type="Texture" id=19]
 [ext_resource path="res://Weapons/Assault_rifle_V1.00/WEAPON/[EMPTYING] Assault_rifle_V1.00.png" type="Texture" id=20]
@@ -116,7 +117,7 @@ position = Vector2( 436, 427 )
 position = Vector2( 625, 366 )
 
 [node name="LightSkillsMenu" parent="." instance=ExtResource( 33 )]
-position = Vector2( 402, 99 )
+position = Vector2( 431, 86 )
 script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="LightSkillsMenu"]
@@ -165,7 +166,7 @@ text = "Balles a haute velocite"
 icon_align = 2
 
 [node name="MediumSkillsMenu" parent="." instance=ExtResource( 33 )]
-position = Vector2( 402, 99 )
+position = Vector2( 431, 86 )
 script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="MediumSkillsMenu"]
@@ -209,7 +210,7 @@ text = "Balles perforantes"
 icon_align = 2
 
 [node name="HeavySkillsMenu" parent="." instance=ExtResource( 33 )]
-position = Vector2( 402, 99 )
+position = Vector2( 431, 86 )
 script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="HeavySkillsMenu"]
@@ -253,7 +254,7 @@ text = "Bouclier d'ondes"
 icon_align = 2
 
 [node name="ArmorsMenu" parent="." instance=ExtResource( 33 )]
-position = Vector2( 402, 99 )
+position = Vector2( 431, 86 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ArmorsMenu"]
 layer = 2
@@ -332,7 +333,7 @@ custom_fonts/font = SubResource( 2 )
 text = "Ameliorer"
 
 [node name="WeaponsMenu" parent="." instance=ExtResource( 33 )]
-position = Vector2( 86, 333 )
+position = Vector2( 81, 326 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="WeaponsMenu"]
 layer = 2
@@ -514,7 +515,7 @@ disabled = true
 text = "Equiper"
 
 [node name="MissionsMenu" parent="." instance=ExtResource( 33 )]
-position = Vector2( 570, 47 )
+position = Vector2( 570, 45 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="MissionsMenu"]
 layer = 2
@@ -606,3 +607,6 @@ stream = ExtResource( 36 )
 volume_db = -10.0
 pitch_scale = 1.2
 autoplay = true
+
+[node name="SFX_buttons" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 onready var character = $"%Character"
+onready var button_sfx = $"../../SFX_buttons"
 onready var weapons = {
 	"pistol": preload("res://Scenes/Actors/Character/Weapons/Pistol/Pistol.tscn"),
 	"shotgun": preload("res://Scenes/Actors/Character/Weapons/Shotgun/Shotgun.tscn"),
@@ -27,9 +28,13 @@ func _ready():
 	__ = $Panel/WeaponToBuy/Buy.connect("pressed", self, "_on_Upgrade_pressed")
 	
 	hide() # Hide the menu initially
-	_on_Weapon_pressed(PLAYERDATA.getValue("selectedWeapon"))
+	selectWeapon(PLAYERDATA.getValue("selectedWeapon"))
 
 func _on_Weapon_pressed(value: String):
+	button_sfx.play()
+	selectWeapon(value)
+	
+func selectWeapon(value: String):
 	PLAYERDATA.setValue("selectedWeapon", value)
 	var weaponPrice = PLAYERDATA.getWeaponPrice(PLAYERDATA.getValue("selectedWeapon"))
 	var weapon = PLAYERDATA.getSelectedWeapon()
@@ -50,12 +55,14 @@ func _on_Weapon_pressed(value: String):
 	weaponUpgradePriceDisplay.text = weaponPrice
 			
 func _on_Select_pressed():
+	button_sfx.play()
 	PLAYERDATA.setValue("equippedWeapon", PLAYERDATA.getValue("selectedWeapon"))
 	character.weapon.queue_free()
 	character.weapon = weapons[PLAYERDATA.getValue("equippedWeapon")].instance()
 	character.add_child(character.weapon)
 
 func _on_Upgrade_pressed():
+	button_sfx.play()
 	var weaponPrice = PLAYERDATA.getWeaponPrice(PLAYERDATA.getValue("selectedWeapon"))
 	var weapon = PLAYERDATA.getSelectedWeapon()
 	if int(weaponPrice) <= GAME.get_nb_coins() && weapon.level<5:
