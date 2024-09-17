@@ -61,3 +61,5 @@ editor_draw_limits = true
 
 [node name="shooting" type="Node" parent="StateMachine" index="7"]
 script = ExtResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="6"]

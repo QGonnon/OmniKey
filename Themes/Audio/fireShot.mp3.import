@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fireShot.mp3-9ec5f6301d44543d7882f486e253d77d.mp3str"
+
+[deps]
+
+source_file="res://Themes/Audio/fireShot.mp3"
+dest_files=[ "res://.import/fireShot.mp3-9ec5f6301d44543d7882f486e253d77d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

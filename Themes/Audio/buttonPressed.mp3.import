@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/buttonPressed.mp3-87cd842c9ffba014c50e2be08126259f.mp3str"
+
+[deps]
+
+source_file="res://Themes/Audio/buttonPressed.mp3"
+dest_files=[ "res://.import/buttonPressed.mp3-87cd842c9ffba014c50e2be08126259f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
