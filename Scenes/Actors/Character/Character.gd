@@ -4,7 +4,7 @@ class_name Character
 onready var spellBtn1 = $"../UI_Container/UI/HUD/SpellBtn1"
 onready var weapon
 var move_speed = 250
-
+var sfx_player: AudioStreamPlayer  # Variable pour l'AudioStreamPlayer
 var skill1
 
 func shoot():

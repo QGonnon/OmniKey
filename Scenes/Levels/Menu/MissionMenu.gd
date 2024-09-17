@@ -1,4 +1,5 @@
 extends CanvasLayer
+onready var button_sfx = $"../../SFX_buttons"
 
 func _ready():
 	
@@ -21,6 +22,7 @@ func _ready():
 	hide() # Hide the menu initially
 
 func _on_Button_pressed(_value):
+	button_sfx.play()
 	var error_code = get_tree().change_scene("res://Scenes/DungeonGenerator/DungeonGenerator.tscn")
 	if error_code != 0:
 		print("ERROR: ", error_code)
