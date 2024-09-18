@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/DungeonGenerator/DungeonGenerator.gd" type="Script" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Themes/SplashArts/backGroundMenu_neutral.jpg" type="Texture" id=10]
 [ext_resource path="res://Scenes/DungeonGenerator/LosingMenu.gd" type="Script" id=11]
 [ext_resource path="res://Themes/Audio/buttonClick.wav" type="AudioStream" id=12]
+[ext_resource path="res://Themes/Audio/winnLevel.wav" type="AudioStream" id=13]
+[ext_resource path="res://Themes/Audio/loseSFX.wav" type="AudioStream" id=14]
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 9 )
@@ -173,6 +175,7 @@ grow_vertical = 2
 alignment = 2
 
 [node name="Quitter" type="Button" parent="LosingMenu/CanvasLayer/Panel/VBoxContainer"]
+pause_mode = 2
 margin_top = 142.0
 margin_right = 114.0
 margin_bottom = 164.0
@@ -193,6 +196,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 5 )
 volume_db = -15.0
 autoplay = true
@@ -200,6 +204,15 @@ autoplay = true
 [node name="UI_Container" parent="." instance=ExtResource( 7 )]
 
 [node name="SFX_buttons" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 12 )
+
+[node name="losingSFX" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 14 )
+
+[node name="winningSFX" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 13 )
 
 [connection signal="hp_changed" from="Character" to="." method="_on_Character_hp_changed"]

@@ -10,6 +10,7 @@ func _ready():
 
 func _on_Exit_pressed():
 	button_sfx.play()
+	get_tree().paused=false
 	var error_code = get_tree().change_scene("res://Scenes/Levels/Level.tscn")
 	if error_code != 0:
 		print("ERROR: ", error_code)
