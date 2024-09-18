@@ -2,6 +2,7 @@ extends AnimatedSprite
 
 onready var bullet = preload("res://Scenes/Actors/Shoot/projectile.tscn")
 onready var shootingPoint = $ShootingPoint
+onready var shoot_sfx = $AudioStreamPlayer  # Référence vers le AudioStreamPlayer
 
 var weaponData = PLAYERDATA.getEquippedWeapon()
 
@@ -11,7 +12,7 @@ var delay_mili = delay*1000000
 var lastShot = Time.get_ticks_usec()
 
 func shoot(modifyAttackSpeed):
-	if Time.get_ticks_usec() > lastShot + (delay_mili/modifyAttackSpeed):
+	if Time.get_ticks_usec() > lastShot + (delay_mili / modifyAttackSpeed):
 		var projectile_instance = bullet.instance()
 		projectile_instance.CollisionLayer(2)
 		projectile_instance.CollisionMask(1)
@@ -23,10 +24,13 @@ func shoot(modifyAttackSpeed):
 		projectile_instance.scale *= 0.6
 		projectile_instance.damage = damage
 		
+		# Jouer le son de tir
+		shoot_sfx.play()
+
 		lastShot = Time.get_ticks_usec()
 		return [projectile_instance]
 	return []
-	
+
 func _animationFinished():
 	play("Idle") 
 

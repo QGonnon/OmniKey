@@ -65,8 +65,12 @@ func shoot(delta):
 		
 		projectile_instance.global_position = position
 		projectile_instance.scale *= 0.75
+		
+		shoot_sfx.play()
+		
 		if owner:
 			owner.add_child(projectile_instance)
+
 		else:
 			print("Owner is null, using root as fallback.")
 			get_tree().root.add_child(projectile_instance)
@@ -125,6 +129,15 @@ func can_attack() -> bool:
 
 func die() -> void:
 	.die()
+	# Play one of the death sound effects randomly
+	if randi() % 2 == 0:
+		print('test1')
+		die1_SFX.play()
+	else:
+		print('test2')
+		die2_SFX.play()
+	
+	# Set the behaviour tree to inactive and emit the 'died' signal
 	behaviour_tree.set_state("Inactive")
 	emit_signal("died")
 

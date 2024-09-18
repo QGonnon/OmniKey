@@ -27,7 +27,8 @@ func _on_Projectile_body_entered(body):
 		if body.name == "Character":
 			body.hurt(damage/body.skill1.damageReductionModifier)
 		else:
-			body.hurt(damage)
+			if body.state_machine.get_state_name()!='Dead':
+				body.hurt(damage)
 	
 	if body.has_method("destroy"):
 		body.destroy()

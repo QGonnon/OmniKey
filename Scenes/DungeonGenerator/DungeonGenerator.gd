@@ -21,6 +21,9 @@ var nbKill = 0
 
 onready var endMenu = $EndMissons/CanvasLayer
 onready var loseMenu = $LosingMenu/CanvasLayer
+onready var losing_SFX = $losingSFX
+onready var winning_SFX = $winningSFX
+var bus_index = AudioServer.get_bus_index("SFX")
 
 var ennemy1 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn")
 var ennemy2 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton2.tscn")
@@ -151,6 +154,7 @@ func _on_exit_teleporter_teleport(_body: Node, next_room_index: int) -> void:
 			else:
 				print("Erreur : EntryTeleporter introuvable pour la salle index: ", next_room_index)
 		else:
+			winning_SFX.play()
 			endMenu.visible = true
 func _cleanup_deleted_objects(room_index: int) -> void:
 	if room_index < enemies.size():
@@ -183,4 +187,6 @@ func _on_enemy_exited(room_index: int) -> bool:
 
 func _on_Character_hp_changed(hp):
 	if hp==0:
+		AudioServer.set_bus_volume_db(bus_index, -80)  # -80 dB effectively mutes the bus
+		losing_SFX.play()
 		loseMenu.visible = true

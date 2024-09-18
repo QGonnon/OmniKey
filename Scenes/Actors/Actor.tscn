@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Actors/Actor.gd" type="Script" id=1]
 [ext_resource path="res://StateMachine/StateMachine.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Actors/States/ActorMoveState.gd" type="Script" id=3]
 [ext_resource path="res://StateMachine/State.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Actors/ColorFlashShaderMaterial.tres" type="Material" id=5]
+[ext_resource path="res://Themes/Audio/gun-shot-fx_G_minor.wav" type="AudioStream" id=6]
+[ext_resource path="res://Themes/Audio/die2SFX.wav" type="AudioStream" id=7]
+[ext_resource path="res://Themes/Audio/die1SFX.wav" type="AudioStream" id=8]
 
 [node name="Actor" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -56,3 +59,15 @@ script = ExtResource( 4 )
 script = ExtResource( 4 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="shootSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "SFX"
+
+[node name="die1SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+bus = "SFX"
+
+[node name="die2SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "SFX"

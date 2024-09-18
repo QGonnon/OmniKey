@@ -2,7 +2,7 @@ extends StaticBody2D
 
 onready var animated_sprite = $AnimatedSprite
 onready var collision_shape = $CollisionShape2D
-
+onready var breaking_SFX = $breakingSFX  # Référence vers le AudioStreamPlayer
 enum STATE {
 	IDLE,
 	BREAKING,
@@ -19,6 +19,7 @@ func destroy() -> void:
 	EVENTS.emit_signal("obstacle_destroyed", self)
 	
 	state = STATE.BREAKING
+	breaking_SFX.play()
 	animated_sprite.play("Break")
 	$DropperBehaviour.drop_item()
 
