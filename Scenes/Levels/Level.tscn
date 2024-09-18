@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Scenes/Actors/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/HUD/UI_Container.tscn" type="PackedScene" id=2]
@@ -14,13 +14,10 @@
 [ext_resource path="res://Scenes/Levels/Level.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Levels/Menu/WeaponMenu.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/InteractiveObjects/Door/Door.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/InteractiveObjects/Item/Item.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Resources/ItemData/HP_Potion.tres" type="Resource" id=16]
 [ext_resource path="res://Themes/Audio/buttonClick.wav" type="AudioStream" id=17]
 [ext_resource path="res://Weapons/Pistol - Second version sprite sheets (80x48)/Pistol_V1.00 - SHOOTING (ALL FX).png" type="Texture" id=18]
 [ext_resource path="res://Weapons/Shotgun_V1.00/Weapon/[EMPTYING] Shotgun_V1.02.png" type="Texture" id=19]
 [ext_resource path="res://Weapons/Assault_rifle_V1.00/WEAPON/[EMPTYING] Assault_rifle_V1.00.png" type="Texture" id=20]
-[ext_resource path="res://Resources/ItemData/MP_Potion.tres" type="Resource" id=21]
 [ext_resource path="res://Scenes/Pieces/hub.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Levels/Menu/ArmorMenu.gd" type="Script" id=27]
 [ext_resource path="res://Scenes/Levels/Menu/MissionMenu.gd" type="Script" id=31]
@@ -48,6 +45,9 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=10]
 font_data = ExtResource( 6 )
 
+[sub_resource type="DynamicFont" id=14]
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=11]
 font_data = ExtResource( 6 )
 
@@ -55,9 +55,6 @@ font_data = ExtResource( 6 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=13]
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=14]
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=15]
@@ -257,7 +254,6 @@ position = Vector2( 431, 86 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ArmorsMenu"]
 layer = 2
-visible = false
 script = ExtResource( 27 )
 
 [node name="Panel" type="Panel" parent="ArmorsMenu/CanvasLayer"]
@@ -273,69 +269,183 @@ texture = ExtResource( 8 )
 expand = true
 stretch_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ArmorsMenu/CanvasLayer/Panel"]
-margin_right = 167.0
-margin_bottom = 164.0
-alignment = 1
+[node name="ArmorList" type="VBoxContainer" parent="ArmorsMenu/CanvasLayer/Panel"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 165.0
+margin_bottom = 162.0
 
-[node name="LightArmorsButton" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_top = 45.0
-margin_right = 167.0
-margin_bottom = 67.0
-custom_fonts/font = SubResource( 11 )
-text = "LIGHT ARMOR"
-icon_align = 2
-
-[node name="MediumArmorsButton" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_top = 71.0
-margin_right = 167.0
-margin_bottom = 93.0
-custom_fonts/font = SubResource( 12 )
-text = "MEDIUM ARMOR"
-icon_align = 2
-
-[node name="HeavyArmorsButton" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/VBoxContainer"]
-margin_top = 97.0
-margin_right = 167.0
-margin_bottom = 119.0
-custom_fonts/font = SubResource( 13 )
-text = "HEAVY ARMOR"
-icon_align = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="ArmorsMenu/CanvasLayer/Panel"]
-margin_left = 177.0
-margin_right = 344.0
-margin_bottom = 164.0
-alignment = 1
-
-[node name="Label" type="Label" parent="ArmorsMenu/CanvasLayer/Panel/VBoxContainer2"]
-margin_top = 41.0
-margin_right = 167.0
-margin_bottom = 57.0
+[node name="exosquelette" type="Label" parent="ArmorsMenu/CanvasLayer/Panel/ArmorList"]
+margin_right = 163.0
+margin_bottom = 16.0
 custom_fonts/font = SubResource( 14 )
-text = "Exosquelette équipé :"
+text = "Liste exosquelettes :"
 align = 1
 
-[node name="Label2" type="Label" parent="ArmorsMenu/CanvasLayer/Panel/VBoxContainer2"]
-margin_top = 61.0
-margin_right = 167.0
-margin_bottom = 96.0
+[node name="LightArmorsButton" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/ArmorList"]
+margin_top = 20.0
+margin_right = 163.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 11 )
+text = "Fantassin"
+align = 0
+icon_align = 2
+
+[node name="MediumArmorsButton" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/ArmorList"]
+margin_top = 46.0
+margin_right = 163.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 12 )
+text = "Mercenaire"
+align = 0
+icon_align = 2
+
+[node name="HeavyArmorsButton" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/ArmorList"]
+margin_top = 72.0
+margin_right = 163.0
+margin_bottom = 94.0
+custom_fonts/font = SubResource( 13 )
+text = "Mastodonte"
+align = 0
+icon_align = 2
+
+[node name="ArmorDescription" type="VBoxContainer" parent="ArmorsMenu/CanvasLayer/Panel"]
+margin_left = 177.0
+margin_top = 2.0
+margin_right = 343.0
+margin_bottom = 73.0
+
+[node name="Armor" type="Label" parent="ArmorsMenu/CanvasLayer/Panel/ArmorDescription"]
+margin_right = 166.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 14 )
+text = "Exosquelette :"
+align = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="ArmorsMenu/CanvasLayer/Panel/ArmorDescription"]
+margin_top = 20.0
+margin_right = 166.0
+margin_bottom = 36.0
+split_offset = 98
+
+[node name="armorSelected" type="Label" parent="ArmorsMenu/CanvasLayer/Panel/ArmorDescription/HSplitContainer"]
+margin_right = 99.0
+margin_bottom = 16.0
 custom_fonts/font = SubResource( 15 )
-text = "[Variable avec le nom + niveau de l'armure]"
+text = "Fantassin"
 autowrap = true
 
-[node name="Upgrade" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/VBoxContainer2"]
-margin_top = 100.0
-margin_right = 167.0
-margin_bottom = 122.0
+[node name="armorLevelSelected" type="Label" parent="ArmorsMenu/CanvasLayer/Panel/ArmorDescription/HSplitContainer"]
+margin_left = 111.0
+margin_right = 166.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 15 )
+text = "Lvl.1/5"
+align = 2
+autowrap = true
+
+[node name="ArmorBrought" type="VBoxContainer" parent="ArmorsMenu/CanvasLayer/Panel"]
+margin_left = 181.0
+margin_top = 65.0
+margin_right = 341.0
+margin_bottom = 159.0
+alignment = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="ArmorsMenu/CanvasLayer/Panel/ArmorBrought"]
+margin_right = 160.0
+margin_bottom = 16.0
+
+[node name="price" type="Label" parent="ArmorsMenu/CanvasLayer/Panel/ArmorBrought/HSplitContainer"]
+margin_right = 41.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 14 )
+text = "Prix :"
+align = 1
+
+[node name="value" type="Label" parent="ArmorsMenu/CanvasLayer/Panel/ArmorBrought/HSplitContainer"]
+margin_left = 53.0
+margin_right = 160.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 14 )
+text = "100"
+align = 2
+
+[node name="Upgrade" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/ArmorBrought"]
+margin_top = 20.0
+margin_right = 160.0
+margin_bottom = 42.0
 custom_fonts/font = SubResource( 2 )
 text = "Ameliorer"
+
+[node name="Skill" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/ArmorBrought"]
+margin_top = 46.0
+margin_right = 160.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 2 )
+text = "Voir competences"
+
+[node name="Select" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/ArmorBrought"]
+margin_top = 72.0
+margin_right = 160.0
+margin_bottom = 94.0
+custom_fonts/font = SubResource( 2 )
+text = "Equiper"
+
+[node name="ArmorToBuy" type="VBoxContainer" parent="ArmorsMenu/CanvasLayer/Panel"]
+margin_left = 181.0
+margin_top = 65.0
+margin_right = 341.0
+margin_bottom = 159.0
+alignment = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="ArmorsMenu/CanvasLayer/Panel/ArmorToBuy"]
+margin_right = 160.0
+margin_bottom = 16.0
+
+[node name="price" type="Label" parent="ArmorsMenu/CanvasLayer/Panel/ArmorToBuy/HSplitContainer"]
+margin_right = 41.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 14 )
+text = "Prix :"
+align = 1
+
+[node name="value" type="Label" parent="ArmorsMenu/CanvasLayer/Panel/ArmorToBuy/HSplitContainer"]
+margin_left = 53.0
+margin_right = 160.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 14 )
+text = "100"
+align = 2
+
+[node name="Buy" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/ArmorToBuy"]
+margin_top = 20.0
+margin_right = 160.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 2 )
+text = "Acheter"
+
+[node name="Skill" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/ArmorToBuy"]
+margin_top = 46.0
+margin_right = 160.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+text = "Voir competences"
+
+[node name="Select" type="Button" parent="ArmorsMenu/CanvasLayer/Panel/ArmorToBuy"]
+margin_top = 72.0
+margin_right = 160.0
+margin_bottom = 94.0
+custom_fonts/font = SubResource( 2 )
+disabled = true
+text = "Equiper"
 
 [node name="WeaponsMenu" parent="." instance=ExtResource( 33 )]
 position = Vector2( 81, 326 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="WeaponsMenu"]
 layer = 2
+visible = false
 script = ExtResource( 13 )
 
 [node name="Panel" type="Panel" parent="WeaponsMenu/CanvasLayer"]
@@ -583,21 +693,6 @@ max_hp = 10.0
 [node name="Door" parent="." instance=ExtResource( 14 )]
 visible = false
 position = Vector2( 512, 32 )
-
-[node name="Item" parent="." instance=ExtResource( 15 )]
-visible = false
-position = Vector2( 471, 361 )
-item_data = ExtResource( 16 )
-
-[node name="Item3" parent="." instance=ExtResource( 15 )]
-visible = false
-position = Vector2( 349, 237 )
-item_data = ExtResource( 21 )
-
-[node name="Item2" parent="." instance=ExtResource( 15 )]
-visible = false
-position = Vector2( 350, 358 )
-item_data = ExtResource( 16 )
 
 [node name="UI_Container" parent="." instance=ExtResource( 2 )]
 
