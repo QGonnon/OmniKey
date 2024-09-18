@@ -6,6 +6,8 @@ onready var animated_sprite = $AnimatedSprite
 onready var attack_hit_box = $AttackHitBox
 onready var tween = $Tween
 onready var shoot_sfx = $shootSFX  # Référence vers le AudioStreamPlayer
+onready var die1_SFX = $die1SFX
+onready var die2_SFX = $die2SFX
 onready var character = get_tree().get_nodes_in_group("Character")[0]
 
 var dir_dict : Dictionary = {
