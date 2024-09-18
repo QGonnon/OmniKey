@@ -4,8 +4,8 @@ class_name PlayerData
 
 var data = {
 	"coins": 0,
+	"skipIntro":false,
 	"selectedSkill": "speedBoost",
-	"selectedWeapon": "pistol",
 	"equippedWeapon": "pistol",
 	"weaponsLevel": {
 		"pistol" : {
@@ -24,6 +24,24 @@ var data = {
 			"basePrice" :30
 		}
 	},
+	"equippedArmor":"light",
+	"armorsLevel":{
+		"light" : {
+			"name" : "Fantassin",
+			"level" :1,
+			"basePrice" :10
+		},
+		"medium": {
+			"name" : "Mercenaire",
+			"level" :0,
+			"basePrice" :20
+		},
+		"heavy": {
+			"name" : "Mastodonte",
+			"level" :0,
+			"basePrice" :30
+		}
+	}
 }
 
 
@@ -47,21 +65,36 @@ func load_data():
 	data = parse_json(save_file.get_line())
 	save_file.close()
 
-func getSelectedWeapon():
-	return data.weaponsLevel[data.selectedWeapon]
-
 func getEquippedWeapon():
 	return data.weaponsLevel[data.equippedWeapon]
+
+func getSelectedWeapon(selected: String):
+	return data.weaponsLevel[selected]	
 
 func getWeaponPrice(weaponName: String)->String:
 	var weapon = data.weaponsLevel[weaponName]
 	var price:int= weapon.basePrice*pow(1.1, weapon.level)
 	return str(price)
 
-func weaponLevelUp(weapon:String):
-	data.weaponsLevel[weapon].level+=1
+func weaponLevelUp(armor:String):
+	data.weaponsLevel[armor].level+=1
 	save()
-	
+
+func getEquippedArmor():
+	return data.armorsLevel[data.equippedWeapon]
+
+func getSelectedArmor(selected: String):
+	return data.armorsLevel[selected]	
+
+func getArmorPrice(armorName: String)->String:
+	var armor = data.armorsLevel[armorName]
+	var price:int= armor.basePrice*pow(1.1, armor.level)
+	return str(price)
+
+func armorLevelUp(armor:String):
+	data.armorsLevel[armor].level+=1
+	save()
+
 func setValue(property, value):
 	if property in data:
 		data[property] = value

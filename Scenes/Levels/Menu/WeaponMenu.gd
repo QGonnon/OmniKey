@@ -15,6 +15,7 @@ onready var weaponLevelDisplay = $Panel/WeaponDescription/HSplitContainer/weapon
 onready var weaponBuyPriceDisplay = $Panel/WeaponToBuy/HSplitContainer/value
 onready var weaponUpgradePriceDisplay = $Panel/WeaponBrought/HSplitContainer/value
 
+var selected = "pistol"
 
 func _ready():
 	# Connexion des boutons pour les armes à la fonction _on_Weapon_pressed
@@ -28,16 +29,16 @@ func _ready():
 	__ = $Panel/WeaponToBuy/Buy.connect("pressed", self, "_on_Upgrade_pressed")
 	
 	hide() # Hide the menu initially
-	selectWeapon(PLAYERDATA.getValue("selectedWeapon"))
+	selectWeapon(selected)
 
 func _on_Weapon_pressed(value: String):
 	button_sfx.play()
 	selectWeapon(value)
 	
 func selectWeapon(value: String):
-	PLAYERDATA.setValue("selectedWeapon", value)
-	var weaponPrice = PLAYERDATA.getWeaponPrice(PLAYERDATA.getValue("selectedWeapon"))
-	var weapon = PLAYERDATA.getSelectedWeapon()
+	selected = value
+	var weaponPrice = PLAYERDATA.getWeaponPrice(selected)
+	var weapon = PLAYERDATA.getSelectedWeapon(selected)
 	if weapon.level == 0:
 		weaponBroughtMenu.hide()
 		weaponToBuyMenu.show()
@@ -56,22 +57,22 @@ func selectWeapon(value: String):
 			
 func _on_Select_pressed():
 	button_sfx.play()
-	PLAYERDATA.setValue("equippedWeapon", PLAYERDATA.getValue("selectedWeapon"))
+	PLAYERDATA.setValue("equippedWeapon", selected)
 	character.weapon.queue_free()
 	character.weapon = weapons[PLAYERDATA.getValue("equippedWeapon")].instance()
 	character.add_child(character.weapon)
 
 func _on_Upgrade_pressed():
 	button_sfx.play()
-	var weaponPrice = PLAYERDATA.getWeaponPrice(PLAYERDATA.getValue("selectedWeapon"))
-	var weapon = PLAYERDATA.getSelectedWeapon()
+	var weaponPrice = PLAYERDATA.getWeaponPrice(selected)
+	var weapon = PLAYERDATA.getSelectedWeapon(selected)
 	if int(weaponPrice) <= GAME.get_nb_coins() && weapon.level<5:
-		PLAYERDATA.weaponLevelUp(PLAYERDATA.getValue("selectedWeapon"))
+		PLAYERDATA.weaponLevelUp(selected)
 		GAME.set_nb_coins(GAME.get_nb_coins()-int(weaponPrice))
-		_on_Weapon_pressed(PLAYERDATA.getValue("selectedWeapon"))
+		_on_Weapon_pressed(selected)
 #	GAME.set_nb_coins(GAME.get_nb_coins()+1)
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_up"):
 		GAME.set_nb_coins(GAME.get_nb_coins()+10)
 		

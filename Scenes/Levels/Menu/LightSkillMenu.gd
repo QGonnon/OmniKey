@@ -11,6 +11,9 @@ func _ready():
 func _on_Button_pressed(value: String):
 	button_sfx.play()
 	print(value + " sélectionné")
+	if not PLAYERDATA.getValue("equippedArmor") == "light":
+		print("light armor isn't equipped")
+		return
 	character.skill1.active_timer.queue_free()
 	character.skill1.cooldown_timer.queue_free()
 	
