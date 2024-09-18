@@ -1,5 +1,5 @@
 extends CanvasLayer
-onready var button_sfx = $"../../SFX_buttons"
+onready var button_sfx = $"../../../SFX_buttons"
 onready var btnResume = $Sprite/Resume
 onready var btnQuit = $Sprite/Quitter
 onready var btnCredits = $Sprite/Credits
@@ -22,7 +22,9 @@ func _on_Credits_pressed():
 	
 func _on_Resume_pressed():
 	visible = false
+	button_sfx.play()
 	get_tree().paused = false
 
 func _on_Quit_pressed():
+	button_sfx.play()
 	get_tree().quit()

@@ -246,7 +246,7 @@ layer = 3
 script = ExtResource( 18 )
 
 [node name="Sprite" type="Sprite" parent="UI/PauseMenu/CanvasLayer"]
-position = Vector2( 354, 179 )
+position = Vector2( 325, 167 )
 scale = Vector2( 0.161011, 0.164388 )
 texture = ExtResource( 20 )
 
