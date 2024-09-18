@@ -23,6 +23,7 @@ onready var endMenu = $EndMissons/CanvasLayer
 onready var loseMenu = $LosingMenu/CanvasLayer
 onready var losing_SFX = $losingSFX
 onready var winning_SFX = $winningSFX
+var bus_index = AudioServer.get_bus_index("SFX")
 
 var ennemy1 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn")
 var ennemy2 = preload("res://Scenes/Actors/Enemy/Skeleton/Skeleton2.tscn")
@@ -186,6 +187,6 @@ func _on_enemy_exited(room_index: int) -> bool:
 
 func _on_Character_hp_changed(hp):
 	if hp==0:
+		AudioServer.set_bus_volume_db(bus_index, -80)  # -80 dB effectively mutes the bus
 		losing_SFX.play()
-		get_tree().paused = true
 		loseMenu.visible = true

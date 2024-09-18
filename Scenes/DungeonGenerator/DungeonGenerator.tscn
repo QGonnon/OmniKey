@@ -196,7 +196,6 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-pause_mode = 2
 stream = ExtResource( 5 )
 volume_db = -15.0
 autoplay = true
@@ -204,15 +203,12 @@ autoplay = true
 [node name="UI_Container" parent="." instance=ExtResource( 7 )]
 
 [node name="SFX_buttons" type="AudioStreamPlayer" parent="."]
-pause_mode = 2
 stream = ExtResource( 12 )
 
 [node name="losingSFX" type="AudioStreamPlayer" parent="."]
-pause_mode = 2
 stream = ExtResource( 14 )
 
 [node name="winningSFX" type="AudioStreamPlayer" parent="."]
-pause_mode = 2
 stream = ExtResource( 13 )
 
 [connection signal="hp_changed" from="Character" to="." method="_on_Character_hp_changed"]
