@@ -14,7 +14,6 @@ func _ready():
 	visible = false
 	btnResume.connect("pressed", self, "_on_Resume_pressed")
 	btnQuit.connect("pressed", self, "_on_Quit_pressed")
-	btnCredits.connect("pressed", self, "_on_Credits_pressed")
 	
 
 func _on_Credits_pressed():
