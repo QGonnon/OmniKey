@@ -283,6 +283,7 @@ grow_vertical = 2
 alignment = 2
 
 [node name="Quitter" type="Button" parent="EndMissons/CanvasLayer/Panel/VBoxContainer"]
+pause_mode = 2
 margin_top = 142.0
 margin_right = 114.0
 margin_bottom = 164.0

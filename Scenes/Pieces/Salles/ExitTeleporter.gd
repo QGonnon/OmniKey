@@ -10,5 +10,6 @@ func _ready():
 		
 func _on_body_entered(body):
 	print(body.name)
+	
 	if body.name == "Character":
 		emit_signal("teleport", body)

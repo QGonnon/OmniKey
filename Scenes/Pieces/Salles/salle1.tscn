@@ -5909,7 +5909,7 @@ bg_color = Color( 0.239216, 0.639216, 0.74902, 1 )
 bg_color = Color( 0.239216, 0.639216, 0.74902, 0 )
 
 [sub_resource type="CircleShape2D" id=890]
-radius = 20.2237
+radius = 76.0592
 
 [sub_resource type="CircleShape2D" id=891]
 radius = 20.2237
@@ -6148,7 +6148,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTeleporter"]
-position = Vector2( 0, -1 )
+position = Vector2( 25, -15 )
 shape = SubResource( 890 )
 
 [node name="Position2D" type="Position2D" parent="ExitTeleporter"]

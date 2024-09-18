@@ -58,7 +58,7 @@ bg_color = Color( 0.239216, 0.639216, 0.74902, 1 )
 bg_color = Color( 0.239216, 0.639216, 0.74902, 0 )
 
 [sub_resource type="CircleShape2D" id=10]
-radius = 20.2237
+radius = 51.0882
 
 [sub_resource type="CircleShape2D" id=11]
 radius = 14.0357
@@ -146,7 +146,7 @@ tile_set = ExtResource( 11 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
-tile_data = PoolIntArray( 196609, 1, 786432, 196610, 1, 786433, 196611, 1, 786437, 262145, 1, 851968, 262146, 1, 851969, 262147, 1, 851973, 262162, 2, 655375, 327681, 1, 917504, 327682, 1, 983041, 327683, 1, 917509, 589832, -1610612734, 983052, 2424833, -1610612735, 131081, 2490369, -1610612735, 131081 )
+tile_data = PoolIntArray( 196609, 1, 786432, 196610, 1, 786433, 196611, 1, 786437, 262145, 1, 851968, 262146, 1, 851969, 262147, 1, 851973, 262162, 2, 655375, 327681, 1, 917504, 327682, 1, 983041, 327683, 1, 917509, 589832, -1610612734, 983052 )
 
 [node name="Props" type="TileMap" parent="YSort"]
 z_as_relative = false
@@ -305,9 +305,6 @@ margin_bottom = 50.0
 rect_scale = Vector2( 5, 5 )
 align = 1
 valign = 1
-
-[node name="Joystick" parent="YSort/UI_Container/UI/HUD"]
-position = Vector2( 96, 280 )
 
 [node name="BlackVeil" type="ColorRect" parent="YSort/UI_Container/UI"]
 light_mask = 0

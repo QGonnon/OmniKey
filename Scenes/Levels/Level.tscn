@@ -212,7 +212,6 @@ script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="HeavySkillsMenu"]
 layer = 2
-visible = false
 script = ExtResource( 34 )
 
 [node name="Panel" type="Panel" parent="HeavySkillsMenu/CanvasLayer"]
@@ -683,8 +682,6 @@ margin_bottom = 129.0
 text = "Extermination"
 icon_align = 2
 
-[node name="UI_Container" parent="." instance=ExtResource( 2 )]
-
 [node name="ItemFactory" type="Node2D" parent="."]
 position = Vector2( 599, 266 )
 script = ExtResource( 11 )
@@ -696,6 +693,8 @@ max_hp = 10.0
 [node name="Door" parent="." instance=ExtResource( 14 )]
 visible = false
 position = Vector2( 512, 32 )
+
+[node name="UI_Container" parent="." instance=ExtResource( 2 )]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 36 )

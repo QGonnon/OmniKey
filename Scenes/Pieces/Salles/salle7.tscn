@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Pieces/Salles/props.tres" type="TileSet" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 20.2237
+radius = 60.208
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 15.0333
@@ -137,7 +137,7 @@ position = Vector2( 608, 604 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTeleporter"]
-position = Vector2( -1, 2 )
+position = Vector2( -7, 17 )
 shape = SubResource( 1 )
 
 [node name="Position2D" type="Position2D" parent="ExitTeleporter"]
