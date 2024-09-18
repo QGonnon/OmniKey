@@ -190,4 +190,3 @@ func _on_Character_hp_changed(hp):
 		AudioServer.set_bus_volume_db(bus_index, -80)  # -80 dB effectively mutes the bus
 		losing_SFX.play()
 		loseMenu.visible = true
-		get_tree().paused = true
