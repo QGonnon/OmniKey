@@ -375,6 +375,10 @@ spellCast1={
 "deadzone": 0.5,
 "events": [  ]
 }
+pause={
+"deadzone": 0.5,
+"events": [  ]
+}
 
 [input_devices]
 

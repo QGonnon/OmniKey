@@ -8935,7 +8935,7 @@ bg_color = Color( 0.239216, 0.639216, 0.74902, 1 )
 bg_color = Color( 0.239216, 0.639216, 0.74902, 0 )
 
 [sub_resource type="CircleShape2D" id=1158]
-radius = 20.2237
+radius = 64.0703
 
 [sub_resource type="CircleShape2D" id=1159]
 radius = 11.0
@@ -9161,18 +9161,15 @@ script = ExtResource( 20 )
 [node name="Tween" type="Tween" parent="YSort/UI_Container/UI/Inventory"]
 
 [node name="ExitTeleporter" type="Area2D" parent="."]
-position = Vector2( 34, 526 )
+position = Vector2( 46, 535 )
 script = ExtResource( 29 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTeleporter"]
-position = Vector2( 1, -1 )
+position = Vector2( 22, 6 )
 shape = SubResource( 1158 )
 
 [node name="Position2D" type="Position2D" parent="ExitTeleporter"]
-position = Vector2( 0, -1 )
+position = Vector2( 0, 3 )
 
 [node name="EntryTeleporter" type="Area2D" parent="."]
 position = Vector2( 58, 152 )
