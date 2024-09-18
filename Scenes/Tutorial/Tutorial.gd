@@ -2,7 +2,7 @@ extends Node2D
 
 onready var ennemies = get_tree().get_nodes_in_group("Enemy")
 onready var entry_teleporter = $EntryTeleporter
-onready var exit_teleporter = get_node("ExitTeleporter")
+onready var exit_teleporter = $ExitTeleporter
 onready var endMenu = $EndMissons/CanvasLayer
 
 func _ready():
@@ -28,7 +28,8 @@ func _on_enemy_died(enemy: Node) -> void:
 
 func _exitTeleporter() -> void:
 	# Check if there are no remaining enemies before teleporting
+	print("on entre dans la func de teleportation")
 	if ennemies.size() == 0:
-		endMenu.visible = true
+		$EndMissons/CanvasLayer.visible = true
 	else:
 		print("Cannot teleport, enemies still remain.")

@@ -40,7 +40,7 @@ bg_color = Color( 0.239216, 0.639216, 0.74902, 0 )
 radius = 15.0333
 
 [sub_resource type="CircleShape2D" id=16]
-radius = 20.2237
+radius = 50.01
 
 [node name="Node2D" type="Node2D"]
 
