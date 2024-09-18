@@ -5,6 +5,7 @@ onready var state_machine = $StateMachine
 onready var animated_sprite = $AnimatedSprite
 onready var attack_hit_box = $AttackHitBox
 onready var tween = $Tween
+onready var shoot_sfx = $shootSFX  # Référence vers le AudioStreamPlayer
 onready var character = get_tree().get_nodes_in_group("Character")[0]
 
 var dir_dict : Dictionary = {
@@ -95,6 +96,7 @@ func _attack_effect() -> void:
 			body.face_position(global_position)
 			if body.name == "Character":
 				body.hurt(1/character.skill1.damageReductionModifier)
+				shoot_sfx.play()
 #			else:
 #				body.hurt(character.weapon.damage*character.skill1.attackDamageModifier)
 		elif body.has_method("destroy"):
