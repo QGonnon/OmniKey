@@ -3,6 +3,7 @@ extends Area2D
 onready var joystick_base = $Base
 onready var joystick_petit = $Base/Petit
 onready var character = get_tree().get_nodes_in_group("Character")[0]
+onready var menuPause = $"../../PauseMenu/CanvasLayer"
 
 onready var max_distance = $CollisionShape2D.shape.radius
 
@@ -31,6 +32,8 @@ func _input(event):
 			joystick_petit.global_position = joystick_base.global_position + direction * max_distance
 
 func _process(_delta):
+	if menuPause.visible == true:
+		touched = false
 	if touched:
 		character.state_machine.set_state("Move")
 		var distance = get_global_mouse_position().distance_to(joystick_base.global_position)

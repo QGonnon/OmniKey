@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Nova.png-c963c387d269cdef0f7db0bae4d67d0a.stex"
+path="res://.import/pause.png-5738b3aea49103a1a5dd5a5aa4107343.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Actors/Character/Sprites/Nova.png"
-dest_files=[ "res://.import/Nova.png-c963c387d269cdef0f7db0bae4d67d0a.stex" ]
+source_file="res://Scenes/UI/HUD/pause.png"
+dest_files=[ "res://.import/pause.png-5738b3aea49103a1a5dd5a5aa4107343.stex" ]
 
 [params]
 

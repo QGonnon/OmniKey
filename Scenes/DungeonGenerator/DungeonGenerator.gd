@@ -184,3 +184,4 @@ func _on_enemy_exited(room_index: int) -> bool:
 func _on_Character_hp_changed(hp):
 	if hp==0:
 		loseMenu.visible = true
+		get_tree().paused = true

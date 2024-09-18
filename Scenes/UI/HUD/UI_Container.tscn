@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Themes/Font/BabaMediumPixels.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/Joystick/Attack/AttackJoystick.tscn" type="PackedScene" id=2]
@@ -8,12 +8,18 @@
 [ext_resource path="res://Scenes/UI/Inventory/Inventory.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/UI/BlackVeil.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/UI/HUD/HUD.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/UI/HUD/pause.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/UI/Inventory/InventoryDataManager.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/UI/HUD/HUD_Mask.png" type="Texture" id=11]
 [ext_resource path="res://Scenes/UI/HUD/attack.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/UI/HUD/Portrait.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/Joystick/Attack/WhiteCircle.png" type="Texture" id=14]
 [ext_resource path="res://Scenes/UI/HUD/HUD.png" type="Texture" id=15]
+[ext_resource path="res://Themes/Audio/buttonClick.wav" type="AudioStream" id=16]
+[ext_resource path="res://Scenes/Menu/Freedom-10eM.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://Scenes/UI/HUD/MenuPause.gd" type="Script" id=18]
+[ext_resource path="res://Themes/Font/IdealistSans.otf" type="DynamicFontData" id=19]
+[ext_resource path="res://Scenes/Menu/MenuTheme.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=38]
 outline_size = 2
@@ -32,7 +38,25 @@ bg_color = Color( 0.239216, 0.639216, 0.74902, 1 )
 [sub_resource type="StyleBoxFlat" id=42]
 bg_color = Color( 0.239216, 0.639216, 0.74902, 0 )
 
+[sub_resource type="Theme" id=43]
+
+[sub_resource type="DynamicFont" id=44]
+font_data = ExtResource( 19 )
+
+[sub_resource type="DynamicFont" id=45]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=46]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 17 )
+
 [node name="UI_Container" type="CanvasLayer"]
+pause_mode = 2
 
 [node name="UI" type="Control" parent="."]
 pause_mode = 2
@@ -49,10 +73,6 @@ margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 15 )
 script = ExtResource( 8 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
 
 [node name="AttackJoystick" parent="UI/HUD" instance=ExtResource( 2 )]
 position = Vector2( 575, 296 )
@@ -150,6 +170,11 @@ valign = 1
 [node name="MoveJoystick" parent="UI/HUD" instance=ExtResource( 3 )]
 position = Vector2( 96, 280 )
 
+[node name="Pause" type="TouchScreenButton" parent="UI/HUD"]
+position = Vector2( 614, 8 )
+normal = ExtResource( 9 )
+action = "pause"
+
 [node name="BlackVeil" type="ColorRect" parent="UI"]
 light_mask = 0
 anchor_right = 1.0
@@ -179,9 +204,6 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 176.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Inventory/Panel"]
 anchor_right = 1.0
@@ -190,9 +212,6 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = -8.0
 margin_bottom = -8.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="UI/Inventory/Panel/VBoxContainer"]
 margin_right = 160.0
@@ -213,6 +232,74 @@ size_flags_vertical = 3
 script = ExtResource( 5 )
 
 [node name="Tween" type="Tween" parent="UI/Inventory"]
+
+[node name="PauseMenu" type="Control" parent="UI"]
+pause_mode = 2
+modulate = Color( 0.54902, 0.470588, 0.470588, 1 )
+margin_left = 44.0
+margin_top = 58.0
+margin_right = 164.0
+margin_bottom = 193.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UI/PauseMenu"]
+layer = 3
+script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="UI/PauseMenu/CanvasLayer"]
+position = Vector2( 354, 179 )
+scale = Vector2( 0.161011, 0.164388 )
+texture = ExtResource( 20 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseMenu/CanvasLayer/Sprite"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1030.99
+margin_top = -590.067
+margin_right = -1028.99
+margin_bottom = -605.067
+
+[node name="Resume" type="Button" parent="UI/PauseMenu/CanvasLayer/Sprite"]
+margin_left = -250.0
+margin_top = -128.0
+margin_right = -98.0
+margin_bottom = -89.0
+rect_scale = Vector2( 3, 3 )
+theme = SubResource( 43 )
+custom_fonts/font = SubResource( 44 )
+text = "Reprendre"
+
+[node name="Quitter" type="Button" parent="UI/PauseMenu/CanvasLayer/Sprite"]
+margin_left = -250.0
+margin_top = 103.414
+margin_right = -100.0
+margin_bottom = 142.414
+rect_scale = Vector2( 3, 3 )
+theme = SubResource( 43 )
+custom_fonts/font = SubResource( 44 )
+text = "Quitter"
+
+[node name="Label" type="Label" parent="UI/PauseMenu/CanvasLayer/Sprite"]
+margin_left = -310.538
+margin_top = -504.903
+margin_right = -128.538
+margin_bottom = -472.903
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = SubResource( 45 )
+text = "Omni Key"
+align = 1
+
+[node name="Label2" type="Label" parent="UI/PauseMenu/CanvasLayer/Sprite"]
+margin_left = -403.7
+margin_top = -395.406
+margin_right = -160.7
+margin_bottom = -363.406
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = SubResource( 46 )
+text = "Jeu en pause"
+align = 1
+
+[node name="SFX_buttons" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
 
 [connection signal="hidden_changed" from="UI/Inventory" to="UI/BlackVeil" method="_on_Inventory_hidden_changed"]
 [connection signal="hidden_changed" from="UI/Inventory" to="UI/Inventory/Panel/VBoxContainer/ItemList" method="_on_Inventory_hidden_changed"]
