@@ -48,9 +48,12 @@ func selectWeapon(value: String):
 		weaponBroughtMenu.show()
 		$Panel/WeaponBrought/HSplitContainer.show()
 		$Panel/WeaponBrought/Upgrade.disabled=false
+		$Panel/WeaponBrought/Select.disabled=false
 		if weapon.level==5:
 			$Panel/WeaponBrought/HSplitContainer.hide()
 			$Panel/WeaponBrought/Upgrade.disabled=true
+		if PLAYERDATA.getSelectedWeapon(selected)==PLAYERDATA.getEquippedWeapon():
+			$Panel/WeaponBrought/Select.disabled=true
 	weaponNameDisplay.text = weapon.name
 	weaponLevelDisplay.text = "Lvl."+str(weapon.level)+"/5"
 	weaponBuyPriceDisplay.text = weaponPrice
