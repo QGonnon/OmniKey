@@ -80,3 +80,20 @@ func _on_Select_pressed():
 	EVENTS.emit_signal("character_max_hp_changed", character.max_hp)
 	character.emit_signal("hp_changed", character.max_hp)
 	selectArmor(selected)
+	
+	var skillToSet
+	match selected:
+		"light":
+			skillToSet="speedBoost"
+		"medium":
+			skillToSet="heal"
+		"heavy":
+			skillToSet="damageReduction"
+			
+	PLAYERDATA.setValue("selectedSkill", skillToSet)
+	character.skill1.active_timer.queue_free()
+	character.skill1.cooldown_timer.queue_free()
+	
+	character.skill1 = Skill.new(skillToSet, character)
+	character.add_child(character.skill1.active_timer)
+	character.add_child(character.skill1.cooldown_timer)
