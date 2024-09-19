@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Pieces/Salles/ExitTeleporter.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 66.1891
+radius = 38.1182
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 15.0333
@@ -163,7 +163,7 @@ position = Vector2( 608, 604 )
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTeleporter"]
-position = Vector2( 19, 4 )
+position = Vector2( -25, -4 )
 shape = SubResource( 1 )
 
 [node name="Position2D" type="Position2D" parent="ExitTeleporter"]

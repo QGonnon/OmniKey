@@ -10,7 +10,7 @@
 radius = 15.0333
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 58.2495
+radius = 27.074
 
 [node name="Node2D" type="Node2D"]
 

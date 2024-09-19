@@ -10,7 +10,7 @@
 radius = 14.5602
 
 [sub_resource type="CircleShape2D" id=889]
-radius = 51.3517
+radius = 23.3452
 
 [node name="Node2D" type="Node2D"]
 
@@ -163,7 +163,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTeleporter"]
-position = Vector2( 7, -3 )
+position = Vector2( 1, -1 )
 shape = SubResource( 889 )
 
 [node name="Position2D" type="Position2D" parent="ExitTeleporter"]

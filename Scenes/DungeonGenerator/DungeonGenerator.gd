@@ -76,9 +76,27 @@ func _generate_dungeon() -> void:
 		# Assurez-vous que les noms des téléporteurs sont corrects
 		var entry_teleporter = instance.get_node("EntryTeleporter")
 		var exit_teleporter = instance.get_node("ExitTeleporter")
+		var exit_teleporterShape = instance.get_node("ExitTeleporter/CollisionShape2D")
+		
 		var enemies_in_room = instance.get_tree().get_nodes_in_group("Enemy")
 		
 		enemies.append(enemies_in_room)  # Stocker les ennemis de la salle actuelle
+		
+		if exit_teleporterShape.shape is CircleShape2D:
+			var circle_shape = exit_teleporterShape.shape as CircleShape2D
+			var radius = circle_shape.radius
+			
+			var line2d = Line2D.new()
+			line2d.width = 2
+			line2d.default_color = Color(1, 0, 0)  # Rouge
+
+			var num_points = 350  # Plus de points pour plus de précision
+			for t in range(num_points):
+				var angle = 2 * PI * t / num_points
+				var point = Vector2(cos(angle), sin(angle)) * radius
+				line2d.add_point(exit_teleporterShape.global_position + point)  # Ajouter global_position
+
+			add_child(line2d)
 		
 		for enemy in enemies_in_room:
 			if not enemy.is_connected("died", self, "_on_enemy_died"):
@@ -86,9 +104,11 @@ func _generate_dungeon() -> void:
 		
 		if entry_teleporter:
 			entry_teleporters.append(entry_teleporter)
+			
 		
 		if exit_teleporter:
 			exit_teleporters.append(exit_teleporter)
+			
 			exit_teleporter.connect("teleport", self, "_on_exit_teleporter_teleport", [i+1])
 		
 		if i == 0 and entry_teleporter:
