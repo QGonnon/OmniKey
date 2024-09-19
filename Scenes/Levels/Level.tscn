@@ -106,7 +106,6 @@ script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="LightSkillsMenu"]
 layer = 2
-visible = false
 script = ExtResource( 32 )
 
 [node name="Panel" type="Panel" parent="LightSkillsMenu/CanvasLayer"]
@@ -128,30 +127,30 @@ stretch_mode = 1
 [node name="SkillsList" type="VBoxContainer" parent="LightSkillsMenu/CanvasLayer/Panel"]
 anchor_left = -0.0952381
 anchor_right = 0.0863095
-margin_left = 114.0
-margin_right = 228.0
-margin_bottom = 164.0
-alignment = 1
+margin_left = 33.7619
+margin_top = 2.0
+margin_right = 144.31
+margin_bottom = 162.0
 
 [node name="skill" type="Label" parent="LightSkillsMenu/CanvasLayer/Panel/SkillsList"]
-margin_right = 172.0
+margin_right = 173.0
 margin_bottom = 16.0
 custom_fonts/font = SubResource( 14 )
 text = "Liste competences :"
 align = 1
 
 [node name="Button1" type="Button" parent="LightSkillsMenu/CanvasLayer/Panel/SkillsList"]
-margin_top = 58.0
-margin_right = 176.0
-margin_bottom = 80.0
+margin_top = 20.0
+margin_right = 173.0
+margin_bottom = 42.0
 custom_fonts/font = SubResource( 5 )
 text = "Vitesse supersonique"
 icon_align = 2
 
 [node name="Button2" type="Button" parent="LightSkillsMenu/CanvasLayer/Panel/SkillsList"]
-margin_top = 84.0
-margin_right = 176.0
-margin_bottom = 106.0
+margin_top = 46.0
+margin_right = 173.0
+margin_bottom = 68.0
 custom_fonts/font = SubResource( 6 )
 text = "Balles a haute velocite"
 icon_align = 2
@@ -200,10 +199,10 @@ expand = true
 stretch_mode = 1
 
 [node name="SkillsList" type="VBoxContainer" parent="MediumSkillsMenu/CanvasLayer/Panel"]
-margin_left = 81.238
-margin_right = 257.69
-margin_bottom = 164.0
-alignment = 1
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 174.0
+margin_bottom = 162.0
 
 [node name="skill" type="Label" parent="MediumSkillsMenu/CanvasLayer/Panel/SkillsList"]
 margin_right = 172.0
@@ -213,17 +212,17 @@ text = "Liste competences :"
 align = 1
 
 [node name="Button1" type="Button" parent="MediumSkillsMenu/CanvasLayer/Panel/SkillsList"]
-margin_top = 58.0
-margin_right = 176.0
-margin_bottom = 80.0
+margin_top = 20.0
+margin_right = 172.0
+margin_bottom = 42.0
 custom_fonts/font = SubResource( 7 )
 text = "Piqure revigorante"
 icon_align = 2
 
 [node name="Button2" type="Button" parent="MediumSkillsMenu/CanvasLayer/Panel/SkillsList"]
-margin_top = 84.0
-margin_right = 176.0
-margin_bottom = 106.0
+margin_top = 46.0
+margin_right = 172.0
+margin_bottom = 68.0
 custom_fonts/font = SubResource( 8 )
 text = "Balles perforantes"
 icon_align = 2
@@ -255,6 +254,7 @@ script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="HeavySkillsMenu"]
 layer = 2
+visible = false
 script = ExtResource( 34 )
 
 [node name="Panel" type="Panel" parent="HeavySkillsMenu/CanvasLayer"]
