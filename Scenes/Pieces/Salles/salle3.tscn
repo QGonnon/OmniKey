@@ -58,7 +58,7 @@ bg_color = Color( 0.239216, 0.639216, 0.74902, 1 )
 bg_color = Color( 0.239216, 0.639216, 0.74902, 0 )
 
 [sub_resource type="CircleShape2D" id=10]
-radius = 51.0882
+radius = 19.0
 
 [sub_resource type="CircleShape2D" id=11]
 radius = 14.0357
@@ -385,7 +385,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTeleporter"]
-position = Vector2( 0, -1 )
+position = Vector2( 0, 10 )
 shape = SubResource( 10 )
 
 [node name="Position2D" type="Position2D" parent="ExitTeleporter"]
@@ -404,13 +404,13 @@ position = Vector2( -3, 2 )
 [node name="SpawnPoints" type="Node" parent="."]
 
 [node name="SpawnItem" type="Position2D" parent="SpawnPoints" groups=["Obstacle"]]
-position = Vector2( 114, 455 )
+position = Vector2( 141, 423 )
 
 [node name="SpawnItem2" type="Position2D" parent="SpawnPoints" groups=["Obstacle"]]
-position = Vector2( 411, 341 )
+position = Vector2( 421, 363 )
 
 [node name="SpawnItem3" type="Position2D" parent="SpawnPoints" groups=["Obstacle"]]
-position = Vector2( 94, 95 )
+position = Vector2( 102, 114 )
 
 [node name="SpawnEnnemy" type="Node" parent="."]
 

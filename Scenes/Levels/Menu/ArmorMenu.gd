@@ -2,12 +2,12 @@ extends CanvasLayer
 
 onready var button_sfx = $"../../SFX_buttons"
 onready var upgradeOrBuyArmors_sfx = $"../../SFX_upgradeOrBuy"
+onready var character = $"%Character"
 onready var skills_menu = {
 	"light": $"../../LightSkillsMenu/CanvasLayer",
 	"medium": $"../../MediumSkillsMenu/CanvasLayer",
 	"heavy": $"../../HeavySkillsMenu/CanvasLayer",
 }
-
 onready var armorBroughtMenu = $Panel/ArmorBrought
 onready var armorToBuyMenu = $Panel/ArmorToBuy
 onready var armorNameDisplay = $Panel/ArmorDescription/HSplitContainer/armorSelected
@@ -46,9 +46,14 @@ func selectArmor(value: String):
 		armorBroughtMenu.show()
 		$Panel/ArmorBrought/HSplitContainer.show()
 		$Panel/ArmorBrought/Upgrade.disabled=false
+		$Panel/ArmorBrought/Skill.disabled=true
+		$Panel/ArmorBrought/Select.disabled = false
 		if armor.level==5:
 			$Panel/ArmorBrought/HSplitContainer.hide()
 			$Panel/ArmorBrought/Upgrade.disabled=true
+		if PLAYERDATA.getSelectedArmor(selected) == PLAYERDATA.getEquippedArmor():
+			$Panel/ArmorBrought/Select.disabled = true
+			$Panel/ArmorBrought/Skill.disabled = false
 	armorNameDisplay.text = armor.name
 	armorLevelDisplay.text = "Lvl."+str(armor.level)+"/5"
 	armorBuyPriceDisplay.text = armorPrice
@@ -69,3 +74,9 @@ func _on_Upgrade_pressed():
 		
 func _on_Select_pressed():
 	PLAYERDATA.setValue("equippedArmor", selected)
+	var armor = PLAYERDATA.getEquippedArmor()
+	character.max_hp = character.health * armor.healthModifier
+	character.speed = character.move_speed * armor.speedModifier
+	EVENTS.emit_signal("character_max_hp_changed", character.max_hp)
+	character.emit_signal("hp_changed", character.max_hp)
+	selectArmor(selected)

@@ -3,8 +3,8 @@ onready var character = $"%Character"
 onready var button_sfx = $"../../SFX_buttons"
 
 var skillDesc = {
-	"damageReduction" : "bonjour",
-	"offensiveShield": "au revoir"
+	"damageReduction" : "Réduit un pourcentage des dégâts reçus par le joueur, augmentant ainsi sa résistance en combat.",
+	"offensiveShield": "Un bouclier qui inflige un pourcentage des dégâts subis aux ennemis attaquants."
 }
 
 onready var skillNameText = $Panel/SkillDescription/SkillName
@@ -24,7 +24,7 @@ func _on_Button_pressed(value: String):
 	
 	PLAYERDATA.setValue("selectedSkill", value)
 	
-	skillNameText.text = PLAYERDATA.getEquippedSkill().name
+	skillNameText.text = PLAYERDATA.getEquippedSkill().name+" :"
 	skillDescText.text = skillDesc[value]
 	
 	character.skill1.active_timer.queue_free()

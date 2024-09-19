@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Themes/Font/BabaMediumPixels.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/Pieces/Salles/floor.tres" type="TileSet" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Themes/Font/Freedom-10eM.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Themes/SplashArts/backGroundMenu_neutral.jpg" type="Texture" id=14]
 [ext_resource path="res://Scenes/DungeonGenerator/EndMission.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/Levels/ItemFactory.gd" type="Script" id=16]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 15.0333
@@ -181,7 +182,7 @@ max_hp = 1.0
 [node name="Items" type="Node" parent="YSort"]
 
 [node name="Chest" parent="YSort/Items" instance=ExtResource( 11 )]
-position = Vector2( 47, 227 )
+position = Vector2( 58, 267 )
 
 [node name="Jar" parent="YSort/Items" instance=ExtResource( 12 )]
 position = Vector2( 679, 127 )
@@ -190,10 +191,10 @@ position = Vector2( 679, 127 )
 position = Vector2( 910, 235 )
 
 [node name="Chest2" parent="YSort/Items" instance=ExtResource( 11 )]
-position = Vector2( 897, 398 )
+position = Vector2( 905, 428 )
 
 [node name="Chest3" parent="YSort/Items" instance=ExtResource( 11 )]
-position = Vector2( 254, 549 )
+position = Vector2( 229, 565 )
 
 [node name="Jar3" parent="YSort/Items" instance=ExtResource( 12 )]
 position = Vector2( 216, 284 )
@@ -289,3 +290,6 @@ text = "Retour au QG"
 
 [node name="Character" parent="." instance=ExtResource( 7 )]
 z_index = 1
+
+[node name="ItemFactory" type="Node2D" parent="."]
+script = ExtResource( 16 )

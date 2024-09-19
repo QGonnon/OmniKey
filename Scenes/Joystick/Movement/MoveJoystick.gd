@@ -53,7 +53,7 @@ func _process(_delta):
 	var left = int(135 < joyAngle or joyAngle < -135)
 	var dir = Vector2(right - left, down - up)
 	# Appliquer la vitesse boostée si nécessaire
-	var current_speed = character.move_speed * character.skill1.speedModifier
+	var current_speed = character.speed * character.skill1.speedModifier
 	character.move_and_slide(velocity * current_speed, Vector2.UP)
 
 	character.set_facing_direction(dir.normalized())
