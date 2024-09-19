@@ -3,8 +3,8 @@ onready var character = $"%Character"
 onready var button_sfx = $"../../SFX_buttons"
 
 var skillDesc = {
-	"damageReduction" : "Réduit un pourcentage des dégâts reçus par le joueur, augmentant ainsi sa résistance en combat.",
-	"offensiveShield": "Un bouclier qui inflige un pourcentage des dégâts subis aux ennemis attaquants."
+	"damageReduction" : "Reduit un pourcentage des degats recus par le joueur.",
+	"offensiveShield": "Une onde tourne autour du joueur, infligeant des degats considerables aux ennemis proches."
 }
 
 onready var skillNameText = $Panel/SkillDescription/SkillName

@@ -3,8 +3,8 @@ onready var character = $"%Character"
 onready var button_sfx = $"../../SFX_buttons"
 
 var skillDesc = {
-	"heal" : "Restaure une portion des points de vie du joueur.",
-	"attackDamageBoost": "Augmente temporairement les dégâts infligés par les attaques du joueur."
+	"heal" : "Restaure une partie des points de vie du joueur.",
+	"attackDamageBoost": "Augmente temporairement les degats infliges par les attaques du joueur."
 }
 
 onready var skillNameText = $Panel/SkillDescription/SkillName
