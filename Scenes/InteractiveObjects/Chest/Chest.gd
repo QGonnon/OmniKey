@@ -8,6 +8,7 @@ func interact() -> void:
 	if state_machine.get_state_name() == "Idle":
 		state_machine.set_state("Open")
 		openChest_SFX.play()
+		EVENTS.emit_signal("chest_opened", global_position)
 		animated_sprite.play("Open")
 
 
