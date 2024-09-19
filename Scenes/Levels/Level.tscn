@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Scenes/Actors/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/HUD/UI_Container.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/Levels/Level.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Levels/Menu/WeaponMenu.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/InteractiveObjects/Door/Door.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Themes/Audio/lvlUpWeaponOrArmor.wav" type="AudioStream" id=15]
 [ext_resource path="res://Themes/Audio/buttonClick.wav" type="AudioStream" id=17]
 [ext_resource path="res://Weapons/Pistol - Second version sprite sheets (80x48)/Pistol_V1.00 - SHOOTING (ALL FX).png" type="Texture" id=18]
 [ext_resource path="res://Weapons/Shotgun_V1.00/Weapon/[EMPTYING] Shotgun_V1.02.png" type="Texture" id=19]
@@ -685,3 +686,6 @@ autoplay = true
 
 [node name="SFX_buttons" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
+
+[node name="SFX_upgradeOrBuyWeapon" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )

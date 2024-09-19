@@ -62,6 +62,7 @@ script = ExtResource( 4 )
 
 [node name="shootSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = -10.0
 bus = "SFX"
 
 [node name="die1SFX" type="AudioStreamPlayer" parent="."]

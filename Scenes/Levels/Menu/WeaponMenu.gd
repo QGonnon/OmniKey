@@ -14,6 +14,7 @@ onready var weaponNameDisplay = $Panel/WeaponDescription/HSplitContainer/weaponS
 onready var weaponLevelDisplay = $Panel/WeaponDescription/HSplitContainer/weaponLevelSelected
 onready var weaponBuyPriceDisplay = $Panel/WeaponToBuy/HSplitContainer/value
 onready var weaponUpgradePriceDisplay = $Panel/WeaponBrought/HSplitContainer/value
+onready var upgradeOrBuyWeapons_sfx = $"../../SFX_upgradeOrBuyWeapon"
 
 var selected = "pistol"
 
@@ -67,6 +68,7 @@ func _on_Upgrade_pressed():
 	var weaponPrice = PLAYERDATA.getWeaponPrice(selected)
 	var weapon = PLAYERDATA.getSelectedWeapon(selected)
 	if int(weaponPrice) <= GAME.get_nb_coins() && weapon.level<5:
+		upgradeOrBuyWeapons_sfx.play()
 		PLAYERDATA.weaponLevelUp(selected)
 		GAME.set_nb_coins(GAME.get_nb_coins()-int(weaponPrice))
 		_on_Weapon_pressed(selected)

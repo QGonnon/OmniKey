@@ -33,9 +33,7 @@ func _input(event):
 			var direction = (event.position - joystick_base.global_position).normalized()
 			joystick_petit.global_position = joystick_base.global_position + direction * max_distance
 
-func _process(_delta):
-#	togglePause = get_tree().paused
-	
+func _process(_delta):	
 	if touched and !get_tree().paused:
 		character.shoot()
 	character.weapon.rotation = get_velo().angle()
