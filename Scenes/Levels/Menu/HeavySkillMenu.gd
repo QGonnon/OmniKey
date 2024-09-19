@@ -3,8 +3,8 @@ onready var character = $"%Character"
 onready var button_sfx = $"../../SFX_buttons"
 
 func _ready():
-	var _error_code = $Panel/VBoxContainer/Button1.connect("pressed", self, "_on_Button_pressed", ["damageReduction"])
-	_error_code = $Panel/VBoxContainer/Button2.connect("pressed", self, "_on_Button_pressed", ["offensiveShield"])
+	var _error_code = $Panel/SkillsList/Button1.connect("pressed", self, "_on_Button_pressed", ["damageReduction"])
+	_error_code = $Panel/SkillsList/Button2.connect("pressed", self, "_on_Button_pressed", ["offensiveShield"])
 	visible=false
 
 func _on_Button_pressed(value: String):

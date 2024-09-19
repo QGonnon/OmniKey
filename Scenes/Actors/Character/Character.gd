@@ -38,7 +38,7 @@ func _input(_event: InputEvent) -> void:
 		state_machine.set_state("Attack")
 	
 func _ready():
-	skill1 = Skill.new("heal", self)
+	skill1 = Skill.new(PLAYERDATA.getValue("selectedSkill"), self)
 	add_child(skill1.active_timer)
 	add_child(skill1.cooldown_timer)
 	var weaponName = PLAYERDATA.getValue("equippedWeapon")

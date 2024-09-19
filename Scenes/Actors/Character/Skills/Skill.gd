@@ -22,6 +22,7 @@ var cooldown_timer = Timer.new()
 var selectedSkill
 var onNode
 var selectedSkillNode
+var skillData
 
 var sfx_player: AudioStreamPlayer  # Variable pour l'AudioStreamPlayer
 
@@ -32,25 +33,9 @@ func _init(skill: String, node: Node2D):
 		selectedSkill = skill
 	else:
 		selectedSkill = "Error"
-	match skill:
-		"speedBoost":
-			active_timer_duration = 10
-			cooldown_timer_duration = 15
-		"attackSpeedBoost":
-			active_timer_duration = 8
-			cooldown_timer_duration = 15
-		"attackDamageBoost":
-			active_timer_duration = 8
-			cooldown_timer_duration = 15
-		"damageReduction":
-			active_timer_duration = 7
-			cooldown_timer_duration = 15
-		"heal":
-			active_timer_duration = 0
-			cooldown_timer_duration = 60
-		"offensiveShield":
-			active_timer_duration = 10
-			cooldown_timer_duration = 15
+	skillData = PLAYERDATA.getEquippedSkill()
+	active_timer_duration = skillData.active_duration
+	cooldown_timer_duration = skillData.cooldown_duration
 
 	active_timer.one_shot = true
 	active_timer.connect("timeout", self, "_on_active_timeout")

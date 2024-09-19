@@ -9,7 +9,7 @@ func _ready() -> void:
 	__ = EVENTS.connect("character_hp_changed", self, "_on_EVENTS_character_hp_changed")
 	$CoinCounter.text = str(GAME.get_nb_coins())
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		print("btnPause pressed")
 		print(menuPause)

@@ -2,7 +2,6 @@ extends CanvasLayer
 onready var button_sfx = $"../../../SFX_buttons"
 onready var btnResume = $Sprite/Resume
 onready var btnQuit = $Sprite/Quitter
-onready var btnCredits = $Sprite/Credits
 
 onready var credits = preload("res://Scenes/Menu/CreditsMenu.tscn")
 
