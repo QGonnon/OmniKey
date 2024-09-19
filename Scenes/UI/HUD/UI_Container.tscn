@@ -244,6 +244,7 @@ margin_bottom = 193.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="UI/PauseMenu"]
 layer = 3
+visible = false
 script = ExtResource( 18 )
 
 [node name="Sprite" type="Sprite" parent="UI/PauseMenu/CanvasLayer"]

@@ -5,23 +5,22 @@ class_name PlayerData
 var data = {
 	"coins": 0,
 	"skipIntro":false,
-	"selectedSkill": "speedBoost",
 	"equippedWeapon": "pistol",
 	"weaponsLevel": {
 		"pistol" : {
 			"name" : "Pistolet",
 			"level" :1,
-			"basePrice" :10
+			"basePrice" :100
 		},
 		"assaultRifle": {
 			"name" : "Fusil d'assaut",
 			"level" :0,
-			"basePrice" :20
+			"basePrice" :100
 		},
 		"shotgun": {
 			"name" : "Fusil a pompe",
 			"level" :0,
-			"basePrice" :30
+			"basePrice" :100
 		}
 	},
 	"equippedArmor":"light",
@@ -29,17 +28,62 @@ var data = {
 		"light" : {
 			"name" : "Fantassin",
 			"level" :1,
-			"basePrice" :10
+			"basePrice" :100
 		},
 		"medium": {
 			"name" : "Mercenaire",
 			"level" :0,
-			"basePrice" :20
+			"basePrice" :100
 		},
 		"heavy": {
 			"name" : "Mastodonte",
 			"level" :0,
-			"basePrice" :30
+			"basePrice" :100
+		}
+	},
+	"selectedSkill": "speedBoost",
+	"skillsLevel":{
+		"speedBoost" : {
+			"name" : "Vitesse supersonique",
+			"level" :1,
+			"basePrice" :100,
+			"active_duration": 10,
+			"cooldown_duration" : 15
+		},
+		"attackSpeedBoost": {
+			"name" : "Balles a haute velocite",
+			"level" :0,
+			"basePrice" :100,
+			"active_duration": 8,
+			"cooldown_duration" : 15
+		},
+		"heal": {
+			"name" : "Piqure revigorante",
+			"level" :1,
+			"basePrice" :100,
+			"active_duration": 0,
+			"cooldown_duration" : 60
+		},
+		"attackDamageBoost": {
+			"name" : "Balles perforantes",
+			"level" :0,
+			"basePrice" :100,
+			"active_duration": 8,
+			"cooldown_duration" : 15
+		},
+		"damageReduction" : {
+			"name" : "Renforcement ultime",
+			"level" :1,
+			"basePrice" :100,
+			"active_duration": 7,
+			"cooldown_duration" : 15
+		},
+		"offensiveShield": {
+			"name" : "Bouclier d'ondes",
+			"level" :0,
+			"basePrice" :100,
+			"active_duration": 10,
+			"cooldown_duration" : 15
 		}
 	}
 }
@@ -81,7 +125,7 @@ func weaponLevelUp(armor:String):
 	save()
 
 func getEquippedArmor():
-	return data.armorsLevel[data.equippedWeapon]
+	return data.armorsLevel[data.equippedArmor]
 
 func getSelectedArmor(selected: String):
 	return data.armorsLevel[selected]	
@@ -93,6 +137,21 @@ func getArmorPrice(armorName: String)->String:
 
 func armorLevelUp(armor:String):
 	data.armorsLevel[armor].level+=1
+	save()
+
+func getEquippedSkill():
+	return data.skillsLevel[data.selectedSkill]
+
+func getSelectedSkill(selected: String):
+	return data.skillsLevel[selected]	
+
+func getSkillPrice(skillName: String)->String:
+	var skill = data.skillsLevel[skillName]
+	var price:int= skill.basePrice*pow(1.1, skill.level)
+	return str(price)
+
+func skillLevelUp(skill:String):
+	data.skillsLevel[skill].level+=1
 	save()
 
 func setValue(property, value):

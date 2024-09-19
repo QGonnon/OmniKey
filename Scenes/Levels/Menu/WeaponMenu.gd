@@ -71,7 +71,7 @@ func _on_Upgrade_pressed():
 		upgradeOrBuyWeapons_sfx.play()
 		PLAYERDATA.weaponLevelUp(selected)
 		GAME.set_nb_coins(GAME.get_nb_coins()-int(weaponPrice))
-		_on_Weapon_pressed(selected)
+		selectWeapon(selected)
 #	GAME.set_nb_coins(GAME.get_nb_coins()+1)
 
 func _process(_delta):
