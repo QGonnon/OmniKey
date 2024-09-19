@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Pieces/Salles/ExitTeleporter.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 38.1182
+radius = 38.4708
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 15.0333
@@ -97,6 +97,7 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
+tile_data = PoolIntArray( 2359333, 4, 14, 2687006, 4, 11, 2687007, 4, 12, 2687009, 4, 14, 2752542, 4, 65547, 2752543, 4, 65548, 2752544, 4, 65549, 2752545, 4, 65550, 2818078, 4, 131083, 2818079, 4, 131084, 2818080, 4, 131085, 2818081, 4, 131086 )
 
 [node name="Props" type="TileMap" parent="YSort"]
 z_index = 100
@@ -109,7 +110,7 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
-tile_data = PoolIntArray( 131108, 4, 8, 131109, 4, 9, 131110, 4, 10, 196644, 4, 65544, 196645, 4, 65545, 196646, 4, 65546, 262180, 4, 131080, 262181, 4, 131081, 262182, 4, 131082 )
+tile_data = PoolIntArray( 131108, 4, 8, 131109, 4, 9, 131110, 4, 10, 196644, 4, 65544, 196645, 4, 65545, 196646, 4, 65546, 262180, 4, 131080, 262181, 4, 131081, 262182, 4, 131082, 2490398, 1, 131081, 2490399, 1, 131081, 2490400, 1, 131081, 2490401, 1, 131081, 2555933, -1073741823, 131081, 2555938, -1073741823, 262153, 2621469, -1073741823, 131081, 2621474, -1073741823, 262153 )
 
 [node name="Props2" type="TileMap" parent="YSort/Props"]
 scale = Vector2( 0.5, 0.5 )
@@ -161,7 +162,7 @@ position = Vector2( 608, 604 )
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTeleporter"]
-position = Vector2( -25, -4 )
+position = Vector2( -96, 53 )
 shape = SubResource( 1 )
 
 [node name="Position2D" type="Position2D" parent="ExitTeleporter"]

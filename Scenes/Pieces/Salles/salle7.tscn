@@ -98,6 +98,7 @@ tile_set = ExtResource( 5 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
+tile_data = PoolIntArray( 2490402, 1, 131081, 2490403, 1, 131081, 2490404, 1, 131081, 2490405, 1, 131081, 2555937, -1073741823, 131081, 2555942, -1073741823, 262153, 2621473, -1073741823, 131081, 2621478, -1073741823, 262153, 2687010, 4, 11, 2687011, 4, 12, 2687013, 4, 14, 2752546, 4, 65547, 2752547, 4, 65548, 2752548, 4, 65549, 2752549, 4, 65550, 2818082, 4, 131083, 2818083, 4, 131084, 2818084, 4, 131085, 2818085, 4, 131086 )
 
 [node name="Props" type="TileMap" parent="YSort"]
 z_index = 100
@@ -110,7 +111,7 @@ tile_set = ExtResource( 5 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
-tile_data = PoolIntArray( 131108, 4, 8, 131109, 4, 9, 131110, 4, 10, 196644, 4, 65544, 196645, 4, 65545, 196646, 4, 65546, 262180, 4, 131080, 262181, 4, 131081, 262182, 4, 131082, 327683, 2, 589835 )
+tile_data = PoolIntArray( 327683, 2, 589835 )
 
 [node name="Props2" type="TileMap" parent="YSort/Props"]
 scale = Vector2( 0.5, 0.5 )
@@ -140,7 +141,7 @@ position = Vector2( 608, 604 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTeleporter"]
-position = Vector2( -7, 10 )
+position = Vector2( -30, 40 )
 shape = SubResource( 1 )
 
 [node name="Position2D" type="Position2D" parent="ExitTeleporter"]
