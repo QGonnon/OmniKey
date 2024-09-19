@@ -126,6 +126,14 @@ margin_bottom = 174.0
 grow_vertical = 2
 alignment = 2
 
+[node name="Pieces" type="Label" parent="EndMissons/CanvasLayer/Panel/VBoxContainer"]
+margin_top = 69.0
+margin_right = 114.0
+margin_bottom = 92.0
+text = "pièces"
+align = 1
+valign = 1
+
 [node name="Quitter" type="Button" parent="EndMissons/CanvasLayer/Panel/VBoxContainer"]
 margin_top = 142.0
 margin_right = 114.0

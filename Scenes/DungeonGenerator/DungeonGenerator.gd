@@ -1,7 +1,8 @@
 extends Node2D
 class_name DungeonGenerator
 
-const MIN_DUNGEON_DEPTH = 1
+const MIN_DUNGEON_DEPTH = 3
+onready var start_coin = GAME.get_nb_coins()
 
 var scenes = [
 	preload("res://Scenes/Pieces/Salles/salle0.tscn"),
@@ -155,6 +156,8 @@ func _on_exit_teleporter_teleport(_body: Node, next_room_index: int) -> void:
 				print("Erreur : EntryTeleporter introuvable pour la salle index: ", next_room_index)
 		else:
 			winning_SFX.play()
+			var texte = "Pièces obtenues : " + str(GAME.get_nb_coins()-start_coin)
+			$EndMissons/CanvasLayer/Panel/VBoxContainer/Pieces.text = texte
 			endMenu.visible = true
 func _cleanup_deleted_objects(room_index: int) -> void:
 	if room_index < enemies.size():
@@ -165,7 +168,6 @@ func _cleanup_deleted_objects(room_index: int) -> void:
 
 func _on_enemy_died(room_index: int, enemy: Node) -> void:
 	enemies[room_index].erase(enemy)
-	nbKill += 1
 	print("Ennemi supprimé de la salle index: ", room_index)
 	
 	# Vérifiez si tous les ennemis de la salle sont morts
@@ -190,4 +192,5 @@ func _on_Character_hp_changed(hp):
 		AudioServer.set_bus_volume_db(bus_index, -80)  # -80 dB effectively mutes the bus
 		losing_SFX.play()
 		loseMenu.visible = true
+		GAME.set_nb_coins(start_coin)
 		get_tree().paused = true
