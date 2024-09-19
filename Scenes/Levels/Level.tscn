@@ -772,5 +772,5 @@ autoplay = true
 [node name="SFX_buttons" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 
-[node name="SFX_upgradeOrBuyWeapon" type="AudioStreamPlayer" parent="."]
+[node name="SFX_upgradeOrBuy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )

@@ -14,7 +14,7 @@ onready var weaponNameDisplay = $Panel/WeaponDescription/HSplitContainer/weaponS
 onready var weaponLevelDisplay = $Panel/WeaponDescription/HSplitContainer/weaponLevelSelected
 onready var weaponBuyPriceDisplay = $Panel/WeaponToBuy/HSplitContainer/value
 onready var weaponUpgradePriceDisplay = $Panel/WeaponBrought/HSplitContainer/value
-onready var upgradeOrBuyWeapons_sfx = $"../../SFX_upgradeOrBuyWeapon"
+onready var upgradeOrBuyWeapons_sfx = $"../../SFX_upgradeOrBuy"
 
 var selected = "pistol"
 
