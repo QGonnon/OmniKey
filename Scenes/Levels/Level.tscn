@@ -2,9 +2,6 @@
 
 [ext_resource path="res://Scenes/Actors/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/HUD/UI_Container.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/InteractiveObjects/Jar/Jar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/InteractiveObjects/Chest/Chest.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Actors/Enemy/Skeleton/Skeleton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Themes/Font/BabaMediumPixels.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Themes/SplashArts/backGroundMenu_map.jpg" type="Texture" id=7]
 [ext_resource path="res://Themes/SplashArts/backGroundMenu_neutral.jpg" type="Texture" id=8]
@@ -101,18 +98,6 @@ __meta__ = {
 [node name="Character" parent="." instance=ExtResource( 1 )]
 unique_name_in_owner = true
 position = Vector2( 76, 207 )
-
-[node name="Jar2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 311, 324 )
-
-[node name="Jar3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 623, 438 )
-
-[node name="Jar4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 436, 427 )
-
-[node name="Chest" parent="." instance=ExtResource( 4 )]
-position = Vector2( 625, 366 )
 
 [node name="LightSkillsMenu" parent="." instance=ExtResource( 33 )]
 position = Vector2( 431, 86 )
@@ -686,10 +671,6 @@ icon_align = 2
 [node name="ItemFactory" type="Node2D" parent="."]
 position = Vector2( 599, 266 )
 script = ExtResource( 11 )
-
-[node name="Skeleton" parent="." instance=ExtResource( 5 )]
-position = Vector2( 653, 402 )
-max_hp = 10.0
 
 [node name="Door" parent="." instance=ExtResource( 14 )]
 visible = false

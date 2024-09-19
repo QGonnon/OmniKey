@@ -4,6 +4,8 @@ onready var pathfinder = $Tilemap/Pathfinder
 onready var character = $Character
 
 func _ready() -> void:
+	if get_tree().paused:
+		get_tree().paused = !get_tree().paused
 	if PLAYERDATA.getValue("skipIntro") == false:
 		PLAYERDATA.setValue("skipIntro", true)
 		
@@ -13,6 +15,7 @@ func _ready() -> void:
 	
 	for enemy in enemies_array:
 		enemy.pathfinder = pathfinder
+
 
 func _on_EVENTS_actor_died(actor: Actor) -> void:
 	if actor is Enemy:

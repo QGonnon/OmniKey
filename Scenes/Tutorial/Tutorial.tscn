@@ -182,7 +182,6 @@ max_hp = 1.0
 
 [node name="Chest" parent="YSort/Items" instance=ExtResource( 11 )]
 position = Vector2( 47, 227 )
-scale = Vector2( 0.75, 0.75 )
 
 [node name="Jar" parent="YSort/Items" instance=ExtResource( 12 )]
 position = Vector2( 679, 127 )
@@ -192,11 +191,9 @@ position = Vector2( 910, 235 )
 
 [node name="Chest2" parent="YSort/Items" instance=ExtResource( 11 )]
 position = Vector2( 897, 398 )
-scale = Vector2( 0.75, 0.75 )
 
 [node name="Chest3" parent="YSort/Items" instance=ExtResource( 11 )]
 position = Vector2( 254, 549 )
-scale = Vector2( 0.75, 0.75 )
 
 [node name="Jar3" parent="YSort/Items" instance=ExtResource( 12 )]
 position = Vector2( 216, 284 )

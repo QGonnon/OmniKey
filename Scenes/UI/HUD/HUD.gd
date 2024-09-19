@@ -11,8 +11,6 @@ func _ready() -> void:
 
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
-		print("btnPause pressed")
-		print(menuPause)
 		menuPause.visible = true
 		get_tree().paused = true
 	

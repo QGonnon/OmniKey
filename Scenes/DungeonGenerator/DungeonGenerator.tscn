@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/DungeonGenerator/DungeonGenerator.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Themes/Audio/buttonClick.wav" type="AudioStream" id=12]
 [ext_resource path="res://Themes/Audio/winnLevel.wav" type="AudioStream" id=13]
 [ext_resource path="res://Themes/Audio/loseSFX.wav" type="AudioStream" id=14]
+[ext_resource path="res://Scenes/Levels/ItemFactory.gd" type="Script" id=15]
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 9 )
@@ -125,6 +126,26 @@ margin_bottom = 174.0
 grow_vertical = 2
 alignment = 2
 
+[node name="Pieces" type="Label" parent="EndMissons/CanvasLayer/Panel/VBoxContainer"]
+margin_top = 106.0
+margin_right = 114.0
+margin_bottom = 120.0
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="NbKill" type="Label" parent="EndMissons/CanvasLayer/Panel/VBoxContainer"]
+margin_top = 124.0
+margin_right = 114.0
+margin_bottom = 138.0
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
 [node name="Quitter" type="Button" parent="EndMissons/CanvasLayer/Panel/VBoxContainer"]
 margin_top = 142.0
 margin_right = 114.0
@@ -210,5 +231,8 @@ stream = ExtResource( 14 )
 
 [node name="winningSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+
+[node name="ItemFactory" type="Node2D" parent="."]
+script = ExtResource( 15 )
 
 [connection signal="hp_changed" from="Character" to="." method="_on_Character_hp_changed"]
