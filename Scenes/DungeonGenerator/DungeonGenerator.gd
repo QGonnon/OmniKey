@@ -1,7 +1,7 @@
 extends Node2D
 class_name DungeonGenerator
 
-const MIN_DUNGEON_DEPTH = 1
+const MIN_DUNGEON_DEPTH = 5
 onready var start_coin = GAME.get_nb_coins()
 
 var scenes = [

@@ -22,21 +22,21 @@ func _ready():
 	if exit_teleporter:
 		exit_teleporter.connect("teleport", self, "_exitTeleporter")
 		
-	if exit_teleporterShape.shape is CircleShape2D:
-			var circle_shape = exit_teleporterShape.shape as CircleShape2D
-			var radius = circle_shape.radius
-			
-			var line2d = Line2D.new()
-			line2d.width = 2
-			line2d.default_color = Color(1, 0, 0)  # Rouge
-
-			var num_points = 350  # Plus de points pour plus de précision
-			for t in range(num_points):
-				var angle = 2 * PI * t / num_points
-				var point = Vector2(cos(angle), sin(angle)) * radius
-				line2d.add_point(exit_teleporterShape.global_position + point)  # Ajouter global_position
-
-			add_child(line2d)
+#	if exit_teleporterShape.shape is CircleShape2D:
+#			var circle_shape = exit_teleporterShape.shape as CircleShape2D
+#			var radius = circle_shape.radius
+#
+#			var line2d = Line2D.new()
+#			line2d.width = 2
+#			line2d.default_color = Color(1, 0, 0)  # Rouge
+#
+#			var num_points = 350  # Plus de points pour plus de précision
+#			for t in range(num_points):
+#				var angle = 2 * PI * t / num_points
+#				var point = Vector2(cos(angle), sin(angle)) * radius
+#				line2d.add_point(exit_teleporterShape.global_position + point)  # Ajouter global_position
+#
+#			add_child(line2d)
 	
 	# Connect each enemy's died signal to _on_enemy_died
 	for enemy in ennemies:
