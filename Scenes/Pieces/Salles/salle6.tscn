@@ -161,13 +161,13 @@ position = Vector2( -3, 2 )
 [node name="SpawnPoints" type="Node" parent="."]
 
 [node name="SpawnItem" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 145, 276 )
+position = Vector2( 185, 264 )
 
 [node name="SpawnItem2" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 452, 230 )
+position = Vector2( 454, 190 )
 
 [node name="SpawnItem3" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 271, 574 )
+position = Vector2( 313, 581 )
 
 [node name="SpawnEnnemy" type="Node" parent="."]
 

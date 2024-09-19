@@ -11,7 +11,9 @@ var scenes = [
 	preload("res://Scenes/Pieces/Salles/salle3.tscn"),
 	preload("res://Scenes/Pieces/Salles/salle4.tscn"),
 	preload("res://Scenes/Pieces/Salles/salle5.tscn"),
-	preload("res://Scenes/Pieces/Salles/salle6.tscn")
+	preload("res://Scenes/Pieces/Salles/salle6.tscn"),
+	preload("res://Scenes/Pieces/Salles/salle7.tscn"),
+	preload("res://Scenes/Pieces/Salles/salle8.tscn")
 ]
 
 var jar = preload("res://Scenes/InteractiveObjects/Jar/Jar.tscn")
@@ -166,7 +168,6 @@ func _on_exit_teleporter_teleport(_body: Node, next_room_index: int) -> void:
 	_cleanup_deleted_objects(next_room_index-1)
 	
 	if _on_enemy_exited(next_room_index-1):
-		arrow_sprite.visible = false  # Cache la flèche lorsqu'on change de pièce
 		if next_room_index < entry_teleporters.size():
 			var next_entry_teleporter = entry_teleporters[next_room_index]
 			if next_entry_teleporter:
@@ -196,12 +197,7 @@ func _on_enemy_died(room_index: int, enemy: Node) -> void:
 	if enemies[room_index].size() == 0:
 		print("Tous les ennemis de la salle index ", room_index, " sont morts.")
 		# Montre la flèche si c'est la salle actuelle
-		if room_index == current_room_index:
-			arrow_sprite.visible = true  
-		else:
-			# Si le joueur est encore dans une ancienne salle, mettez à jour la flèche
-			if current_room_index < exit_teleporters.size():
-				arrow_sprite.visible = true
+		
 
 func _on_enemy_exited(room_index: int) -> bool:
 	if room_index < enemies.size() and enemies[room_index].size() == 0:
