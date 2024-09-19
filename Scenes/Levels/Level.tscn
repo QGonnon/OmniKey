@@ -1,7 +1,8 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Scenes/Actors/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/HUD/UI_Container.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Themes/Font/IdealistSans-Light.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://Themes/Font/BabaMediumPixels.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Themes/SplashArts/backGroundMenu_map.jpg" type="Texture" id=7]
 [ext_resource path="res://Themes/SplashArts/backGroundMenu_neutral.jpg" type="Texture" id=8]
@@ -25,11 +26,17 @@
 [ext_resource path="res://Scenes/Levels/Menu/MediumSkillMenu.gd" type="Script" id=35]
 [ext_resource path="res://Themes/Audio/Intro_audio.mp3" type="AudioStream" id=36]
 
+[sub_resource type="DynamicFont" id=14]
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=6]
 font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=15]
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 6 )
@@ -37,16 +44,10 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=14]
-font_data = ExtResource( 6 )
-
 [sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=10]
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=15]
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=11]
@@ -124,7 +125,7 @@ texture = ExtResource( 9 )
 expand = true
 stretch_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LightSkillsMenu/CanvasLayer/Panel"]
+[node name="SkillsList" type="VBoxContainer" parent="LightSkillsMenu/CanvasLayer/Panel"]
 anchor_left = -0.0952381
 anchor_right = 0.0863095
 margin_left = 114.0
@@ -132,7 +133,14 @@ margin_right = 228.0
 margin_bottom = 164.0
 alignment = 1
 
-[node name="Button1" type="Button" parent="LightSkillsMenu/CanvasLayer/Panel/VBoxContainer"]
+[node name="skill" type="Label" parent="LightSkillsMenu/CanvasLayer/Panel/SkillsList"]
+margin_right = 172.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 14 )
+text = "Liste competences :"
+align = 1
+
+[node name="Button1" type="Button" parent="LightSkillsMenu/CanvasLayer/Panel/SkillsList"]
 margin_top = 58.0
 margin_right = 176.0
 margin_bottom = 80.0
@@ -140,13 +148,34 @@ custom_fonts/font = SubResource( 5 )
 text = "Vitesse supersonique"
 icon_align = 2
 
-[node name="Button2" type="Button" parent="LightSkillsMenu/CanvasLayer/Panel/VBoxContainer"]
+[node name="Button2" type="Button" parent="LightSkillsMenu/CanvasLayer/Panel/SkillsList"]
 margin_top = 84.0
 margin_right = 176.0
 margin_bottom = 106.0
 custom_fonts/font = SubResource( 6 )
 text = "Balles a haute velocite"
 icon_align = 2
+
+[node name="SkillDescription" type="VBoxContainer" parent="LightSkillsMenu/CanvasLayer/Panel"]
+margin_left = 177.0
+margin_top = 2.0
+margin_right = 343.0
+margin_bottom = 73.0
+
+[node name="SkillName" type="Label" parent="LightSkillsMenu/CanvasLayer/Panel/SkillDescription"]
+margin_right = 166.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 14 )
+text = "Renforcement ultime :"
+align = 1
+
+[node name="skillDesc" type="Label" parent="LightSkillsMenu/CanvasLayer/Panel/SkillDescription"]
+margin_top = 20.0
+margin_right = 166.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 15 )
+text = "Renforcementf def"
+autowrap = true
 
 [node name="MediumSkillsMenu" parent="." instance=ExtResource( 33 )]
 position = Vector2( 431, 86 )
@@ -170,13 +199,20 @@ texture = ExtResource( 9 )
 expand = true
 stretch_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MediumSkillsMenu/CanvasLayer/Panel"]
+[node name="SkillsList" type="VBoxContainer" parent="MediumSkillsMenu/CanvasLayer/Panel"]
 margin_left = 81.238
 margin_right = 257.69
 margin_bottom = 164.0
 alignment = 1
 
-[node name="Button1" type="Button" parent="MediumSkillsMenu/CanvasLayer/Panel/VBoxContainer"]
+[node name="skill" type="Label" parent="MediumSkillsMenu/CanvasLayer/Panel/SkillsList"]
+margin_right = 172.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 14 )
+text = "Liste competences :"
+align = 1
+
+[node name="Button1" type="Button" parent="MediumSkillsMenu/CanvasLayer/Panel/SkillsList"]
 margin_top = 58.0
 margin_right = 176.0
 margin_bottom = 80.0
@@ -184,13 +220,34 @@ custom_fonts/font = SubResource( 7 )
 text = "Piqure revigorante"
 icon_align = 2
 
-[node name="Button2" type="Button" parent="MediumSkillsMenu/CanvasLayer/Panel/VBoxContainer"]
+[node name="Button2" type="Button" parent="MediumSkillsMenu/CanvasLayer/Panel/SkillsList"]
 margin_top = 84.0
 margin_right = 176.0
 margin_bottom = 106.0
 custom_fonts/font = SubResource( 8 )
 text = "Balles perforantes"
 icon_align = 2
+
+[node name="SkillDescription" type="VBoxContainer" parent="MediumSkillsMenu/CanvasLayer/Panel"]
+margin_left = 177.0
+margin_top = 2.0
+margin_right = 343.0
+margin_bottom = 73.0
+
+[node name="SkillName" type="Label" parent="MediumSkillsMenu/CanvasLayer/Panel/SkillDescription"]
+margin_right = 166.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 14 )
+text = "Renforcement ultime :"
+align = 1
+
+[node name="skillDesc" type="Label" parent="MediumSkillsMenu/CanvasLayer/Panel/SkillDescription"]
+margin_top = 20.0
+margin_right = 166.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 15 )
+text = "Renforcementf def"
+autowrap = true
 
 [node name="HeavySkillsMenu" parent="." instance=ExtResource( 33 )]
 position = Vector2( 431, 86 )
