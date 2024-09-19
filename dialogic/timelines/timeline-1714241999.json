@@ -61,7 +61,7 @@
 			"text": "Dans la capitale de ce nouveau monde dystopique, Nova, une jeune hackeuse talentueuse tâche de survivre et se frayer un chemin à travers les ruelles sombres et dangereuses. Son rêve, vivre une vie simple, comme celles comptées dans les anciens ouvrages, mais par-dessus tout, être libre."
 		},
 		{
-			"change_scene": "res://Scenes/NarrativePages/NarrativeCh1.tscn",
+			"change_scene": "res://Scenes/Tutorial/Tutorial.tscn",
 			"event_id": "dialogic_041"
 		}
 	],
