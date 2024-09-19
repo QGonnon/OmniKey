@@ -1,7 +1,6 @@
 extends TextureRect
 
 onready var coin_counter = $CoinCounter
-onready var btnPause = $Pause
 onready var menuPause = $"../PauseMenu/CanvasLayer"
 
 func _ready() -> void:

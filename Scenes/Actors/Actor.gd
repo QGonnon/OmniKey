@@ -17,7 +17,7 @@ var dir_dict : Dictionary = {
 	"Down": Vector2.DOWN
 }
 
-export var speed : float = 300.0
+export var speed : float = 250.0
 var moving_direction := Vector2.ZERO setget set_moving_direction, get_moving_direction
 var facing_direction := Vector2.DOWN setget set_facing_direction, get_facing_direction
 

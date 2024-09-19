@@ -30,12 +30,7 @@ func _ready() -> void:
 	cooldown_timer = Timer.new()
 	add_child(cooldown_timer)
 	cooldown_timer.connect("timeout", self, "_on_cooldown_timeout")
-	
-	# Assigner l'action pour activer le skill
-	var input_event = InputEventKey.new()
-	input_event.scancode = KEY_S  # Remplacez KEY_S par la touche désirée
-	InputMap.add_action("activate_skill")
-	InputMap.action_add_event("activate_skill", input_event)
+
 
 func _process(_delta):
 	# Activer le skill de boost de vitesse
