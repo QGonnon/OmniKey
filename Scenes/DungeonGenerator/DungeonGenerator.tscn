@@ -127,12 +127,24 @@ grow_vertical = 2
 alignment = 2
 
 [node name="Pieces" type="Label" parent="EndMissons/CanvasLayer/Panel/VBoxContainer"]
-margin_top = 69.0
+margin_top = 106.0
 margin_right = 114.0
-margin_bottom = 92.0
-text = "pièces"
+margin_bottom = 120.0
 align = 1
 valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="NbKill" type="Label" parent="EndMissons/CanvasLayer/Panel/VBoxContainer"]
+margin_top = 124.0
+margin_right = 114.0
+margin_bottom = 138.0
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="Quitter" type="Button" parent="EndMissons/CanvasLayer/Panel/VBoxContainer"]
 margin_top = 142.0

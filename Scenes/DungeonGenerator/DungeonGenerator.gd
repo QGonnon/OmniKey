@@ -1,7 +1,7 @@
 extends Node2D
 class_name DungeonGenerator
 
-const MIN_DUNGEON_DEPTH = 3
+const MIN_DUNGEON_DEPTH = 2
 onready var start_coin = GAME.get_nb_coins()
 
 var scenes = [
@@ -158,6 +158,7 @@ func _on_exit_teleporter_teleport(_body: Node, next_room_index: int) -> void:
 			winning_SFX.play()
 			var texte = "Pièces obtenues : " + str(GAME.get_nb_coins()-start_coin)
 			$EndMissons/CanvasLayer/Panel/VBoxContainer/Pieces.text = texte
+			$EndMissons/CanvasLayer/Panel/VBoxContainer/NbKill.text = "Nombre d'élimination : "+ str(nbKill)
 			endMenu.visible = true
 func _cleanup_deleted_objects(room_index: int) -> void:
 	if room_index < enemies.size():
@@ -168,6 +169,7 @@ func _cleanup_deleted_objects(room_index: int) -> void:
 
 func _on_enemy_died(room_index: int, enemy: Node) -> void:
 	enemies[room_index].erase(enemy)
+	nbKill +=1
 	print("Ennemi supprimé de la salle index: ", room_index)
 	
 	# Vérifiez si tous les ennemis de la salle sont morts
