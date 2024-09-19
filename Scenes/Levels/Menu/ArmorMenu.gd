@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 onready var button_sfx = $"../../SFX_buttons"
+onready var upgradeOrBuyArmors_sfx = $"../../SFX_upgradeOrBuy"
 onready var skills_menu = {
 	"light": $"../../LightSkillsMenu/CanvasLayer",
 	"medium": $"../../MediumSkillsMenu/CanvasLayer",
@@ -61,6 +62,7 @@ func _on_Upgrade_pressed():
 	var armorPrice = PLAYERDATA.getArmorPrice(selected)
 	var armor = PLAYERDATA.getSelectedArmor(selected)
 	if int(armorPrice) <= GAME.get_nb_coins() && armor.level<5:
+		upgradeOrBuyArmors_sfx.play()
 		PLAYERDATA.armorLevelUp(selected)
 		GAME.set_nb_coins(GAME.get_nb_coins()-int(armorPrice))
 		selectArmor(selected)
