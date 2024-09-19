@@ -33,8 +33,8 @@ func _input(event):
 			joystick_petit.global_position = joystick_base.global_position + direction * max_distance
 
 func _process(_delta):
-	if menuPause.visible == true:
-		touched = false
+#	if menuPause.visible == true:
+#		touched = false
 	if touched:
 		character.shoot()
 	character.weapon.rotation = get_velo().angle()
