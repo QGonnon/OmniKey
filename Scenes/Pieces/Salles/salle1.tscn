@@ -1,7 +1,6 @@
-[gd_scene load_steps=249 format=2]
+[gd_scene load_steps=248 format=2]
 
 [ext_resource path="res://Scenes/UI/Inventory/InventoryDataManager.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Pieces/Salles/salle.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Pieces/Tilesets/wall3.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Pieces/Tilesets/wall6.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Pieces/Tilesets/wall2.png" type="Texture" id=5]
@@ -7617,7 +7616,6 @@ radius = 20.2237
 [node name="Node2D" type="Node2D"]
 
 [node name="YSort" type="YSort" parent="."]
-script = ExtResource( 2 )
 
 [node name="Floor" type="TileMap" parent="YSort"]
 tile_set = SubResource( 858 )

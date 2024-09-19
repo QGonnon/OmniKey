@@ -1,7 +1,6 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Joystick/Attack/AttackJoystick.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Pieces/Salles/salle.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Pieces/Salles/ExitTeleporter.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Pieces/Salles/wall.tres" type="TileSet" id=6]
 [ext_resource path="res://Scenes/Pieces/Salles/floor.tres" type="TileSet" id=7]
@@ -45,7 +44,6 @@ radius = 22.0227
 [node name="Node2D" type="Node2D"]
 
 [node name="YSort" type="YSort" parent="."]
-script = ExtResource( 3 )
 
 [node name="Floor" type="TileMap" parent="YSort"]
 z_index = -100
