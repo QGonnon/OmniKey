@@ -64,3 +64,6 @@ func _on_Upgrade_pressed():
 		PLAYERDATA.armorLevelUp(selected)
 		GAME.set_nb_coins(GAME.get_nb_coins()-int(armorPrice))
 		selectArmor(selected)
+		
+func _on_Select_pressed():
+	PLAYERDATA.setValue("equippedArmor", selected)
