@@ -138,7 +138,7 @@ func die() -> void:
 	# Set the behaviour tree to inactive and emit the 'died' signal
 	behaviour_tree.set_state("Inactive")
 	emit_signal("died")
-	for i in range(5):
+	for _i in range(5):
 			$DropperBehaviour.drop_item()
 
 # Méthode hurt pour infliger des dégâts

@@ -4,6 +4,7 @@ class_name Character
 onready var spellBtn1 = $"../UI_Container/UI/HUD/SpellBtn1"
 onready var weapon
 var move_speed = 250
+var health = 10
 var sfx_player: AudioStreamPlayer  # Variable pour l'AudioStreamPlayer
 var skill1
 
@@ -41,11 +42,16 @@ func _ready():
 	skill1 = Skill.new(PLAYERDATA.getValue("selectedSkill"), self)
 	add_child(skill1.active_timer)
 	add_child(skill1.cooldown_timer)
+	
 	var weaponName = PLAYERDATA.getValue("equippedWeapon")
 	weaponName = weaponName[0].to_upper() + weaponName.substr(1,-1)
 	var weaponScene = "res://Scenes/Actors/Character/Weapons/"+weaponName+"/"+weaponName+".tscn"
 	weapon = load(weaponScene).instance()
 	add_child(weapon)
+	
+	var armor = PLAYERDATA.getEquippedArmor()
+	max_hp = health * armor.healthModifier
+	speed = move_speed * armor.speedModifier
 
 func _process(_delta):
 	# Activer le skill

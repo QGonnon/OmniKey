@@ -28,17 +28,23 @@ var data = {
 		"light" : {
 			"name" : "Fantassin",
 			"level" :1,
-			"basePrice" :100
+			"basePrice" :100,
+			"speedModifier": 1.2,
+			"healthModifier": 0.8
 		},
 		"medium": {
 			"name" : "Mercenaire",
 			"level" :0,
-			"basePrice" :100
+			"basePrice" :100,
+			"speedModifier": 1,
+			"healthModifier": 1
 		},
 		"heavy": {
 			"name" : "Mastodonte",
 			"level" :0,
-			"basePrice" :100
+			"basePrice" :100,
+			"speedModifier": 0.8,
+			"healthModifier": 1.2
 		}
 	},
 	"selectedSkill": "speedBoost",
