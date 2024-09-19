@@ -10,6 +10,8 @@ func interact() -> void:
 		openChest_SFX.play()
 		EVENTS.emit_signal("chest_opened", global_position)
 		animated_sprite.play("Open")
+		for i in range(10):
+			$DropperBehaviour.drop_item()
 
 
 

@@ -4,7 +4,8 @@ extends Area2D
 onready var joystick_base = $Base
 onready var joystick_petit = $Base/Petit
 onready var character = get_tree().get_nodes_in_group("Character")[0]
-onready var menuPause = $"../../PauseMenu/CanvasLayer"
+var togglePause = false
+
 
 onready var max_distance = $CollisionShape2D.shape.radius
 
@@ -33,9 +34,9 @@ func _input(event):
 			joystick_petit.global_position = joystick_base.global_position + direction * max_distance
 
 func _process(_delta):
-#	if menuPause.visible == true:
-#		touched = false
-	if touched:
+#	togglePause = get_tree().paused
+	
+	if touched and !get_tree().paused:
 		character.shoot()
 	character.weapon.rotation = get_velo().angle()
 

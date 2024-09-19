@@ -131,15 +131,15 @@ func die() -> void:
 	.die()
 	# Play one of the death sound effects randomly
 	if randi() % 2 == 0:
-		print('test1')
 		die1_SFX.play()
 	else:
-		print('test2')
 		die2_SFX.play()
 	
 	# Set the behaviour tree to inactive and emit the 'died' signal
 	behaviour_tree.set_state("Inactive")
 	emit_signal("died")
+	for i in range(5):
+			$DropperBehaviour.drop_item()
 
 # Méthode hurt pour infliger des dégâts
 func hurt(damage: float) -> void:

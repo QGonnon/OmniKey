@@ -21,7 +21,8 @@ func destroy() -> void:
 	state = STATE.BREAKING
 	breaking_SFX.play()
 	animated_sprite.play("Break")
-	$DropperBehaviour.drop_item()
+	for i in range(3):
+		$DropperBehaviour.drop_item()
 
 
 

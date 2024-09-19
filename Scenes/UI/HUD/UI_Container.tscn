@@ -75,6 +75,7 @@ texture = ExtResource( 15 )
 script = ExtResource( 8 )
 
 [node name="AttackJoystick" parent="UI/HUD" instance=ExtResource( 2 )]
+pause_mode = 1
 position = Vector2( 575, 296 )
 
 [node name="Portrait" type="TextureRect" parent="UI/HUD"]
