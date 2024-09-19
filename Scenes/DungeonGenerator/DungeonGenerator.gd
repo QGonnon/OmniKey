@@ -11,7 +11,9 @@ var scenes = [
 	preload("res://Scenes/Pieces/Salles/salle3.tscn"),
 	preload("res://Scenes/Pieces/Salles/salle4.tscn"),
 	preload("res://Scenes/Pieces/Salles/salle5.tscn"),
-	preload("res://Scenes/Pieces/Salles/salle6.tscn")
+	preload("res://Scenes/Pieces/Salles/salle6.tscn"),
+	preload("res://Scenes/Pieces/Salles/salle7.tscn"),
+	preload("res://Scenes/Pieces/Salles/salle8.tscn")
 ]
 
 var jar = preload("res://Scenes/InteractiveObjects/Jar/Jar.tscn")
@@ -76,9 +78,27 @@ func _generate_dungeon() -> void:
 		# Assurez-vous que les noms des téléporteurs sont corrects
 		var entry_teleporter = instance.get_node("EntryTeleporter")
 		var exit_teleporter = instance.get_node("ExitTeleporter")
+		var exit_teleporterShape = instance.get_node("ExitTeleporter/CollisionShape2D")
+		
 		var enemies_in_room = instance.get_tree().get_nodes_in_group("Enemy")
 		
 		enemies.append(enemies_in_room)  # Stocker les ennemis de la salle actuelle
+		
+		if exit_teleporterShape.shape is CircleShape2D:
+			var circle_shape = exit_teleporterShape.shape as CircleShape2D
+			var radius = circle_shape.radius
+			
+			var line2d = Line2D.new()
+			line2d.width = 2
+			line2d.default_color = Color(1, 0, 0)  # Rouge
+
+			var num_points = 350  # Plus de points pour plus de précision
+			for t in range(num_points):
+				var angle = 2 * PI * t / num_points
+				var point = Vector2(cos(angle), sin(angle)) * radius
+				line2d.add_point(exit_teleporterShape.global_position + point)  # Ajouter global_position
+
+			add_child(line2d)
 		
 		for enemy in enemies_in_room:
 			if not enemy.is_connected("died", self, "_on_enemy_died"):
@@ -86,9 +106,11 @@ func _generate_dungeon() -> void:
 		
 		if entry_teleporter:
 			entry_teleporters.append(entry_teleporter)
+			
 		
 		if exit_teleporter:
 			exit_teleporters.append(exit_teleporter)
+			
 			exit_teleporter.connect("teleport", self, "_on_exit_teleporter_teleport", [i+1])
 		
 		if i == 0 and entry_teleporter:
@@ -146,7 +168,6 @@ func _on_exit_teleporter_teleport(_body: Node, next_room_index: int) -> void:
 	_cleanup_deleted_objects(next_room_index-1)
 	
 	if _on_enemy_exited(next_room_index-1):
-		arrow_sprite.visible = false  # Cache la flèche lorsqu'on change de pièce
 		if next_room_index < entry_teleporters.size():
 			var next_entry_teleporter = entry_teleporters[next_room_index]
 			if next_entry_teleporter:
@@ -176,12 +197,7 @@ func _on_enemy_died(room_index: int, enemy: Node) -> void:
 	if enemies[room_index].size() == 0:
 		print("Tous les ennemis de la salle index ", room_index, " sont morts.")
 		# Montre la flèche si c'est la salle actuelle
-		if room_index == current_room_index:
-			arrow_sprite.visible = true  
-		else:
-			# Si le joueur est encore dans une ancienne salle, mettez à jour la flèche
-			if current_room_index < exit_teleporters.size():
-				arrow_sprite.visible = true
+		
 
 func _on_enemy_exited(room_index: int) -> bool:
 	if room_index < enemies.size() and enemies[room_index].size() == 0:
