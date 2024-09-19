@@ -9,7 +9,7 @@ onready var shoot_sfx = $shootSFX  # Référence vers le AudioStreamPlayer
 onready var die1_SFX = $die1SFX
 onready var die2_SFX = $die2SFX
 onready var character = get_tree().get_nodes_in_group("Character")[0]
-
+onready var damageTextScene = preload("res://Scenes/Actors/DamageText/DamageText.tscn")
 var dir_dict : Dictionary = {
 	"Left": Vector2.LEFT,
 	"Right": Vector2.RIGHT,
@@ -17,7 +17,7 @@ var dir_dict : Dictionary = {
 	"Down": Vector2.DOWN
 }
 
-export var speed : float = 300.0
+export var speed : float = 250.0
 var moving_direction := Vector2.ZERO setget set_moving_direction, get_moving_direction
 var facing_direction := Vector2.DOWN setget set_facing_direction, get_facing_direction
 
@@ -63,7 +63,6 @@ func _ready() -> void:
 	__ = animated_sprite.connect("frame_changed", self, "_on_AnimatedSprite_frame_changed")
 	__ = connect("hp_changed", self, "_on_hp_changed")
 	__ = connect("death_feedback_finished", self, "_on_death_feedback_finished")
-
 
 #### LOGIC ####
 
@@ -115,10 +114,12 @@ func hurt(damage: float) -> void:
 	if state_machine.get_state_name() == "Block":
 		parry()
 	else:
+		var damageText = damageTextScene.instance()
+		damageText.setText(str(round(damage*100)/100))
+		add_child(damageText)
 		set_hp(hp - damage)
 		state_machine.set_state("Hurt")
 		_hurt_feedback()
-
 
 func parry() -> void:
 	state_machine.set_state("Parry")

@@ -144,6 +144,9 @@ func die() -> void:
 # Méthode hurt pour infliger des dégâts
 func hurt(damage: float) -> void:
 	set_hp(hp - damage)
+	var damageText = damageTextScene.instance()
+	damageText.setText(str(round(damage*100)/100))
+	add_child(damageText)
 	if hp <= 0:
 		die()
 

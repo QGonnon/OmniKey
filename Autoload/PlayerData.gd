@@ -88,8 +88,8 @@ var data = {
 			"name" : "Bouclier d'ondes",
 			"level" :0,
 			"basePrice" :100,
-			"active_duration": 10,
-			"cooldown_duration" : 15
+			"active_duration": 5,
+			"cooldown_duration" : 20
 		}
 	}
 }
