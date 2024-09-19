@@ -16,7 +16,7 @@
 			"text": "Chapitre 2 : L’aube"
 		},
 		{
-			"background": "",
+			"background": "res://Themes/SplashArts/testIntro2.png",
 			"event_id": "dialogic_021"
 		},
 		{
@@ -26,7 +26,7 @@
 			"text": "Nova commence alors sa quête pour trouver des indices sur l'emplacement de l'Omni-Key. Au fur et à mesure de sa progression, elle fera de nombreuses rencontres qui seront destinées à devenir ses meilleurs alliés ou ses pires ennemis."
 		},
 		{
-			"change_scene": "",
+			"change_scene": "res://Scenes/Levels/Level.tscn",
 			"event_id": "dialogic_041"
 		}
 	],
