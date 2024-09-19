@@ -195,6 +195,21 @@ margin_bottom = 174.0
 grow_vertical = 2
 alignment = 2
 
+[node name="LostPiece" type="Label" parent="LosingMenu/CanvasLayer/Panel/VBoxContainer"]
+margin_top = 67.0
+margin_right = 114.0
+margin_bottom = 86.0
+
+[node name="NbKill" type="Label" parent="LosingMenu/CanvasLayer/Panel/VBoxContainer"]
+margin_top = 124.0
+margin_right = 114.0
+margin_bottom = 138.0
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
 [node name="Quitter" type="Button" parent="LosingMenu/CanvasLayer/Panel/VBoxContainer"]
 pause_mode = 2
 margin_top = 142.0

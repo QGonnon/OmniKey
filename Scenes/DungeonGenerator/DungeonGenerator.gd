@@ -1,7 +1,7 @@
 extends Node2D
 class_name DungeonGenerator
 
-const MIN_DUNGEON_DEPTH = 2
+const MIN_DUNGEON_DEPTH = 1
 onready var start_coin = GAME.get_nb_coins()
 
 var scenes = [
@@ -193,7 +193,9 @@ func _on_Character_hp_changed(hp):
 	if hp==0:
 		AudioServer.set_bus_volume_db(bus_index, -80)  # -80 dB effectively mutes the bus
 		losing_SFX.play()
+		$LosingMenu/CanvasLayer/Panel/VBoxContainer/LostPiece.text = "Pièces perdues : " + str(GAME.get_nb_coins()-start_coin)
+		$LosingMenu/CanvasLayer/Panel/VBoxContainer/NbKill.text = "Nombre d'éliminations : " + str(nbKill)
 		loseMenu.visible = true
-
+		
 		GAME.set_nb_coins(start_coin)
 		get_tree().paused = true
