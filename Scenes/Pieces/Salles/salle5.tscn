@@ -129,7 +129,7 @@ tile_set = ExtResource( 18 )
 cell_size = Vector2( 8, 8 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( 1376268, 6, 8, 1376272, 6, 12, 1507340, 6, 65544, 1507342, 6, 65547, 1507344, 6, 65548, 1638412, 6, 131080, 1638414, 6, 131083, 1638416, 6, 131084, 1769484, 6, 196616, 1769486, 6, 196619, 1769488, 6, 196620 )
+tile_data = PoolIntArray( 1376268, 6, 8, 1376272, 6, 12, 1507340, 6, 65544, 1507342, 6, 65547, 1507344, 6, 65548, 1638412, 6, 131080, 1638414, 6, 131083, 1638416, 6, 131084, 1769484, 6, 196616, 1769486, 6, 196619, 1769488, 6, 196620, 5373955, 6, 8, 5373959, 6, 12, 5505027, 6, 65544, 5505029, 6, 65547, 5505031, 6, 65548, 5636099, 6, 131080, 5636101, 6, 131083, 5636103, 6, 131084, 5767171, 6, 196616, 5767173, 6, 196619, 5767175, 6, 196620 )
 
 [node name="Props4" type="TileMap" parent="YSort/Props"]
 scale = Vector2( 0.5, 0.5 )
@@ -177,7 +177,7 @@ position = Vector2( 37, 590 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTeleporter"]
-position = Vector2( -1, 2 )
+position = Vector2( 13, 30 )
 shape = SubResource( 2 )
 
 [node name="Position2D" type="Position2D" parent="ExitTeleporter"]

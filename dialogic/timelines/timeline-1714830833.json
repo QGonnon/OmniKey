@@ -32,7 +32,7 @@
 			"text": "A force d’exploration et d’écouter des conversations en se mettant toujours plus inconsciemment en danger, elle découvre l'existence de l'Omni-Key, un artefact mystérieux dont les pouvoirs dépasseraient l'entendement. Intriguée par les récits énigmatiques qui l'entourent, Nova décide que l'Omni-Key pourrait être la clé pour changer son destin et peut-être même celui des autres victimes de cette société antipathique où l'animosité et le conflit règnent."
 		},
 		{
-			"change_scene": "res://Scenes/Levels/Level.tscn",
+			"change_scene": "res://Scenes/Tutorial/Tutorial.tscn",
 			"event_id": "dialogic_041"
 		}
 	],
