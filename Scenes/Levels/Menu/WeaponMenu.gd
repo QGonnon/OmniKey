@@ -65,6 +65,7 @@ func _on_Select_pressed():
 	character.weapon.queue_free()
 	character.weapon = weapons[PLAYERDATA.getValue("equippedWeapon")].instance()
 	character.add_child(character.weapon)
+	selectWeapon(selected)
 
 func _on_Upgrade_pressed():
 	button_sfx.play()

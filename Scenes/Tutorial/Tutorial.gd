@@ -49,12 +49,15 @@ func _on_enemy_died(enemy: Node) -> void:
 	nbKill += 1
 	
 	print("Nombre d'ennemies restant : ", ennemies.size())
+	if ennemies.size() == 0:
+		$YSort/UI_Container/UI/HUD/NextRoom.visible = true
 
 
 func _exitTeleporter(_body) -> void:
 	# Check if there are no remaining enemies before teleporting
 	print("on entre dans la func de teleportation")
 	if ennemies.size() == 0:
+		
 		$EndMissons/CanvasLayer/Panel/VBoxContainer/Pieces.text = "Pièces obtenues : " + str(GAME.get_nb_coins())
 		$EndMissons/CanvasLayer/Panel/VBoxContainer/NbKill.text = "Nombre d'élimination : " + str(nbKill)
 		$EndMissons/CanvasLayer.visible = true

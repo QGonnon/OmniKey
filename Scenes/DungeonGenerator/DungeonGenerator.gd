@@ -172,11 +172,14 @@ func _on_exit_teleporter_teleport(_body: Node, next_room_index: int) -> void:
 			var next_entry_teleporter = entry_teleporters[next_room_index]
 			if next_entry_teleporter:
 				character.global_position = next_entry_teleporter.global_position
+				$UI_Container/UI/HUD/NextRoom.visible = false
+				
 				print("Personnage téléporté à la position de l'entry teleporter: ", next_entry_teleporter.position)
 			else:
 				print("Erreur : EntryTeleporter introuvable pour la salle index: ", next_room_index)
 		else:
 			winning_SFX.play()
+			
 			var texte = "Pièces obtenues : " + str(GAME.get_nb_coins()-start_coin)
 			$EndMissons/CanvasLayer/Panel/VBoxContainer/Pieces.text = texte
 			$EndMissons/CanvasLayer/Panel/VBoxContainer/NbKill.text = "Nombre d'élimination : "+ str(nbKill)
@@ -190,12 +193,14 @@ func _cleanup_deleted_objects(room_index: int) -> void:
 
 func _on_enemy_died(room_index: int, enemy: Node) -> void:
 	enemies[room_index].erase(enemy)
+	_cleanup_deleted_objects(room_index)
 	nbKill +=1
-	print("Ennemi supprimé de la salle index: ", room_index)
+	print("Ennemi supprimé de la salle index: ", room_index, enemies[room_index].size())
 	
 	# Vérifiez si tous les ennemis de la salle sont morts
 	if enemies[room_index].size() == 0:
 		print("Tous les ennemis de la salle index ", room_index, " sont morts.")
+		$UI_Container/UI/HUD/NextRoom.visible = true
 		# Montre la flèche si c'est la salle actuelle
 		
 

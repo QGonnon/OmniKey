@@ -6,7 +6,7 @@ onready var shoot_sfx = $AudioStreamPlayer  # Référence vers le AudioStreamPla
 
 var weaponData = PLAYERDATA.getEquippedWeapon()
 
-var damage = 1*pow(1.1, weaponData.level)
+var damage = 10*pow(1.1, weaponData.level)
 var delay = 0.75/pow(1.1, weaponData.level)
 var delay_mili = delay*1000000
 var lastShot = Time.get_ticks_usec()
