@@ -23,13 +23,13 @@ func _on_Button_pressed(value: String):
 		return
 		
 	PLAYERDATA.setValue("selectedSkill", value)
+	EVENTS.emit_signal("changeSkillImage")
 	
 	skillNameText.text = PLAYERDATA.getEquippedSkill().name+" :"
 	skillDescText.text = skillDesc[value]
 	
 	character.skill1.active_timer.queue_free()
 	character.skill1.cooldown_timer.queue_free()
-	
 	character.skill1 = Skill.new(value,character)
 	character.add_child(character.skill1.active_timer)
 	character.add_child(character.skill1.cooldown_timer)

@@ -166,7 +166,6 @@ margin_bottom = 73.0
 margin_right = 166.0
 margin_bottom = 16.0
 custom_fonts/font = SubResource( 14 )
-text = "Renforcement ultime :"
 align = 1
 
 [node name="skillDesc" type="Label" parent="LightSkillsMenu/CanvasLayer/Panel/SkillDescription"]
@@ -174,7 +173,6 @@ margin_top = 20.0
 margin_right = 166.0
 margin_bottom = 36.0
 custom_fonts/font = SubResource( 15 )
-text = "Renforcementf def"
 autowrap = true
 
 [node name="MediumSkillsMenu" parent="." instance=ExtResource( 33 )]
@@ -183,6 +181,7 @@ script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="MediumSkillsMenu"]
 layer = 2
+visible = false
 script = ExtResource( 35 )
 
 [node name="Panel" type="Panel" parent="MediumSkillsMenu/CanvasLayer"]
@@ -237,7 +236,6 @@ margin_bottom = 73.0
 margin_right = 166.0
 margin_bottom = 16.0
 custom_fonts/font = SubResource( 14 )
-text = "Renforcement ultime :"
 align = 1
 
 [node name="skillDesc" type="Label" parent="MediumSkillsMenu/CanvasLayer/Panel/SkillDescription"]
@@ -245,7 +243,6 @@ margin_top = 20.0
 margin_right = 166.0
 margin_bottom = 36.0
 custom_fonts/font = SubResource( 15 )
-text = "Renforcementf def"
 autowrap = true
 
 [node name="HeavySkillsMenu" parent="." instance=ExtResource( 33 )]
@@ -254,7 +251,6 @@ script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="HeavySkillsMenu"]
 layer = 2
-visible = false
 script = ExtResource( 34 )
 
 [node name="Panel" type="Panel" parent="HeavySkillsMenu/CanvasLayer"]
@@ -317,7 +313,6 @@ margin_top = 20.0
 margin_right = 166.0
 margin_bottom = 36.0
 custom_fonts/font = SubResource( 15 )
-text = "Renforcementf def"
 autowrap = true
 
 [node name="ArmorsMenu" parent="." instance=ExtResource( 33 )]

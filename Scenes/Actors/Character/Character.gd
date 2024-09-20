@@ -52,6 +52,8 @@ func _ready():
 	var armor = PLAYERDATA.getEquippedArmor()
 	max_hp = health * armor.healthModifier
 	speed = move_speed * armor.speedModifier
+	EVENTS.emit_signal("character_max_hp_changed", max_hp)
+	emit_signal("hp_changed", max_hp)
 
 func _process(_delta):
 	# Activer le skill

@@ -91,6 +91,7 @@ func _on_Select_pressed():
 			skillToSet="damageReduction"
 			
 	PLAYERDATA.setValue("selectedSkill", skillToSet)
+	EVENTS.emit_signal("changeSkillImage")
 	character.skill1.active_timer.queue_free()
 	character.skill1.cooldown_timer.queue_free()
 	

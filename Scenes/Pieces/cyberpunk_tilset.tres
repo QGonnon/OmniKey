@@ -152,7 +152,7 @@
 [ext_resource path="res://Scenes/Pieces/map/tile_10_13.png" type="Texture" id=150]
 
 [sub_resource type="ConvexPolygonShape2D" id=82]
-points = PoolVector2Array( 0, 0, 8.1403, 0, 7.86124, 32, 0, 32 )
+points = PoolVector2Array( 0, 0, 5, 0, 5, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=81]
 points = PoolVector2Array( 23.7689, 0, 32, 0, 32, 32, 24.048, 32 )
