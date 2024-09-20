@@ -7,7 +7,11 @@ func _ready() -> void:
 	var __ = EVENTS.connect("nb_coins_changed", self, "_on_EVENTS_nb_coins_changed")
 	__ = EVENTS.connect("character_hp_changed", self, "_on_EVENTS_character_hp_changed")
 	__ = EVENTS.connect("character_max_hp_changed", self, "_on_EVENTS_character_max_hp_changed")
+	__ = EVENTS.connect("changeSkillImage", self, "_on_EVENTS_changeSkillImage")
 	$CoinCounter.text = str(GAME.get_nb_coins())
+	$SpellBtn1.normal = load(PLAYERDATA.getEquippedSkill().image_path)
+	var scale = Vector2(1, 1)
+	$SpellBtn1.scale = scale
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
@@ -27,3 +31,7 @@ func _on_EVENTS_character_hp_changed(hp: int) -> void:
 
 func _on_EVENTS_character_max_hp_changed(hp: int) -> void:
 	$HP_Bar.max_value = hp
+	
+func _on_EVENTS_changeSkillImage():
+	var skillImagePath = load(PLAYERDATA.getEquippedSkill().image_path)
+	$SpellBtn1.normal = skillImagePath

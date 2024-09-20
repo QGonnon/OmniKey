@@ -207,7 +207,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Skill",
 "language": "GDScript",
-"path": "res://Scenes/Actors/Character/Skills/Skill.gd"
+"path": "res://Scenes/Actors/Character/Skill.gd"
 }, {
 "base": "Node",
 "class": "State",

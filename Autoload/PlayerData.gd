@@ -54,42 +54,50 @@ var data = {
 			"level" :1,
 			"basePrice" :100,
 			"active_duration": 10,
-			"cooldown_duration" : 15
+			"cooldown_duration" : 15,
+			"image_path" : "res://Scenes/UI/HUD/Speed.png"
 		},
 		"attackSpeedBoost": {
 			"name" : "Balles a haute velocite",
 			"level" :0,
 			"basePrice" :100,
 			"active_duration": 8,
-			"cooldown_duration" : 15
+			"cooldown_duration" : 15,
+			"image_path" : "res://Scenes/UI/HUD/SpeedAttack.png"
 		},
 		"heal": {
 			"name" : "Piqure revigorante",
 			"level" :1,
 			"basePrice" :100,
 			"active_duration": 0,
-			"cooldown_duration" : 60
+			"cooldown_duration" : 60,
+			"image_path" : "res://Scenes/UI/HUD/Heal.png"
 		},
 		"attackDamageBoost": {
 			"name" : "Balles perforantes",
 			"level" :0,
 			"basePrice" :100,
 			"active_duration": 8,
-			"cooldown_duration" : 15
+			"cooldown_duration" : 15,
+			"image_path" : "res://Scenes/UI/HUD/BoostAttack.png"
 		},
 		"damageReduction" : {
 			"name" : "Renforcement ultime",
 			"level" :1,
 			"basePrice" :100,
 			"active_duration": 7,
-			"cooldown_duration" : 15
+			"cooldown_duration" : 15,
+			"image_path" : "res://Scenes/UI/HUD/Shield.png"
+			
 		},
 		"offensiveShield": {
 			"name" : "Bouclier d'ondes",
 			"level" :0,
 			"basePrice" :100,
 			"active_duration": 5,
-			"cooldown_duration" : 20
+			"cooldown_duration" : 20,
+			"image_path" : "res://Scenes/UI/HUD/OffensiveShield.png"
+			
 		}
 	}
 }
